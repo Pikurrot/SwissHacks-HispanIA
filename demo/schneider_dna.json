@@ -1,0 +1,151 @@
+{
+  "values": {
+    "priorities": [
+      "Preservation of family wealth across generations",
+      "Funding and accelerating research into Parkinson’s and other neuro‑degenerative diseases",
+      "Maintaining a defensive, large‑cap equity core with strong R&D budgets",
+      "Ensuring operational precision and steady growth of the fixed‑income sleeve"
+    ],
+    "redLines": [
+      "Divest any holding that reduces or stops funding Parkinson’s or broader neuro‑degenerative research",
+      "Avoid companies that shift focus to low‑R&D, lifestyle‑oriented profit models",
+      "Do not reduce the core large‑cap pharmaceutical anchor that supports health‑research pipelines"
+    ],
+    "preferredSectors": [
+      "Large‑cap pharmaceuticals with neuroscience R&D",
+      "Healthcare and biotech focused on neuro‑degenerative disease",
+      "Blue‑chip equities with strong, sustainable research budgets",
+      "High‑quality fixed‑income for liquidity and cash‑flow matching"
+    ],
+    "avoidedSectors": [
+      "Companies that abandon or under‑fund Parkinson’s research",
+      "Consumer‑discretionary/lifestyle firms with minimal R&D",
+      "Industries lacking a clear health‑impact or research component"
+    ],
+    "esgFocus": [
+      "Health – neuro‑degenerative disease research",
+      "Medical innovation and breakthrough therapeutics",
+      "Impact investing that directly funds brain‑disease labs"
+    ]
+  },
+  "investmentBehavior": {
+    "riskTolerance": "moderate",
+    "timeHorizon": "long‑term (multi‑generational, 10+ years) focused on wealth transmission and legacy projects",
+    "liquidity": "moderate – sufficient cash buffer for corporate liquidity, family expenses and philanthropic grants while core equity remains illiquid",
+    "mandate": "Global Balanced Growth"
+  },
+  "lifeEvents": [
+    {
+      "date": "2023-09-12",
+      "type": "family",
+      "description": "Daughter Chloe was studying abroad and doing well.",
+      "portfolioImpact": "No immediate change; reinforces long‑term wealth planning for children."
+    },
+    {
+      "date": "2024-01-18",
+      "type": "wealth_transmission",
+      "description": "In‑depth discussion on long‑term wealth transmission strategies for the children.",
+      "portfolioImpact": "Affirmed commitment to a balanced, defensive allocation with a healthcare tilt."
+    },
+    {
+      "date": "2024-05-14",
+      "type": "investment_interest",
+      "description": "Requested detailed info on large‑cap pharma holdings with neurological research footprints.",
+      "portfolioImpact": "Increased focus on neuroscience‑oriented pharma within the equity sleeve."
+    },
+    {
+      "date": "2025-09-25",
+      "type": "business",
+      "description": "Handover to new Relationship Manager Sarah Meier; client expects rigorous, data‑driven execution.",
+      "portfolioImpact": "Reinforced need for transparent, data‑rich reporting."
+    },
+    {
+      "date": "2026-01-09",
+      "type": "health_crisis",
+      "description": "Daughter Chloe diagnosed with rapidly progressing early‑onset Parkinson’s disease.",
+      "portfolioImpact": "Trigger for a strategic shift toward health‑impact investing and neuro‑research funding."
+    },
+    {
+      "date": "2026-01-22",
+      "type": "philanthropy",
+      "description": "Family established a Venture Philanthropy foundation dedicated to neuro‑degenerative research.",
+      "portfolioImpact": "Mandate to align core holdings with entities actively fighting brain disease."
+    },
+    {
+      "date": "2026-02-18",
+      "type": "investment_monitoring",
+      "description": "Requested audit of European pharma holdings’ neuro‑degenerative clinical pipeline.",
+      "portfolioImpact": "Ensures portfolio companies are actively funding Parkinson’s research."
+    },
+    {
+      "date": "2026-03-05",
+      "type": "red_line_enforcement",
+      "description": "Stated that any company abandoning Parkinson’s research would be a personal betrayal and must be divested.",
+      "portfolioImpact": "Establishes a non‑negotiable divestment trigger."
+    },
+    {
+      "date": "2026-03-24",
+      "type": "philanthropy",
+      "description": "Transferred CHF 1 million from private portfolio to the family foundation for an immediate grant to a neuro‑genetics lab.",
+      "portfolioImpact": "Reduces private equity exposure by CHF 1 M; reinforces health‑impact focus."
+    },
+    {
+      "date": "2026-04-14",
+      "type": "philanthropy",
+      "description": "Attended a medical charity gala; emphasized the need to keep capital flowing to leading researchers.",
+      "portfolioImpact": "Reaffirms commitment to funding top‑tier neuroscience initiatives."
+    },
+    {
+      "date": "2026-05-02",
+      "type": "business",
+      "description": "Carmen requested expedited foundation audit; Hubertus was in Boston visiting a movement‑disorder research hub.",
+      "portfolioImpact": "Continues active monitoring of research partners and foundation activities."
+    },
+    {
+      "date": "2026-05-19",
+      "type": "investment_opportunity",
+      "description": "Met a biotech firm with a breakthrough Parkinson’s asset; reiterated that large‑cap holdings should financially support such breakthroughs.",
+      "portfolioImpact": "Potential to increase exposure to high‑impact biotech while keeping core large‑cap anchor."
+    }
+  ],
+  "personalProfile": {
+    "interests": "automotive engineering, art sponsorship, neuroscience philanthropy",
+    "quirks": "values operational precision, becomes highly emotional when discussing daughter's health",
+    "rapportTriggers": "mention of breakthrough neuro research, family gatherings, philanthropic milestones",
+    "avoidTopics": "competitor banks, non‑research heavy consumer sectors",
+    "kidsEducation": "supports daughter Chloe’s studies abroad and now her health journey"
+  },
+  "communicationStyle": {
+    "language": "de",
+    "tone": "formal",
+    "preferred": "data-driven",
+    "formatPreference": "tables and numbers, bullet points",
+    "directness": "direct",
+    "detailLevel": "detailed",
+    "openingStyle": "personal, professional"
+  },
+  "keyQuotes": [
+    "Sarah, my mind is completely wiped. My automotive business means nothing if I cannot save my daughter. Everything has changed.",
+    "Our private wealth is now a weapon to save Chloe. I want our core healthcare and pharma holdings to actively support the entities pushing the boundaries of brain disease research.",
+    "If a company we own ever abandons or defunds Parkinson's research to chase cheap lifestyle profits, it would feel like a personal betrayal of my daughter. Flag them immediately for divestment.",
+    "Seeing these brilliant researchers is our only hope. We must keep our capital flowing to the companies leading the fight against this disease.",
+    "I expect rigorous, data‑driven execution of my balanced mandate."
+  ],
+  "confidence": 0.93,
+  "sourcedFrom": [
+    1,
+    2,
+    5,
+    7,
+    9,
+    10,
+    16,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    26
+  ]
+}

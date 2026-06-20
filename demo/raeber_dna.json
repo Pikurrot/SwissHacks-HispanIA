@@ -1,0 +1,110 @@
+{
+  "values": {
+    "priorities": [
+      "Capital preservation and wealth protection",
+      "Steady, predictable dividend and fixed‑income cash flow",
+      "Multi‑generational succession and legacy for grandchildren"
+    ],
+    "redLines": [
+      "No exposure to high‑beta or speculative asset classes",
+      "Absolute avoidance of speculative US software/technology stocks and AI‑driven mega‑caps",
+      "No aggressive strategy shifts or rebalancing into growth equities"
+    ],
+    "preferredSectors": [
+      "Consumer staples (e.g., Nestlé, Procter & Gamble, Walmart, Costco)",
+      "Industrial & manufacturing (e.g., Siemens, ASML)",
+      "Healthcare & pharmaceuticals (e.g., Johnson & Johnson, Novartis)",
+      "Insurance and financial services (e.g., Zurich Insurance)",
+      "High‑grade sovereign bonds (G7 ladder)"
+    ],
+    "avoidedSectors": [
+      "Speculative US software and cloud/AI technology firms",
+      "High‑beta growth equities",
+      "Crypto and other non‑tangible speculative assets"
+    ],
+    "esgFocus": []
+  },
+  "investmentBehavior": {
+    "riskTolerance": "conservative",
+    "timeHorizon": "Long‑term, multi‑generational focus to preserve wealth for grandchildren",
+    "liquidity": "Low immediate liquidity needs; occasional cash draws for family projects (e.g., home renovation) while keeping core equity intact",
+    "mandate": "Conservative Defensive Global Value & Income Mandate"
+  },
+  "lifeEvents": [
+    {
+      "date": "2023-07-04",
+      "type": "family",
+      "description": "CHF 150,000 withdrawn from cash accounts for a structural renovation of the holiday home in Flims.",
+      "portfolioImpact": "Liquidity draw from cash; core defensive equity positions left untouched."
+    },
+    {
+      "date": "2023-10-05",
+      "type": "succession",
+      "description": "Succession planning discussion; client requested a strict flag to block high‑beta speculative assets.",
+      "portfolioImpact": "Reinforced defensive bias and added explicit exclusion rules for speculative classes."
+    },
+    {
+      "date": "2025-02-27",
+      "type": "family",
+      "description": "Opened a minor savings account for the oldest grandson to instill traditional saving virtues.",
+      "portfolioImpact": "Further emphasis on low‑risk, savings‑oriented products for the next generation."
+    },
+    {
+      "date": "2025-07-08",
+      "type": "business",
+      "description": "Account handover protocol initiated due to Thomas Keller’s early retirement.",
+      "portfolioImpact": "Ensured continuity of the existing defensive allocation under a new relationship manager."
+    },
+    {
+      "date": "2025-11-04",
+      "type": "relationship",
+      "description": "Farewell lunch; client expressed trust in the bank’s institutional heritage to protect the conservative core portfolio.",
+      "portfolioImpact": "Strengthened confidence in the bank’s stewardship; no portfolio change."
+    },
+    {
+      "date": "2026-01-08",
+      "type": "relationship",
+      "description": "Introductory call with new RM Sarah Meier; client reiterated expectation of a quiet, global defensive value approach.",
+      "portfolioImpact": "Confirmed continuation of the existing mandate without aggressive shifts."
+    },
+    {
+      "date": "2026-05-12",
+      "type": "liquidity",
+      "description": "Requested that all upcoming June bond coupons be swept to the family foundation.",
+      "portfolioImpact": "Direct allocation of fixed‑income cash flow to philanthropic vehicle; no change to asset mix."
+    }
+  ],
+  "personalProfile": {
+    "interests": "Traditional saving virtues, family foundation, mountain retreats, tangible manufacturing",
+    "quirks": "Formal and reserved demeanor; prefers \"quiet, predictable, and boring\" performance; avoids speculative trading apps",
+    "rapportTriggers": "Mention of Swiss consumer staples, legacy foundations, industrial hardware (e.g., Siemens, ASML), and multi‑generational stewardship",
+    "avoidTopics": "Speculative tech hype, competitor banks, high‑beta growth narratives"
+  },
+  "communicationStyle": {
+    "language": "de",
+    "tone": "formal",
+    "preferred": "data-driven",
+    "formatPreference": "bullet points and concise tables",
+    "directness": "direct",
+    "detailLevel": "summary",
+    "openingStyle": "professional"
+  },
+  "keyQuotes": [
+    "\"Do not touch a running system.\"",
+    "\"I want to sleep at night, not speculate on Silicon Valley cloud bubbles.\"",
+    "\"These abstract software and AI firms are valued on pure hype. It feels like the dot‑com crash of 2000 all over again.\"",
+    "\"We expect the same quiet, global defensive value approach that Thomas Keller provided. No aggressive strategy shifts.\"",
+    "\"quiet, predictable, and boring\" defensive performance"
+  ],
+  "confidence": 0.96,
+  "sourcedFrom": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    15,
+    16,
+    20
+  ]
+}

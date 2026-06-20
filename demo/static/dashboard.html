@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wealth Advisory Dashboard — Sarah Meier, RM</title>
+<style>
+:root {
+  --bg: #0a0f1e;
+  --surface: #111827;
+  --surface2: #1a2438;
+  --border: #1e3a5f;
+  --accent: #3b82f6;
+  --accent2: #6366f1;
+  --gold: #f59e0b;
+  --green: #10b981;
+  --red: #ef4444;
+  --orange: #f97316;
+  --text: #e2e8f0;
+  --muted: #64748b;
+  --card: #131f35;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+/* Layout */
+.shell { display: flex; min-height: 100vh; }
+.sidebar {
+  width: 260px; min-width: 260px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  position: fixed; top: 0; left: 0; height: 100vh;
+  overflow-y: auto;
+}
+.main {
+  margin-left: 260px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+/* Sidebar */
+.sidebar-header {
+  padding: 20px 16px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-logo {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+.sidebar-rm {
+  font-size: 13px;
+  color: var(--muted);
+}
+.sidebar-rm strong { color: var(--text); }
+.sidebar-section {
+  padding: 12px 16px 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.client-btn {
+  display: flex; align-items: center; gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  border-left: 3px solid transparent;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text);
+  transition: all 0.15s;
+}
+.client-btn:hover { background: var(--surface2); }
+.client-btn.active {
+  background: rgba(59,130,246,0.12);
+  border-left-color: var(--accent);
+}
+.client-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 12px;
+  flex-shrink: 0;
+}
+.client-info { flex: 1; min-width: 0; }
+.client-name { font-weight: 600; font-size: 13px; }
+.client-sub { font-size: 11px; color: var(--muted); }
+/* Top bar */
+.topbar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.topbar-title { font-size: 18px; font-weight: 700; }
+.topbar-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #2563eb; }
+.btn-primary:disabled { background: var(--muted); cursor: not-allowed; }
+.btn-ghost { background: var(--surface2); color: var(--text); border: 1px solid var(--border); }
+.btn-ghost:hover { background: var(--border); }
+.btn-green { background: var(--green); color: #fff; }
+.btn-red { background: var(--red); color: #fff; }
+.btn-sm { padding: 5px 10px; font-size: 12px; }
+/* Content */
+.content { padding: 24px 28px; flex: 1; }
+/* Cards */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+.card-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px;
+}
+.card-title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.card-badge {
+  font-size: 11px; font-weight: 600;
+  padding: 2px 8px; border-radius: 99px;
+}
+.pill-red { background: rgba(239,68,68,0.15); color: #f87171; border: 1px solid rgba(239,68,68,0.3); }
+.pill-green { background: rgba(16,185,129,0.15); color: #34d399; border: 1px solid rgba(16,185,129,0.3); }
+.pill-amber { background: rgba(245,158,11,0.15); color: #fbbf24; border: 1px solid rgba(245,158,11,0.3); }
+.pill-blue { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.3); }
+.pill-purple { background: rgba(99,102,241,0.15); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.3); }
+/* Grid */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+/* DNA */
+.dna-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.dna-item { background: var(--surface2); border-radius: 8px; padding: 12px; }
+.dna-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
+.dna-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.chip {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.chip-red { background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.25); color: #fca5a5; }
+.chip-green { background: rgba(16,185,129,0.1); border-color: rgba(16,185,129,0.25); color: #6ee7b7; }
+.chip-blue { background: rgba(59,130,246,0.1); border-color: rgba(59,130,246,0.25); color: #93c5fd; }
+.chip-gold { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.25); color: #fcd34d; }
+/* Life events */
+.life-event {
+  display: flex; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.life-event:last-child { border-bottom: none; }
+.le-date { font-size: 11px; color: var(--muted); white-space: nowrap; min-width: 80px; }
+.le-type { font-size: 11px; font-weight: 600; color: var(--accent); margin-bottom: 2px; }
+.le-desc { font-size: 12px; }
+.le-impact { font-size: 11px; color: var(--muted); margin-top: 2px; font-style: italic; }
+/* Key quote */
+.quote {
+  border-left: 3px solid var(--accent);
+  padding: 6px 12px;
+  margin: 6px 0;
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+}
+/* Alert card */
+.alert-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+.alert-header {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px 18px;
+  background: rgba(30,58,95,0.2);
+  border-bottom: 1px solid var(--border);
+}
+.alert-header.conflict { background: rgba(239,68,68,0.08); }
+.alert-header.opportunity { background: rgba(16,185,129,0.08); }
+.alert-header.market { background: rgba(99,102,241,0.05); }
+.alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.alert-hl { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
+.alert-meta { font-size: 11px; color: var(--muted); }
+.alert-meta span { margin-right: 12px; }
+.alert-body { padding: 14px 18px; }
+.alert-summary { font-size: 12px; color: #94a3b8; margin-bottom: 12px; line-height: 1.6; }
+/* Conflict box */
+.conflict-box {
+  background: rgba(239,68,68,0.07);
+  border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+.conflict-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: #f87171; font-weight: 700; margin-bottom: 4px; }
+.conflict-text { font-size: 12px; }
+/* Message draft */
+.msg-box {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.msg-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.msg-subject { font-size: 12px; font-weight: 600; }
+.msg-badges { display: flex; gap: 6px; align-items: center; }
+.msg-body {
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  max-height: 280px;
+  overflow-y: auto;
+  color: #cbd5e1;
+}
+.msg-actions {
+  display: flex; gap: 8px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+/* Holdings table */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+td { padding: 7px 10px; border-bottom: 1px solid rgba(30,58,95,0.4); }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(59,130,246,0.04); }
+.td-name { font-weight: 500; }
+.td-num { text-align: right; font-variant-numeric: tabular-nums; }
+/* Loading & UI Elements */
+.spinner {
+  display: inline-block;
+  width: 18px; height: 18px;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.loading-state {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 60px 20px;
+  gap: 14px;
+  color: var(--muted);
+}
+.loading-state .spinner { width: 32px; height: 32px; }
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--muted);
+}
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.stats-strip {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px; margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.stat-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 4px; }
+.stat-value { font-size: 22px; font-weight: 700; }
+.stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.conf-bar-bg { background: var(--surface2); border-radius: 4px; height: 6px; margin-top: 6px; }
+.conf-bar { height: 6px; border-radius: 4px; background: linear-gradient(to right, var(--accent), var(--green)); }
+.tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+.tab-btn {
+  padding: 8px 16px; background: none; border: none; border-bottom: 2px solid transparent;
+  cursor: pointer; font-size: 13px; color: var(--muted); font-weight: 500;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+}
+.tab-btn.active { color: var(--text); border-bottom-color: var(--accent); }
+.tab-btn:hover { color: var(--text); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.annotation {
+  display: inline-block;
+  background: rgba(99,102,241,0.15);
+  border: 1px solid rgba(99,102,241,0.3);
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 10px;
+  color: #a5b4fc;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.welcome {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: calc(100vh - 60px);
+  padding: 40px;
+  text-align: center;
+}
+.welcome h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+.welcome p { color: var(--muted); max-width: 440px; margin-bottom: 24px; }
+.welcome-clients { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+.welcome-card {
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  padding: 16px 20px; cursor: pointer; width: 180px; text-align: left;
+  transition: all 0.15s;
+}
+.welcome-card:hover { border-color: var(--accent); background: var(--surface2); }
+.wc-name { font-weight: 700; margin-bottom: 4px; }
+.wc-mandate { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+
+.missing-data { color: var(--red); font-style: italic; font-size: 10px; border: 1px dashed var(--red); padding: 1px 4px; }
+:root {
+  --bg: #0a0f1e; --surface: #111827; --surface2: #1a2438; --border: #1e3a5f;
+  --accent: #3b82f6; --accent2: #6366f1; --gold: #f59e0b; --green: #10b981;
+  --red: #ef4444; --orange: #f97316; --text: #e2e8f0; --muted: #64748b; --card: #131f35;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; min-height: 100vh; }
+
+
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">Wealth Advisory</div>
+      <div class="sidebar-rm">RM: <strong>Sarah Meier</strong></div>
+    </div>
+    <div class="sidebar-section">Clients (4)</div>
+    <div id="client-list"></div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <div>
+        <div class="topbar-title" id="page-title">Select a client</div>
+        <div class="topbar-sub" id="page-sub">SwissHacks 2026 — AI-Assisted Wealth Advisory</div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button class="btn btn-ghost btn-sm" onclick="clearAndRefresh()" id="btn-refresh" style="display:none">↺ Refresh</button>
+        <button class="btn btn-primary" onclick="runAnalysis()" id="btn-analyze" style="display:none">▶ Analyse Client</button>
+      </div>
+    </div>
+
+    <div class="content" id="content">
+      <div class="welcome" id="welcome-screen">
+        <div style="font-size:48px;margin-bottom:16px">🏦</div>
+        <h2>Good morning, Sarah.</h2>
+        <p>Select a client to see their AI-generated investment DNA, live market alerts, and personalised advisory drafts.</p>
+        <div class="welcome-clients" id="welcome-clients"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// La URL Base de tu backend FastAPI (ajustar si es distinto a 8000)
+const API = 'http://localhost:8000'; 
+let activeClientId = null;
+
+// Mock inicial de los clientes
+const CLIENTS_DATA = [
+  { id: 'schneider', fullName: 'Hubertus Schneider', mandate: 'Global Balanced Growth', avatarColor: '#3b82f6', initials: 'HS' },
+  { id: 'raeber',    fullName: 'Eugen & Lisa Räber',  mandate: 'Global Defensive Value', avatarColor: '#8b5cf6', initials: 'ER' },
+  { id: 'huber',     fullName: 'Marius & Elena Huber', mandate: 'Sustainable Impact',     avatarColor: '#10b981', initials: 'MH' },
+  { id: 'ammann',    fullName: 'Julian Ammann',       mandate: 'Aggressive Growth',      avatarColor: '#f59e0b', initials: 'JA' }
+];
+
+function init() {
+  renderSidebar();
+  renderWelcome();
+}
+
+function getVal(obj, path, fallback = '<span class="missing-data">[AWAITING AGENT]</span>') {
+    const val = path.split('.').reduce((acc, part) => acc && acc[part], obj);
+    return val !== undefined ? val : fallback;
+}
+
+function renderSidebar() {
+  const el = document.getElementById('client-list');
+  el.innerHTML = CLIENTS_DATA.map(c => `
+    <button class="client-btn" id="btn-${c.id}" onclick="selectClient('${c.id}')">
+      <div class="client-avatar" style="background:${c.avatarColor}20;color:${c.avatarColor}">${c.initials}</div>
+      <div class="client-info">
+        <div class="client-name">${c.fullName}</div>
+        <div class="client-sub">${c.mandate}</div>
+      </div>
+    </button>
+  `).join('');
+}
+
+function renderWelcome() {
+  const el = document.getElementById('welcome-clients');
+  el.innerHTML = CLIENTS_DATA.map(c => `
+    <div class="welcome-card" onclick="selectClient('${c.id}')">
+      <div class="wc-name">${c.fullName}</div>
+      <div class="wc-mandate">${c.mandate}</div>
+    </div>
+  `).join('');
+}
+
+function selectClient(id) {
+  activeClientId = id;
+  document.querySelectorAll('.client-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById(`btn-${id}`);
+  if (btn) btn.classList.add('active');
+
+  const client = CLIENTS_DATA.find(c => c.id === id);
+  document.getElementById('page-title').textContent = `Client: ${client.fullName}`;
+  document.getElementById('page-sub').textContent = `${client.mandate} · System Ready`;
+  document.getElementById('btn-analyze').style.display = 'block';
+  document.getElementById('btn-refresh').style.display = 'none';
+
+  document.getElementById('content').innerHTML = `
+    <div class="empty-state">
+      <div class="empty-icon">📋</div>
+      <div style="font-size:16px;font-weight:600;margin-bottom:8px">${client.fullName}</div>
+      <div style="color:var(--muted);margin-bottom:20px">${client.mandate}</div>
+      <button class="btn btn-primary" onclick="runAnalysis()">▶ Run Agent Intelligence Pipeline</button>
+    </div>`;
+}
+
+async function runAnalysis() {
+  if (!activeClientId) return;
+  const btn = document.getElementById('btn-analyze');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner" style="width:14px;height:14px;vertical-align:middle"></span> Processing Agents…';
+
+  document.getElementById('content').innerHTML = `
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <div style="font-size:15px;font-weight:600">Running Multi-Agent System</div>
+      <div style="color:var(--muted);font-size:13px">Executing crmAgent DNA extraction • Pulling portfolioAgent matrices • Querying newsAgent streams</div>
+    </div>`;
+
+  try {
+    const dnaResponse = await fetch(`${API}/api/analyze/${activeClientId}`, { method: 'POST' });
+    const dnaData = dnaResponse.ok ? await dnaResponse.json() : {};
+    
+    const newsResponse = await fetch(`${API}/api/news/check/${activeClientId}`);
+    const newsData = newsResponse.ok ? await newsResponse.json() : { analysis: [] };
+
+    // NEW: Portfolio data now expected as part of the analysis pipeline or as a separate call
+    // If not returned by the agent yet, we use a placeholder array to visualize the table
+    const portfolioData = dnaData.portfolio || []; 
+
+    renderDashboard(dnaData, newsData.analysis || [], portfolioData);
+  } catch(e) {
+    document.getElementById('content').innerHTML = `
+      <div class="empty-state">
+        <div class="empty-icon">⚠️</div>
+        <div style="color:var(--red); font-weight:600">Pipeline Connection Error</div>
+        <div style="color:var(--muted); font-size:12px; margin-top:4px">${e.message}</div>
+      </div>`;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = '▶ Analyse Client';
+  }
+}
+
+function clearAndRefresh() {
+  if (!activeClientId) return;
+  selectClient(activeClientId);
+}
+
+function renderDashboard(dna, newsAlerts, portfolio) {
+  const totalValue = portfolio.reduce((sum, item) => sum + (item.Posicion_Actual_CHF || 0), 0);
+  const safeDna = dna.values ? dna : { 
+      values: { priorities: [], redLines: [], preferredSectors: [], esgFocus: [] }, 
+      investmentBehavior: {}, communicationStyle: {}, lifeEvents: [], keyQuotes: [] 
+  };
+  
+  const criticalAlertsCount = newsAlerts.filter(a => a.alertType === 'conflict' || a.alertType === 'opportunity').length;
+  const draft = dna.messageDraft || null; // Access the dynamic draft
+
+  const html = `
+    <div class="stats-strip">
+      <div class="stat-card">
+        <div class="stat-label">Total Current Value</div>
+        <div class="stat-value">  ${totalValue > 0 ? 'CHF ' + totalValue.toLocaleString('de-CH') : '<span class="missing-data">- CHF</span>'}</div>
+        <div class="stat-sub">${portfolio.length} active holdings traced</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">DNA Confidence</div>
+        <div class="stat-value" style="color:var(--green)">${Math.round((safeDna.confidence || 0.9) * 100)}%</div>
+        <div class="conf-bar-bg"><div class="conf-bar" style="width:${Math.round((safeDna.confidence || 0.9) * 100)}%"></div></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">Active newsAgent Signals</div>
+        <div class="stat-value" style="color:${criticalAlertsCount > 0 ? 'var(--red)' : 'var(--green)'}">
+          ${criticalAlertsCount}
+        </div>
+        <div class="stat-sub">${newsAlerts.length} total news streams audited</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">messageAgent Proposals</div>
+        <div class="stat-value" style="color:var(--accent)">${dna.proposals ? dna.proposals.length : '0'}</div>
+        <div class="stat-sub">Pending RM validation</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('dna')">🧬 Client DNA (crmAgent)</button>
+      <button class="tab-btn" onclick="switchTab('alerts')">🚨 Alerts & Impact (newsAgent)</button>
+      <button class="tab-btn" onclick="switchTab('portfolio')">📊 Assets & Orders (portfolioAgent)</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-dna">
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Ethical Boundaries & Priorities</div>
+              <span class="card-badge pill-blue">Processed from CRM Logs</span>
+            </div>
+            <div class="dna-grid">
+              <div class="dna-item">
+                <div class="dna-label">Core Priorities</div>
+                <div class="dna-chips">${(safeDna.values.priorities || []).map(p => `<span class="chip chip-blue">${p}</span>`).join('')}</div>
+              </div>
+              <div class="dna-item">
+                <div class="dna-label">Red Lines (Deal-Breakers)</div>
+                <div class="dna-chips">${(safeDna.values.redLines || []).map(p => `<span class="chip chip-red">${p}</span>`).join('')}</div>
+              </div>
+              <div class="dna-item">
+                <div class="dna-label">Preferred Industries</div>
+                <div class="dna-chips">${(safeDna.values.preferredSectors || []).map(p => `<span class="chip chip-green">${p}</span>`).join('')}</div>
+              </div>
+              <div class="dna-item">
+                <div class="dna-label">ESG Focus Cluster</div>
+                <div class="dna-chips">${(safeDna.values.esgFocus || []).map(p => `<span class="chip chip-gold">${p}</span>`).join('')}</div>
+              </div>
+            </div>
+            <div class="dna-item" style="margin-top:0">
+              <div class="dna-label">Advisory Profile Constraints</div>
+              <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:6px">
+                <span class="annotation">LANG: ${(safeDna.communicationStyle.language || 'EN').toUpperCase()}</span>
+                <span class="annotation">STYLE: ${(safeDna.communicationStyle.preferred || 'FORMAL').toUpperCase()}</span>
+                <span class="annotation">TONE: ${(safeDna.communicationStyle.tone || 'FORMAL').toUpperCase()}</span>
+                <span class="annotation">FORMAT: ${safeDna.communicationStyle.formatPreference || 'Bullet points'}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Structural Directives</div>
+            </div>
+            <div class="dna-grid">
+              <div class="dna-item">
+                <div class="dna-label">Risk Threshold</div>
+                <div style="font-weight:600;margin-top:4px;text-transform:capitalize">${safeDna.investmentBehavior.riskTolerance || 'Moderate'}</div>
+              </div>
+              <div class="dna-item">
+                <div class="dna-label">Contractual Mandate</div>
+                <div style="font-weight:600;margin-top:4px">${safeDna.investmentBehavior.mandate || 'Global Balanced Growth'}</div>
+              </div>
+              <div class="dna-item">
+                <div class="dna-label">Temporal Window</div>
+                <div style="font-size:12px;margin-top:4px">${safeDna.investmentBehavior.timeHorizon || 'Long-term'}</div>
+              </div>
+              <div class="dna-item">
+                <div class="dna-label">Liquidity Profile</div>
+                <div style="font-size:12px;margin-top:4px">${safeDna.investmentBehavior.liquidity || 'Moderate'}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">CRM Extracted Key Narratives</div>
+              <span class="card-badge pill-purple">Evidence Traced</span>
+            </div>
+            ${(safeDna.keyQuotes || []).map(q => `<div class="quote">"${q}"</div>`).join('')}
+          </div>
+          
+          ${safeDna.lifeEvents && safeDna.lifeEvents.length > 0 ? `
+          <div class="card">
+            <div class="card-header">
+              <div class="card-title">Chronological Lifecycle Events</div>
+            </div>
+            ${safeDna.lifeEvents.map(e => `
+              <div class="life-event">
+                <div class="le-date">${e.date}</div>
+                <div>
+                  <div class="le-type">${(e.type || '').toUpperCase()}</div>
+                  <div class="le-desc">${e.description}</div>
+                  <div class="le-impact">Portfolio Adjustment: ${e.portfolioImpact}</div>
+                </div>
+              </div>
+            `).join('')}
+          </div>` : ''}
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-alerts">
+      ${newsAlerts.length === 0 ? '<div style="text-align:center; padding: 40px; color: var(--muted)">No alerts generated for this client.</div>' : ''}
+      ${newsAlerts.map(alert => {
+        const typeClass = alert.alertType || 'market';
+        const badgeColor = typeClass === 'conflict' ? 'pill-red' : typeClass === 'opportunity' ? 'pill-green' : 'pill-amber';
+        return `
+          <div class="alert-card">
+            <div class="alert-header ${typeClass}">
+              <div class="alert-icon">${typeClass === 'conflict' ? '🚨' : typeClass === 'opportunity' ? '🌟' : '📰'}</div>
+              <div style="flex:1">
+                <div class="alert-hl">${alert.headline}</div>
+                <div class="alert-meta">
+                  <span>🏢 Targeted Entity: <strong>${alert.company || 'Unknown'}</strong></span>
+                  <span>🔗 Source Feed: <a href="${alert.url}" target="_blank" style="color:var(--accent); text-decoration:none">View Source</a></span>
+                  <span class="card-badge ${badgeColor}">${typeClass.toUpperCase()}</span>
+                  <span class="card-badge pill-blue">Alignment: ${(alert.belief_alignment || 'neutral').toUpperCase()}</span>
+                </div>
+              </div>
+            </div>
+            <div class="alert-body">
+              <div class="alert-summary">${alert.portfolio_impact || 'No deep analysis available.'}</div>
+              
+              ${typeClass === 'conflict' ? `
+                <div class="conflict-box">
+                  <div class="conflict-label">⚡ Automated Boundary Breach Intercepted</div>
+                  <div class="conflict-text">Asset exposure is currently active against one or more red lines. portfolioAgent must resolve deployment to clear compliance tracking.</div>
+                </div>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('')}
+
+      <div class="card" style="margin-top:20px">
+        <div class="card-header">
+          <div class="card-title">messageAgent Automated Client Advisory Draft</div>
+          <span class="annotation">Status: ${draft ? 'Ready' : 'Waiting for Agent'}</span>
+        </div>
+        <div class="msg-box">
+          ${draft ? `
+            <div class="msg-header">
+              <div class="msg-subject">Subject: ${draft.subject || 'Portfolio Update'}</div>
+            </div>
+            <div class="msg-body">${draft.content}</div>
+            <div class="msg-actions">
+              <button class="btn btn-green btn-sm" onclick="alert('Proposal sent.')">✓ Approve</button>
+            </div>
+          ` : `
+            <div class="msg-body" style="padding: 20px; color: var(--muted); font-style: italic;">
+              [messageAgent has not generated a draft yet.]
+            </div>
+          `}
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="tab-portfolio">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Active Mandate Assets (portfolioAgent Pipeline)</div>
+          <span class="card-badge pill-blue">${portfolio.length} Core Holdings</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Asset / Issuer</th>
+                <th>ISIN Reference</th>
+                <th>SIX Code</th>
+                <th>MIC Venue</th>
+                <th>CIO Bank Rating</th>
+                <th class="td-num">Current Asset Book value</th>
+                <th class="td-num">Simulated Rebalance Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${portfolio.map(h => `
+                <tr>
+                  <td class="td-name">${h.Issuer}</td>
+                  <td><code>${h.ISIN}</code></td>
+                  <td><span class="annotation">${h.Valor}</span></td>
+                  <td><strong>${h.MIC}</strong></td>
+                  <td><span class="card-badge ${h.Rating === 'BUY' ? 'pill-green' : 'pill-amber'}">${h.Rating}</span></td>
+                  <td class="td-num" style="font-weight:600">CHF ${Math.round(h.Posicion_Actual_CHF).toLocaleString('de-CH')}</td>
+                  <td class="td-num" style="color:${h.Cuanto_Compramos_CHF > 0 ? 'var(--green)' : 'var(--muted)'}">
+                    ${h.Cuanto_Compramos_CHF > 0 ? `+ CHF ${Math.round(h.Cuanto_Compramos_CHF).toLocaleString('de-CH')}` : 'No adjustments required'}
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('content').innerHTML = html;
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  
+  const activeBtn = document.querySelector(`.tab-btn[onclick="switchTab('${name}')"]`);
+  if(activeBtn) activeBtn.classList.add('active');
+  
+  const activePanel = document.getElementById(`tab-${name}`);
+  if(activePanel) activePanel.classList.add('active');
+}
+
+// Inicialización de la aplicación
+init();
+</script>
+</body>
+</html>

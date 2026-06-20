@@ -1,0 +1,130 @@
+{
+  "values": {
+    "priorities": [
+      "Protect personal and brand reputation by avoiding any supply‑chain or labor‑rights scandals",
+      "Data‑driven, analytical decision‑making with focus on cost‑of‑capital and tail‑risk metrics",
+      "Maintain strict corporate governance and real‑time operational risk screening",
+      "Align portfolio holdings with the clean‑labor, local‑integrity values of his retail brand",
+      "Optimize cash and fixed‑income duration to match upcoming tax liabilities and opportunistic purchases"
+    ],
+    "redLines": [
+      "Any holding linked to sweatshops, illegal exploitation or wage theft",
+      "Companies facing live media or judicial allegations of labor abuse, regardless of ESG rating",
+      "Consumer‑discretionary firms that could trigger a public boycott or reputational backlash",
+      "Supply‑chain governance failures that could be tied to his name in Swiss press"
+    ],
+    "preferredSectors": [
+      "Large‑cap international blue‑chip equities",
+      "Consumer discretionary/retail (provided they have clean supply‑chain governance)",
+      "Healthcare",
+      "Technology",
+      "Energy and industrial/logistics (only if compliance is verified)"
+    ],
+    "avoidedSectors": [
+      "Companies with poor supply‑chain labor standards across any sector",
+      "Firms reliant on cheap, unmonitored foreign logistics providers",
+      "Low‑governance emerging‑market exposures"
+    ],
+    "esgFocus": [
+      "Supply‑chain governance and labor rights",
+      "Real‑time operational risk monitoring",
+      "Zero‑tolerance for wage theft and exploitation",
+      "Transparency and anti‑boycott risk"
+    ]
+  },
+  "investmentBehavior": {
+    "riskTolerance": "moderate",
+    "timeHorizon": "Medium‑to‑long term (3‑7 years) with short‑term cash buffers for tax liabilities and art purchases",
+    "liquidity": "Requires moderate liquidity; prefers short‑term Swiss cantonal instruments to match tax due‑dates and opportunistic spending",
+    "mandate": "Clean Corporate Governance Mandate (zero‑tolerance supply‑chain and reputational risk)"
+  },
+  "lifeEvents": [
+    {
+      "date": "2023-09-05",
+      "type": "business",
+      "description": "Launched a sustainability marketing campaign for his retail brand in Switzerland.",
+      "portfolioImpact": "Re‑affirmed willingness to accept lower yields for a clean portfolio footprint."
+    },
+    {
+      "date": "2023-11-18",
+      "type": "business",
+      "description": "Dividend sweep from private holding company; capital redeployed into the global balanced framework.",
+      "portfolioImpact": "Maintained sector‑neutral large‑cap exposure while applying compliance filters."
+    },
+    {
+      "date": "2024-04-19",
+      "type": "financial",
+      "description": "Requested detailed fixed‑income duration analysis to match corporate tax liabilities due late 2025.",
+      "portfolioImpact": "Adjusted bond ladder to ensure liquidity and duration alignment with tax obligations."
+    },
+    {
+      "date": "2024-10-15",
+      "type": "personal",
+      "description": "Cash withdrawal for private art purchases.",
+      "portfolioImpact": "Created short‑term cash buffer; reinforced need for liquid, high‑yielding instruments."
+    },
+    {
+      "date": "2025-04-02",
+      "type": "business",
+      "description": "Brand expansion into western Switzerland under intense media and union scrutiny.",
+      "portfolioImpact": "Heightened focus on transparency and supply‑chain compliance for all holdings."
+    },
+    {
+      "date": "2025-08-11",
+      "type": "business",
+      "description": "Transition of account management due to RM Thomas Keller’s retirement.",
+      "portfolioImpact": "Emphasised continuity of zero‑tolerance compliance standards with new RM."
+    },
+    {
+      "date": "2025-09-18",
+      "type": "business",
+      "description": "Joint call with incoming RM Sarah Meier; reiterated expectations for rigorous, data‑driven execution.",
+      "portfolioImpact": "Re‑confirmed strict governance screening as non‑negotiable."
+    },
+    {
+      "date": "2025-11-04",
+      "type": "business",
+      "description": "Farewell lunch; explicitly restated zero‑tolerance for corporate‑governance infractions.",
+      "portfolioImpact": "Re‑affirmed red‑line policy for future portfolio decisions."
+    },
+    {
+      "date": "2026-05-14",
+      "type": "philanthropy",
+      "description": "Keynote speaker on ethical corporate leadership at a Zurich governance forum.",
+      "portfolioImpact": "Publicly cemented the “no dirty hands” stance, influencing future investment constraints."
+    }
+  ],
+  "personalProfile": {
+    "interests": "art collecting, corporate governance, sustainable brand building",
+    "quirks": "sharp, highly analytical, always asks for granular data and real‑time risk signals",
+    "rapportTriggers": "discussion of Swiss labor standards, supply‑chain integrity, and ethical leadership initiatives",
+    "avoidTopics": "competitor retail brands, unrelated sports rivalries"
+  },
+  "communicationStyle": {
+    "language": "en",
+    "tone": "formal",
+    "preferred": "data-driven",
+    "formatPreference": "tables and numbers, bullet points",
+    "directness": "direct",
+    "detailLevel": "detailed",
+    "openingStyle": "professional"
+  },
+  "keyQuotes": [
+    "My national brand equity is built on clean labor and local integrity. If my name is linked via my portfolio to an international corporate parent caught using sweatshops, illegal exploitation, or wage theft, it creates immediate hypocrisy risk for my own stores.",
+    "I will gladly accept a lower Sharpe ratio or lower yields in exchange for a clean portfolio footprint.",
+    "If any international consumer or retail brand we hold gets hit with severe labor exploitation allegations, dump the entire position before the local Swiss press can link my name to it.",
+    "Standard glossy ESG reporting and backward‑looking sustainability scores are useless to me. I don't care if a company has an 'AA' ESG rating on paper—if there is live media or judicial smoke surrounding their labor practices right now, the position must be flagged immediately before it hits mainstream national press.",
+    "My investment portfolio must be a fortress of clean corporate governance. No reputational liabilities, period."
+  ],
+  "confidence": 0.95,
+  "sourcedFrom": [
+    1,
+    3,
+    5,
+    10,
+    14,
+    23,
+    26,
+    28
+  ]
+}
