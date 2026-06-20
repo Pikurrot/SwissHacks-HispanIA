@@ -6,7 +6,7 @@ import requests
 from dotenv import load_dotenv
 
 # Importamos nuestro cliente de la API de SIX
-from six_api_client import get_asset_price_info
+from .six_api_client import get_asset_price_info
 
 # Cargar variables de entorno
 load_dotenv()

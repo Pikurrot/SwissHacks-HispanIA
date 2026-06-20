@@ -6,7 +6,7 @@ import os
 # Import your agents here!
 from agents.crmAgent import extract_and_save_dna
 from agents.newsAgent import compile_news_feed
-# from agents.portfolioAgent import run_portfolio_analysis # (When you have it)
+from agents.portfolioAgent import run_portfolio_analysis # (When you have it)
 
 app = FastAPI()
 
