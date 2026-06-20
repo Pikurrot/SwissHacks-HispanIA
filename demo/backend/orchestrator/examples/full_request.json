@@ -1,0 +1,69 @@
+{
+  "client_id": "schneider",
+  "client_name": "Hubertus Schneider",
+  "relationship_manager_name": "Sarah Meier",
+  "run_id": "demo-schneider-001",
+  "draft_count": 2,
+  "crm_output": {
+    "values": {
+      "priorities": ["Preserve family wealth", "Support neurological research"],
+      "redLines": ["Divest holdings that abandon neurological research"],
+      "preferredSectors": ["Healthcare", "Large-cap pharmaceuticals"],
+      "avoidedSectors": [],
+      "esgFocus": ["Healthcare innovation"]
+    },
+    "investmentBehavior": {
+      "riskTolerance": "moderate",
+      "mandate": "Balanced"
+    },
+    "communicationStyle": {
+      "language": "en",
+      "tone": "formal",
+      "preferred": "data-driven",
+      "formatPreference": "numbers and bullet points"
+    },
+    "lifeEvents": [
+      {"description": "A close family member was diagnosed with Parkinson's disease."}
+    ],
+    "confidence": 0.94,
+    "sourcedFrom": [19, 20, 21]
+  },
+  "news_output": {
+    "clientId": "schneider",
+    "alerts": [
+      {
+        "id": "news-roche-001",
+        "headline": "Roche announces closure of neurological research unit",
+        "summary": "Roche said the unit will close as part of a research strategy review.",
+        "eventType": "research_program_closed",
+        "severity": "high",
+        "sentiment": "negative",
+        "publishedAt": "2026-06-20T09:00:00Z",
+        "relevanceScore": 0.97,
+        "confidence": 0.91,
+        "affectedISINs": ["CH0012032048"],
+        "source": "Reuters",
+        "url": "https://example.test/reuters/roche"
+      }
+    ]
+  },
+  "portfolio_output": {
+    "client_id": "schneider",
+    "suggestedSwaps": [
+      {
+        "fromName": "Roche Holding AG",
+        "fromISIN": "CH0012032048",
+        "fromCurrentCHF": 112461.84,
+        "recommendedAction": "replace",
+        "rationale": "The event conflicts with the client's documented healthcare research priorities.",
+        "toName": "Novartis AG",
+        "toISIN": "CH0012005267",
+        "cioRating": "BUY",
+        "cioView": "Focused medicines model",
+        "mandateCompliant": true,
+        "mandateNote": "Same Domestic (CHF) sub-asset class"
+      }
+    ]
+  }
+}
+
