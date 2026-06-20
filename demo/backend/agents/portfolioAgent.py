@@ -82,7 +82,6 @@ EXPECTED FORMAT:
         if content is None:
             raise ValueError("La API devolvió 'content': null (Probable filtro de contenido o error del modelo).")
         
-        # Limpieza segura de markdown
         clean_text = content.strip()
         
         if clean_text.startswith("```json"):
@@ -104,12 +103,10 @@ EXPECTED FORMAT:
 
 def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: str, client_dna: dict):
     try:
-        # 1. Cargar las TRES pestañas necesarias
         portfolio_df = pd.read_excel(excel_path, sheet_name=portfolio_sheet)
         cio_list_df = pd.read_excel(excel_path, sheet_name='CIO Recommendation List')
         strategies_df = pd.read_excel(excel_path, sheet_name='Portfolio Strategies')
         
-        # 2. Identificar qué vamos a vender y cuánto dinero libera
         asset_to_sell = portfolio_df[portfolio_df['Issuer / Asset'].str.contains(company_to_sell, case=False, na=False)]
         if asset_to_sell.empty:
             return {"error": f"La empresa '{company_to_sell}' no se encontró."}
@@ -121,11 +118,6 @@ def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: 
         
         print(f"💰 Vamos a vender {target_asset['Issuer / Asset']} liberando: {dinero_liberado_chf:,.2f} CHF")
         
-        # 3. Buscar el Límite Macro de esa estrategia
-        strategy_row = strategies_df[strategies_df['Sub-Asset Class'] == sub_asset]
-        limite_macro_chf = strategy_row['Balanced (CHF)'].values[0] if not strategy_row.empty else "Desconocido"
-        
-        # 4. Filtrar candidatos iniciales financieramente viables (CIO List)
         mask = (
             (cio_list_df['Rating'] == 'BUY') &
             (cio_list_df['Sub-Asset Class'] == sub_asset) &
@@ -137,7 +129,6 @@ def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: 
         if candidates_df.empty:
             return {"error": "No hay candidatos de reemplazo disponibles en el mismo sector con rating BUY."}
 
-        # Armar base de datos temporal
         results = []
         for _, row in candidates_df.iterrows():
             candidato_nombre = row['Issuer / Asset']
@@ -157,15 +148,12 @@ def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: 
                 "MIC": str(row['MIC']) if pd.notna(row['MIC']) else "",
             })
             
-        # 5. LLM SCORING (DNA)
         llm_scores = get_llm_dna_scores(results, client_dna)
         
-        # 6. PROCESAMIENTO DE SCORING Y EXPLICABILIDAD
-        total_score = 0
+        # 6. PROCESAMIENTO DE SCORING (Afinidad Individual 0-100%)
         for cand in results:
             llm_eval = llm_scores.get(cand['Issuer'], {"score": 5, "reason": "Sin evaluación"})
             
-            # Tolerancia a fallos de formato del LLM
             if isinstance(llm_eval, dict):
                 score = max(1, llm_eval.get("score", 5))
                 reason = llm_eval.get("reason", "No se proporcionó explicación.")
@@ -173,26 +161,15 @@ def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: 
                 score = max(1, int(llm_eval) if str(llm_eval).isdigit() else 5)
                 reason = "Explicación omitida por error de formato del LLM."
                 
-            cand['Raw_LLM_Score'] = score
             cand['Explicacion_DNA'] = reason
-            total_score += score
+            cand['Afinidad_DNA_Porcentaje'] = float(score * 10) # 1-10 -> 10-100%
             
-        for cand in results:
-            score = cand['Raw_LLM_Score']
-            porcentaje = (score / total_score) * 100
-            cand['Recomendacion_Porcentaje'] = float(round(porcentaje, 1))
-            
-            # Asignación temporal (solo para mantener la estructura antes de elegir al ganador)
-            dinero_asignado = (porcentaje / 100) * cand['Cuanto_Compramos_CHF']
-            cand['Asignacion_Recomendada_CHF'] = float(round(dinero_asignado, 2))
-            cand['Nueva_Posicion_Simulada_CHF'] = float(round(cand['Posicion_Actual_CHF'] + dinero_asignado, 2))
-            
-            del cand['Industry Group']
-            del cand['CIO_View']
-            del cand['Raw_LLM_Score']
+            # Limpieza de campos intermedios
+            if 'Industry Group' in cand: del cand['Industry Group']
+            if 'CIO_View' in cand: del cand['CIO_View']
 
-        # 7. INTEGRACIÓN CON SIX API: Obtener precios reales de mercado
-        print(f"\n🔗 Conectando con SIX API para obtener precios de mercado...")
+        # 7. INTEGRACIÓN CON SIX API
+        print(f"\n🔗 Conectando con SIX API para obtener precios...")
         for cand in results:
             market_data = get_asset_price_info(
                 valor=cand['Valor'], 
@@ -204,63 +181,38 @@ def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: 
             if "error" not in market_data and market_data.get("price", 0.0) > 0:
                 cand['Precio_Actual_SIX'] = market_data['price']
                 cand['Moneda_SIX'] = market_data['currency']
-                cand['Cantidad_Acciones_Temp'] = int(cand['Asignacion_Recomendada_CHF'] / market_data['price'])
             else:
                 cand['Precio_Actual_SIX'] = None
-                cand['Moneda_SIX'] = None
-                cand['Cantidad_Acciones_Temp'] = None
-                cand['Error_SIX'] = market_data.get("error", "Precio 0.0 devuelto")
+                cand['Error_SIX'] = market_data.get("error", "Precio no disponible")
 
         # 8. SELECCIONAR EL MEJOR CANDIDATO (Winner takes all)
-        # Filtramos los que tengan errores de API o falta de liquidez
-        valid_candidates = [
-            c for c in results 
-            if c.get('Precio_Actual_SIX') is not None 
-            and c.get('Cantidad_Acciones_Temp') is not None
-            and 'Error_SIX' not in c
-        ]
+        valid_candidates = [c for c in results if c.get('Precio_Actual_SIX') is not None]
 
         if not valid_candidates:
-            return {"error": "Ningún candidato superó las validaciones de mercado (SIX API falló para todos o no hay liquidez)."}
+            return {"error": "Ningún candidato superó las validaciones de mercado."}
 
-        # Ordenamos de mayor a menor según el porcentaje dictado por el DNA (LLM)
-        valid_candidates.sort(key=lambda x: x['Recomendacion_Porcentaje'], reverse=True)
+        # Ordenar por Afinidad_DNA_Porcentaje de forma descendente
+        valid_candidates.sort(key=lambda x: x['Afinidad_DNA_Porcentaje'], reverse=True)
         
-        # El ganador es el primero de la lista
         best_candidate = valid_candidates[0]
         
-        # Como es el único ganador, reasignamos el 100% del dinero liberado a él
-        best_candidate['Confianza_Alineacion_DNA_Porcentaje'] = best_candidate.pop('Recomendacion_Porcentaje')
+        # Asignación del 100% del capital liberado
         best_candidate['Asignacion_Recomendada_CHF'] = float(round(dinero_liberado_chf, 2))
         best_candidate['Nueva_Posicion_Simulada_CHF'] = float(round(best_candidate['Posicion_Actual_CHF'] + dinero_liberado_chf, 2))
-        
-        # Recálculo definitivo de acciones con el 100% del capital
         best_candidate['Cantidad_Acciones'] = int(best_candidate['Asignacion_Recomendada_CHF'] / best_candidate['Precio_Actual_SIX'])
-        del best_candidate['Cantidad_Acciones_Temp']
 
-        print(f"\n🏆 Ganador seleccionado: {best_candidate['Issuer']} (Alineación DNA: {best_candidate['Confianza_Alineacion_DNA_Porcentaje']}%)")
-
+        print(f"\n🏆 Ganador: {best_candidate['Issuer']} ({best_candidate['Afinidad_DNA_Porcentaje']}% afinidad)")
         return best_candidate
 
     except Exception as e:
         return {"error": str(e)}
 
-# ==========================================
-# 🧪 PRUEBA (Ejecución standalone del pipeline completo)
-# ==========================================
 if __name__ == "__main__":
     EXCEL_FILE = "data/SwissHacks Portfolio Construction.xlsx"
     PORTFOLIO_NAME = "Sample Portfolio Balanced"
-    TO_SELL = "Tesla" # En la simulación venderemos Roche
+    TO_SELL = "Apple"
     
-    # El DNA JSON que proporcionaste, simulado para probar el scoring
     SAMPLE_DNA = json.load(open("raeber_dna.json"))
     
-    print("Iniciando Pipeline Integrado (Portfolio + SIX API)...\n")
     candidato_final = get_swap_candidates(EXCEL_FILE, PORTFOLIO_NAME, TO_SELL, SAMPLE_DNA)
-    
-    if isinstance(candidato_final, dict) and "error" in candidato_final:
-        print("❌ Error:", candidato_final["error"])
-    else:
-        print("\n✅ RESULTADO FINAL ÚNICO (LISTO PARA EL MESSAGE AGENT):")
-        print(json.dumps(candidato_final, indent=2, ensure_ascii=False))
+    print(json.dumps(candidato_final, indent=2, ensure_ascii=False))
