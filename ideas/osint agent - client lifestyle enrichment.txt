@@ -1,0 +1,283 @@
+# OSINT Agent — Client Lifestyle Enrichment
+
+## La idea
+
+Recopilar información pública del cliente (Instagram, LinkedIn, X/Twitter,
+prensa) para enriquecer su perfil con gustos, hábitos y lifestyle. Esta
+información sirve para dos cosas distintas:
+
+1. **Investment alignment** — identificar oportunidades de inversión que
+   conecten con sus intereses personales, más allá del mandato puro
+2. **RM rapport** — dar al RM contexto personal para que sus conversaciones
+   sean genuinas, no genéricas
+
+Para el hackathon: los datos se simulan. La arquitectura es real.
+
+---
+
+## Categorías de clasificación
+
+```json
+"lifestyleProfile": {
+  "gastronomy": {
+    "wine": "natural wine, biodynamic, Burgundy preference",
+    "dining": "farm-to-table, zero-waste restaurants",
+    "habits": "cooks at home, farmer's market weekly"
+  },
+  "sports": {
+    "participates": ["hiking", "trail running", "fly fishing"],
+    "follows": ["Tour de France", "Wimbledon"],
+    "level": "serious amateur — posts race results, tracks mileage"
+  },
+  "lifestyle": {
+    "travel": "remote nature destinations — Patagonia, Borneo, Iceland",
+    "brands": ["Patagonia", "Arc'teryx", "Veja"],
+    "culture": ["contemporary art", "nature documentaries", "NZZ reader"],
+    "causes": ["Atlantic Forest Fund", "rewilding Europe"]
+  },
+  "professional": {
+    "conferences": ["Swiss Sustainable Finance 2024", "Davos side events"],
+    "publications": ["quoted in NZZ on regenerative agriculture"],
+    "boards": ["Amazon Biodiversity Foundation (advisory)"]
+  }
+}
+```
+
+---
+
+## Ejemplo completo — Marius Huber
+
+### Fuentes públicas simuladas
+
+| Fuente | Señal encontrada |
+|--------|-----------------|
+| Instagram | Fotos de senderismo en Patagonia, Borneo, Islandia. Sigue cuentas de vino natural (@rawwine, @naturalwineclub). Posts con etiqueta #rewilding |
+| LinkedIn | Advisory board en Amazon Biodiversity Foundation. Speaker en Swiss Sustainable Finance 2024. Ex-exit de empresa de agricultura sostenible |
+| X/Twitter | Retweets sobre legislación de palm oil. Seguidor de @AtlanticForestFund. Interacción con hilo sobre finanzas regenerativas |
+| Web / Prensa | Citado en NZZ (2024) sobre agricultura regenerativa. Co-firmante de carta abierta sobre etiquetado de palm oil |
+
+### lifestyleProfile generado
+
+```json
+"lifestyleProfile": {
+  "gastronomy": {
+    "wine": "vino natural y biodinámico — sigue a productores de Borgoña y Loire",
+    "dining": "restaurantes farm-to-table, cocina de temporada",
+    "habits": "mencionado en Instagram comprando en mercado de agricultores"
+  },
+  "sports": {
+    "participates": ["senderismo de larga distancia", "fly fishing"],
+    "destinations": ["Patagonia", "Borneo", "Islandia"],
+    "level": "viajero de naturaleza comprometido, no competitivo"
+  },
+  "lifestyle": {
+    "travel": "destinos remotos de naturaleza salvaje, no turismo de lujo",
+    "brands": ["Patagonia", "Arc'teryx"],
+    "culture": ["documentales de naturaleza", "lector NZZ", "arte contemporáneo sostenible"],
+    "causes": ["Atlantic Forest Fund", "rewilding Europe", "legislación palm oil"]
+  },
+  "professional": {
+    "conferences": ["Swiss Sustainable Finance 2024"],
+    "publications": ["NZZ 2024 — regenerative agriculture"],
+    "boards": ["Amazon Biodiversity Foundation (advisory)"]
+  },
+  "osint_sources": ["instagram", "linkedin", "twitter", "web"],
+  "osint_confidence": 0.82,
+  "osint_retrieved_at": "2025-06-20"
+}
+```
+
+---
+
+## Caso de uso 1 — Investment alignment
+
+El agente cruza el `lifestyleProfile` con el CIO list y el portfolio actual
+para identificar oportunidades que conecten intereses personales con mandato.
+
+### Lógica de matching
+
+```python
+LIFESTYLE_SECTOR_MAP = {
+  "vino natural / biodinámico": ["Consumer Staples", "Agriculture", "LVMH"],
+  "senderismo / naturaleza":    ["Outdoor & Sportswear", "Sustainable Tourism"],
+  "rewilding / biodiversidad":  ["Forestry", "Biodiversity Bonds", "Impact Funds"],
+  "agricultura regenerativa":   ["Agri-tech", "Sustainable Food"],
+  "fly fishing":                ["Water quality", "Environmental services"]
+}
+```
+
+### Ejemplo de output
+
+```
+LIFESTYLE-ALIGNED OPPORTUNITIES for Huber
+
+  Pernod Ricard (FR0000120693)
+  → Huber follows natural wine accounts and buys at farmer's markets
+  → Pernod has a natural wine subsidiary (Kenwood Vineyards organic line)
+  → CIO: HOLD — not a strong buy but a conversation opener
+  → RM note: "podría interesarle el ángulo de vitivinicultura sostenible"
+
+  Amer Sports (US-listed)
+  → Huber usa Arc'teryx (owned by Amer Sports) en todas sus expediciones
+  → CIO: BUY
+  → RM note: "cliente usa la marca activamente — conexión personal fuerte"
+
+  EcoTree (unlisted, alternative)
+  → Inversión directa en proyectos de reforestación certificada
+  → Conecta directamente con sus posts de rewilding y Atlantic Forest
+  → RM note: "fuera del mandato standard pero encaja con su misión personal"
+```
+
+Estas oportunidades no reemplazan el swap resolver — son sugerencias
+adicionales de conversación, marcadas como `type: lifestyle_opportunity`.
+
+---
+
+## Caso de uso 2 — RM rapport triggers
+
+Enriquecer el `personalProfile.rapportTriggers` del DNA con datos OSINT
+específicos y recientes que el RM puede usar en conversación.
+
+### Antes (solo CRM)
+
+```json
+"rapportTriggers": [
+  "Atlantic Forest project",
+  "children's education"
+]
+```
+
+### Después (CRM + OSINT)
+
+```json
+"rapportTriggers": [
+  "Atlantic Forest project",
+  "children's education",
+  "recent hiking trip to Borneo — posted photos last month",
+  "follows natural wine scene — @rawwine, @naturalwineclub",
+  "co-signed palm oil letter — particularly vocal on this topic",
+  "reads NZZ — referenced the regenerative agriculture article"
+]
+```
+
+El message agent los usa exactamente igual que antes — la fuente
+(CRM vs OSINT) no cambia el comportamiento, solo enriquece el pool.
+
+---
+
+## Integración en el pipeline
+
+```
+OSINT Agent (on demand o al cargar cliente)
+    ↓
+lifestyleProfile + rapportTriggers enriquecidos
+    ↓
+    ├── CRM Agent ← combina con DNA existente
+    │       ↓
+    │   ClientDNA completo (valores + lifestyle)
+    │       ↓
+    │   Message Agent (usa rapportTriggers enriquecidos)
+    │
+    └── Lifestyle Opportunity Matcher
+            ↓
+        oportunidades marcadas como lifestyle_opportunity
+            ↓
+        Dashboard — sección separada "Lifestyle Insights"
+```
+
+---
+
+## Schema — nuevo campo en ClientDNA
+
+```python
+class LifestyleProfile(BaseModel):
+    gastronomy: dict | None
+    sports: dict | None
+    lifestyle: dict | None
+    professional: dict | None
+    osint_sources: list[str]
+    osint_confidence: float
+    osint_retrieved_at: str
+
+class ClientDNA(BaseModel):
+    # ... campos existentes ...
+    lifestyleProfile: LifestyleProfile | None = None
+```
+
+`None` si no hay datos OSINT disponibles — el sistema funciona igual sin él.
+
+---
+
+## Endpoint
+
+```
+POST /api/osint/enrich/{client_id}
+Response: {
+  "lifestyle_profile": LifestyleProfile,
+  "new_rapport_triggers": list[str],
+  "lifestyle_opportunities": list[Opportunity]
+}
+
+GET /api/osint/{client_id}
+Response: LifestyleProfile ya guardado (si existe)
+```
+
+---
+
+## Para el hackathon — simulación
+
+Los datos OSINT de cada cliente se pre-generan y guardan en JSON.
+El endpoint los sirve como si fueran recién recuperados.
+
+```
+src/data/osint/
+  huber_osint.json       ← ya redactado arriba
+  schneider_osint.json   ← pendiente
+  raeber_osint.json      ← pendiente
+  ammann_osint.json      ← pendiente
+```
+
+---
+
+## Efecto en la demo
+
+El RM abre el perfil de Huber y ve una sección "Lifestyle Intelligence":
+
+```
+Sources: Instagram · LinkedIn · X · Web    Confidence: 82%
+
+INTERESTS          Vino natural · Senderismo · Rewilding · Fly fishing
+TRAVEL             Patagonia · Borneo · Islandia
+BRANDS             Patagonia · Arc'teryx
+CAUSES             Atlantic Forest Fund · Palm Oil legislation
+
+LIFESTYLE OPPORTUNITIES
+  Amer Sports     CIO BUY   "Huber usa Arc'teryx activamente"
+  Pernod Ricard   CIO HOLD  "Ángulo de vitivinicultura natural"
+
+RM TIPS
+  → Fue a Borneo el mes pasado — la noticia de Nestlé le va a impactar
+  → Co-firmó carta sobre palm oil — tema muy sensible para él
+  → Lector de NZZ — puede referenciar el artículo de marzo 2024
+```
+
+---
+
+## Criterio de éxito
+
+- El RM ve información personal relevante que no estaba en el CRM
+- Al menos una lifestyle opportunity conecta interés personal con
+  instrumento financiero real del CIO list
+- Los rapport triggers OSINT se usan en el mensaje generado de forma
+  natural (no todos a la vez, uno bien elegido)
+- El sistema funciona igual si `lifestyleProfile` es null
+
+---
+
+## Pendiente de desarrollar
+
+- Implementación real del scraping (fuera del scope del hackathon)
+- Ranking de lifestyle opportunities por fit score (similar al swap scorer)
+- Frecuencia de actualización del OSINT (semanal en producción)
+- Consentimiento explícito del cliente documentado antes de activar
+  (requerimiento GDPR / nLPD — crítico en producción)
