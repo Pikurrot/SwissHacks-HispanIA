@@ -8,95 +8,162 @@
       "company": "Amazon",
       "belief_alignment": "negative",
       "affectedSectors": [
-        "Consumer Discretionary",
-        "Retail/E‑commerce"
+        "Logistics",
+        "E‑commerce"
       ],
-      "portfolio_impact": "The federal labor investigation reveals wage‑theft and safety violations at Amazon warehouses, directly breaching the client’s zero‑tolerance red line on labor abuse. Immediate divestment is warranted to protect the client’s clean‑labor brand and avoid reputational risk."
+      "portfolio_impact": "The federal labour investigation reveals wage‑theft and safety violations at Amazon’s distribution hubs, directly breaching the client’s zero‑tolerance stance on labour exploitation and supply‑chain governance. Any exposure to Amazon would cross a red line and should be avoided or divested."
     },
     {
-      "id": "real-large_international-3",
-      "headline": "World Cup Heats Up as Germany Face Ivory Coast and Netherlands Battle Sweden in Crucial Group Stage Clashes - Diaspora Digital Media (DDM News) - Nigeria Breaking News, Africa and World News and Updates",
-      "url": "https://diasporadigitalmedia.com/world-cup-heats-up-as-germany-face-ivory-coast-and-netherlands-battle-sweden-in-crucial-group-stage-clashes/",
+      "id": "real-blue_chip-1",
+      "headline": "Tinubu's four legacy highway projects as transformative investment assets",
+      "url": "https://www.thetimes.com.ng/2026/06/tinubus-four-legacy-highway-projects-as-transformative-investment-assets/",
       "alertType": "market",
       "company": "N/A",
       "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "The article covers World Cup matchups, which have no material impact on labor practices, supply‑chain governance, or the client’s investment priorities."
+      "affectedSectors": [
+        "Infrastructure",
+        "Transportation"
+      ],
+      "portfolio_impact": "The piece discusses highway projects in Nigeria; it does not touch on labour standards, Swiss sourcing, or the client’s priority sectors, so it carries no particular emotional trigger."
     },
     {
-      "id": "real-blue_chip-0",
+      "id": "real-logistics-1",
+      "headline": "Why Quantum Computing Could Give Europe an Edge in the AI Race",
+      "url": "https://www.tekedia.com/why-quantum-computing-could-give-europe-an-edge-in-the-ai-race/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Technology",
+        "Artificial Intelligence"
+      ],
+      "portfolio_impact": "The article outlines quantum‑computing advances for Europe; while technologically relevant, it does not address supply‑chain or labour issues relevant to the client."
+    },
+    {
+      "id": "real-swiss_consumer-2",
+      "headline": "Nestlé Water Unit Auction Reportedly Narrows as PAI Exits Bidding",
+      "url": "https://www.themiddlemarket.com/latest-news/nestle-water-unit-auction-reportedly-narrows-as-pai-exits-bidding",
+      "alertType": "market",
+      "company": "Nestlé",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Swiss Consumer Goods",
+        "Beverages/Water"
+      ],
+      "portfolio_impact": "The report on Nestlé’s water business sale is a corporate transaction without labour‑rights concerns; it neither supports nor threatens the client’s ESG red lines."
+    },
+    {
+      "id": "real-swiss_consumer-0",
+      "headline": "SNB to keep interest rates at 0% on June 18 and for rest of year - Reuters poll | FXStreet",
+      "url": "https://www.fxstreet.com/news/snb-to-keep-interest-rates-at-0-on-june-18-and-for-rest-of-year-reuters-poll-202606151132",
+      "alertType": "market",
+      "company": "Swiss National Bank",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Finance",
+        "Monetary Policy"
+      ],
+      "portfolio_impact": "Interest‑rate outlook for Switzerland is macro‑economic news and does not intersect with the client’s supply‑chain or labour‑rights priorities."
+    },
+    {
+      "id": "real-swiss_consumer-3",
+      "headline": "PAI Partners exits Nestle water unit bid as sale process continues - Bloomberg By Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/pai-partners-exits-nestle-water-unit-bid-as-sale-process-continues--bloomberg-93CH-4731319",
+      "alertType": "market",
+      "company": "Nestlé",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Swiss Consumer Goods",
+        "Beverages"
+      ],
+      "portfolio_impact": "PAI Partners withdrawing from Nestlé’s water unit bid is a financing development with no labour‑rights implications for the client."
+    },
+    {
+      "id": "real-swiss_consumer-4",
+      "headline": "What are the main events for today? | investingLive",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260608/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "General Market"
+      ],
+      "portfolio_impact": "A routine market‑events summary; no relevance to client values."
+    },
+    {
+      "id": "real-swiss_consumer-1",
+      "headline": "What are the main events for today? | investingLive",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260615/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "General Market"
+      ],
+      "portfolio_impact": "Another routine market‑events summary with no material impact on the client’s ESG or sector preferences."
+    },
+    {
+      "id": "real-blue_chip-4",
       "headline": "Oregon Ducks Hosting Major Notre Dame Recruiting Target on Campus",
       "url": "https://www.si.com/college/oregon/football/oregon-ducks-hosting-notre-dame-recruiting-target-brayden-parks",
       "alertType": "market",
       "company": "N/A",
       "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "College football recruiting news does not intersect with the client’s ESG focus or sector preferences."
+      "affectedSectors": [
+        "Sports",
+        "Education"
+      ],
+      "portfolio_impact": "College football recruiting news has no bearing on the client’s investment criteria."
     },
     {
-      "id": "real-high_quality-1",
-      "headline": "Pauline Hanson's stance on paid parental leave and childcare could turn clock back by decades, economists warn",
-      "url": "https://www.theguardian.com/australia-news/2026/jun/21/pauline-hanson-women-working-mothers-paid-parental-leave-childcare-income-gender-gap-economy-one-nation-ntwnfb",
+      "id": "real-logistics-2",
+      "headline": "Six years on, officers relive one of Victoria Police's darkest days",
+      "url": "https://www.abc.net.au/news/2026-06-21/victoria-police-eastern-freeway-tragedy-pusey-singh/104919372",
       "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "The political commentary on paid parental leave is unrelated to any specific portfolio holding and does not trigger the client’s labor‑risk red lines."
-    },
-    {
-      "id": "real-high_quality-0",
-      "headline": "Virginia Medical Imaging sues Mary Washington Healthcare for $2.25M",
-      "url": "https://www.fredericksburgfreepress.com/2026/06/20/virginia-medical-imaging-sues-mary-washington-healthcare-for-2-25m/",
-      "alertType": "market",
-      "company": "Virginia Medical Imaging",
+      "company": "Victoria Police",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Healthcare"
+        "Public Safety"
       ],
-      "portfolio_impact": "A lawsuit over alleged self‑dealing is a governance issue but not linked to labor exploitation; it does not conflict with the client’s core labor‑risk criteria."
+      "portfolio_impact": "A recount of a police tragedy; unrelated to investment considerations."
     },
     {
-      "id": "real-blue_chip-3",
-      "headline": "Texas A&M Knows Its Next Defensive Target After Losing on John Meredith III",
-      "url": "https://sports.yahoo.com/articles/texas-m-knows-next-defensive-150004626.html",
+      "id": "real-blue_chip-0",
+      "headline": "AAVE Price Prediction: Rally or Rejection -- $74 Is the Line in the Sand Before a Move to $82 or $70",
+      "url": "https://blockchain.news/news/20260620-price-prediction-aave-rally-or-rejection-74-is-the",
       "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "Recruiting news for Texas A&M football has no relevance to the client’s investment themes or ESG concerns."
-    },
-    {
-      "id": "real-large_international-1",
-      "headline": "A traveler with measles passed through LAX. Officials urge caution amid World Cup crowds",
-      "url": "https://www.courant.com/2026/06/20/a-traveler-with-measles-passed-through-lax-officials-urge-caution-amid-world-cup-crowds-2/",
-      "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "The measles case at LAX is a public‑health matter and does not affect labor practices or supply‑chain risk in the client’s portfolio."
-    },
-    {
-      "id": "real-high_quality-4",
-      "headline": "ReelPlay named as first US online casino aggregation partner for RLX Gaming",
-      "url": "https://www.sportsline.com/casinos/reelplay-named-as-first-us-online-casino-aggregation-partner-for-rlx-gaming/",
-      "alertType": "market",
-      "company": "ReelPlay",
+      "company": "AAVE",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Consumer Discretionary",
-        "Gaming"
+        "Cryptocurrency"
       ],
-      "portfolio_impact": "The partnership announcement for an online casino aggregator does not raise labor‑abuse concerns, nor does it present a clear ESG opportunity for the client."
+      "portfolio_impact": "Price prediction for AAVE is speculative crypto news, not linked to the client’s ESG or sector preferences."
     },
     {
-      "id": "real-large_international-0",
-      "headline": "Why local networks are the future of aid in Africa",
-      "url": "https://www.arabnews.com/node/2647955",
+      "id": "real-blue_chip-2",
+      "headline": "Tinubu's four legacy highway projects as transformative investment assets",
+      "url": "https://pmnewsnigeria.com/2026/06/20/tinubus-four-legacy-highway-projects-as-transformative-investment-assets/",
       "alertType": "market",
       "company": "N/A",
       "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "Discussion of local networks for aid in Africa is a development policy topic with no direct impact on the client’s investment holdings or labor‑risk criteria."
+      "affectedSectors": [
+        "Infrastructure",
+        "Transportation"
+      ],
+      "portfolio_impact": "Duplicate of the Nigeria highway story; no direct relevance to the client’s priorities."
+    },
+    {
+      "id": "real-logistics-3",
+      "headline": "When His Son Was Diagnosed With Cancer During Wartime, This Father Was Forced To Leave His Country And Find A New Way To Make A Living. AI Made That Possible.",
+      "url": "https://www.forbes.com/sites/elainepofeldt/2026/06/20/when-his-son-was-diagnosed-with-cancer-during-wartime-this-father-was-forced-to-leave-his-country-and-find-a-new-way-to-make-a-living-ai-made-that-possible/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Technology",
+        "Artificial Intelligence"
+      ],
+      "portfolio_impact": "Human‑interest story on AI helping a Ukrainian entrepreneur; while showcasing tech benefits, it does not address supply‑chain integrity or labour standards relevant to the client."
     }
   ]
 }

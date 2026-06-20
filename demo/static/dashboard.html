@@ -352,6 +352,59 @@ tr:hover td { background: rgba(59,130,246,0.04); }
 body { background: var(--bg); color: var(--text); font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; min-height: 100vh; }
 
 
+/* Company info modal */
+.cinfo-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.cinfo-overlay.open { display: flex; }
+.cinfo-modal {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  width: min(540px, 92vw);
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5);
+}
+.cinfo-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding: 18px 20px 12px;
+  border-bottom: 1px solid var(--border);
+  gap: 12px;
+}
+.cinfo-title { font-size: 16px; font-weight: 700; color: var(--text); }
+.cinfo-close {
+  background: none; border: none; color: var(--muted);
+  font-size: 20px; cursor: pointer; padding: 0 4px; line-height: 1;
+  flex-shrink: 0;
+}
+.cinfo-close:hover { color: var(--text); }
+.cinfo-body { padding: 18px 20px; }
+.cinfo-section { margin-bottom: 14px; }
+.cinfo-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 5px;
+}
+.cinfo-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+.cinfo-bullets { list-style: none; padding: 0; margin: 0; }
+.cinfo-bullets li {
+  font-size: 12px; color: var(--text); line-height: 1.5;
+  padding: 3px 0 3px 14px; position: relative;
+}
+.cinfo-bullets li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+.brain-btn {
+  background: none; border: 1px solid var(--border);
+  border-radius: 6px; padding: 3px 7px; cursor: pointer;
+  font-size: 14px; color: var(--accent); line-height: 1;
+  transition: background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
+}
+.brain-btn:hover { background: rgba(59,130,246,0.12); border-color: var(--accent); }
 </style>
 </head>
 <body>
@@ -503,6 +556,23 @@ async function runAnalysis() {
       result._triggerNews = conflictNewsByCompany[company] || null;
     }
 
+    // Pre-warm the company info cache for every recommended asset (top + alternatives)
+    const companiesToPrefetch = [];
+    for (const r of swapResults) {
+      if (r.top_candidate?.Issuer) companiesToPrefetch.push(r.top_candidate.Issuer);
+      for (const a of (r.alternatives || [])) {
+        if (a.Issuer) companiesToPrefetch.push(a.Issuer);
+      }
+    }
+    if (companiesToPrefetch.length > 0) {
+      // Fire-and-forget — don't await, user can click the icon while this runs
+      fetch(`${API}/api/company/prefetch`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ names: [...new Set(companiesToPrefetch)] }),
+      }).catch(() => {});
+    }
+
     renderDashboard(dnaData, newsData.analysis || [], swapResults);
 
   } catch(e) {
@@ -558,8 +628,11 @@ function renderConflictCards(swapResults) {
       return `
         <tr style="border-top: 1px solid var(--border);">
           <td style="padding:9px 12px; vertical-align:top;">
-            <div style="font-weight:600; font-size:12px; color:var(--text);">${a.Issuer}</div>
-            <div style="font-size:10px; color:var(--muted); margin-top:2px; line-height:1.4;">💡 ${a.Explicacion_DNA || ''}</div>
+            <div style="display:flex; align-items:center; gap:6px; margin-bottom:2px;">
+              <span style="font-weight:600; font-size:12px; color:var(--text);">${a.Issuer}</span>
+              <button class="brain-btn" style="font-size:12px; padding:2px 5px;" title="Company brief" onclick='openCompanyInfo(${JSON.stringify(a.Issuer)})'>🧠</button>
+            </div>
+            <div style="font-size:10px; color:var(--muted); line-height:1.4;">💡 ${a.Explicacion_DNA || ''}</div>
           </td>
           <td style="padding:9px 8px; vertical-align:top; white-space:nowrap;">
             <code style="font-size:10px; color:var(--muted)">${a.ISIN || '—'}</code>
@@ -639,6 +712,7 @@ function renderConflictCards(swapResults) {
             <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; margin-bottom:4px;">
               <div style="font-size:18px; font-weight:700; color:var(--text);">${top.Issuer || '—'}</div>
               <span class="card-badge pill-green" style="font-size:10px;">★ ${top.Afinidad_DNA_Porcentaje || 0}% DNA Match</span>
+              ${top.Issuer ? `<button class="brain-btn" title="Company brief" onclick='openCompanyInfo(${JSON.stringify(top.Issuer)})'>🧠</button>` : ''}
             </div>
             <div style="font-size:11px; color:var(--muted); margin-bottom:6px; display:flex; align-items:center; gap:6px; flex-wrap:wrap;">
               <span class="card-badge pill-green" style="font-size:10px;">${top.Rating || 'BUY'}</span>
@@ -832,10 +906,29 @@ function renderDashboard(dna, newsAlerts, swapResults) {
         <div>
           <div class="card">
             <div class="card-header">
-              <div class="card-title">CRM Extracted Key Narratives</div>
+              <div class="card-title">Key Narratives & Evidence</div>
               <span class="card-badge pill-purple">Evidence Traced</span>
             </div>
-            ${(safeDna.keyQuotes || []).map(q => `<div class="quote">"${q}"</div>`).join('')}
+            ${(safeDna.keyQuotes || []).map(q => {
+              const isObj = q && typeof q === 'object';
+              const text = isObj ? q.quote : q;
+              const src  = isObj ? (q.source || '') : '';
+              const date = isObj ? (q.date || '') : '';
+              const pillMap = {
+                'CRM':              'pill-blue',
+                'Twitter':          'pill-amber',
+                'LinkedIn Post':    'pill-purple',
+                'LinkedIn Profile': 'pill-purple',
+              };
+              const pill = pillMap[src] || 'pill-blue';
+              const meta = src
+                ? `<div style="display:flex; align-items:center; gap:6px; margin-top:5px; justify-content:flex-end;">
+                     <span class="card-badge ${pill}" style="font-size:10px;">${src}</span>
+                     ${date ? `<span style="font-size:10px; color:var(--muted);">${date}</span>` : ''}
+                   </div>`
+                : '';
+              return `<div class="quote" style="margin-bottom:10px;">"${text}"${meta}</div>`;
+            }).join('')}
           </div>
           
           ${safeDna.lifeEvents && safeDna.lifeEvents.length > 0 ? `
@@ -942,6 +1035,92 @@ function switchTab(name) {
 
 // Inicialización de la aplicación
 init();
+
+// ── Company Info Modal ─────────────────────────────────────────────────────
+function openCompanyInfo(issuer) {
+  const overlay = document.getElementById('cinfo-overlay');
+  const titleEl = document.getElementById('cinfo-company-title');
+  const bodyEl  = document.getElementById('cinfo-body');
+
+  titleEl.textContent = issuer;
+  bodyEl.innerHTML = `
+    <div style="text-align:center; padding:32px 0; color:var(--muted);">
+      <div class="spinner" style="margin: 0 auto 12px;"></div>
+      <div style="font-size:12px;">Querying LLM for company brief…</div>
+    </div>`;
+  overlay.classList.add('open');
+
+  fetch(`${API}/api/company/info?name=${encodeURIComponent(issuer)}`)
+    .then(r => r.json())
+    .then(data => {
+      if (data.error) {
+        bodyEl.innerHTML = `<div style="color:var(--red); font-size:13px;">⚠ ${data.error}</div>`;
+        return;
+      }
+      const strengths = (data.keyStrengths || []).map(s => `<li>${s}</li>`).join('');
+      const risks     = (data.keyRisks || []).map(s => `<li>${s}</li>`).join('');
+      bodyEl.innerHTML = `
+        ${data.oneLiner ? `
+        <div class="cinfo-section">
+          <div class="cinfo-label">Overview</div>
+          <div class="cinfo-text">${data.oneLiner}</div>
+        </div>` : ''}
+        ${data.sector ? `
+        <div class="cinfo-section">
+          <div class="cinfo-label">Sector</div>
+          <div class="cinfo-text">${data.sector}</div>
+        </div>` : ''}
+        ${data.businessModel ? `
+        <div class="cinfo-section">
+          <div class="cinfo-label">Business Model</div>
+          <div class="cinfo-text">${data.businessModel}</div>
+        </div>` : ''}
+        ${strengths ? `
+        <div class="cinfo-section">
+          <div class="cinfo-label">Key Strengths</div>
+          <ul class="cinfo-bullets">${strengths}</ul>
+        </div>` : ''}
+        ${risks ? `
+        <div class="cinfo-section">
+          <div class="cinfo-label">Key Risks</div>
+          <ul class="cinfo-bullets" style="color:var(--muted);">${risks}</ul>
+        </div>` : ''}
+        ${data.relevanceForWealthClients ? `
+        <div class="cinfo-section">
+          <div class="cinfo-label">Relevance for Private Banking</div>
+          <div class="cinfo-text" style="color:var(--green);">${data.relevanceForWealthClients}</div>
+        </div>` : ''}
+      `;
+    })
+    .catch(e => {
+      bodyEl.innerHTML = `<div style="color:var(--red); font-size:13px;">⚠ ${e.message}</div>`;
+    });
+}
+
+function closeCompanyInfo() {
+  document.getElementById('cinfo-overlay').classList.remove('open');
+}
+
+// Close on backdrop click
+document.addEventListener('click', e => {
+  const overlay = document.getElementById('cinfo-overlay');
+  if (overlay && e.target === overlay) closeCompanyInfo();
+});
 </script>
+
+<!-- Company Info Modal -->
+<div class="cinfo-overlay" id="cinfo-overlay">
+  <div class="cinfo-modal">
+    <div class="cinfo-header">
+      <div>
+        <div style="font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin-bottom:4px;">🧠 Company Brief — portfolioAgent</div>
+        <div class="cinfo-title" id="cinfo-company-title"></div>
+      </div>
+      <button class="cinfo-close" onclick="closeCompanyInfo()">✕</button>
+    </div>
+    <div class="cinfo-body" id="cinfo-body"></div>
+  </div>
+</div>
+
 </body>
 </html>
