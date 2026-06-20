@@ -1,0 +1,125 @@
+# Swap Resolver — Match Scoring & Combos
+
+## La idea
+
+En lugar de proponer un único sustituto por conflicto (1:1), el agente
+calcula un match score para cada candidato del CIO list basado en el perfil
+del cliente, y puede proponer combos (ej. 60% Novartis + 40% Pfizer) cuando
+hay más de un candidato fuerte.
+
+El RM ve el porqué de cada score, no un número mágico.
+
+---
+
+## Match score — dimensiones
+
+El score es compuesto, 0-100. Se calcula por candidato contra el DNA
+del cliente:
+
+| Dimensión                  | Fuente en DNA          | Peso |
+|----------------------------|------------------------|------|
+| CIO rating BUY             | cioRating              | 30%  |
+| Sector alignment           | values.preferredSectors | 25% |
+| ESG / values fit           | values.esgFocus        | 20%  |
+| Mandate compliance         | mismo subAssetClass    | 15%  |
+| RedLines clear             | values.avoidedSectors  | 10%  |
+
+**Hard filter**: si el candidato toca un `redLine` del cliente → score 0,
+no se propone, independientemente del resto.
+
+---
+
+## Schema nuevo
+
+Reemplaza la estructura 1:1 actual por propuestas con múltiples alternativas:
+
+```python
+class SwapAlternative(BaseModel):
+    isin: str
+    name: str
+    ticker: str
+    cio_rating: Literal["BUY", "HOLD", "SELL"]
+    cio_view: str
+    match_score: float           # 0-100
+    match_breakdown: dict        # dimensión → puntos obtenidos
+    allocation_pct: float        # en combo: % del CHF total; en single: 100
+
+class SwapProposal(BaseModel):
+    id: str
+    conflict_id: str
+    from_isin: str
+    from_name: str
+    from_current_chf: float
+    proposal_type: Literal["single", "combo"]
+    alternatives: list[SwapAlternative]   # ordenadas por match_score desc
+    mandate_compliant: bool
+    mandate_note: str
+    status: Literal["pending_rm_review", "approved", "rejected"]
+```
+
+---
+
+## Lógica de single vs combo
+
+1. Calcular score para todos los candidatos del CIO list con rating BUY o HOLD
+2. Filtrar los que pasan hard filters (redLines, mandate)
+3. Ordenar por score desc, tomar top 3
+4. **Si top 1 score ≥ 85** → proponer como single (suficientemente claro)
+5. **Si top 1 score < 85 y top 2 score > 65** → proponer combo
+6. Split del combo: proporcional a los scores
+   - Novartis 90, Pfizer 60 → 90/(90+60) = 60% Novartis, 40% Pfizer
+7. Incluir siempre las alternativas ordenadas aunque se proponga single —
+   el RM puede ver las otras opciones
+
+---
+
+## Ejemplo de output
+
+```
+SELL: Roche Holding AG  →  CHF 92,014
+
+OPTION A — Single
+  Novartis AG     match 90%   CHF 92,014
+  Breakdown: CIO BUY (+30) | Health Care preferred (+25) |
+             No ESG conflicts (+20) | Same sub-class (+15) | No redLines (+10)
+
+OPTION B — Combo
+  Novartis AG     match 90%   CHF 55,208  (60%)
+  Pfizer Inc      match 60%   CHF 36,806  (40%)
+  Breakdown Pfizer: CIO BUY (+30) | Health Care preferred (+25) |
+                    US exposure neutral (0) | Same sub-class (+15) | No redLines (+10)
+                    ESG data limited (-20)
+
+Other candidates considered: [lista con scores, descartados por qué]
+```
+
+---
+
+## Impacto en el resto del pipeline
+
+- **News Agent** — sin cambios, sigue detectando conflictos
+- **Swap Resolver** — aquí está todo el cambio
+- **Message Agent** — recibe `SwapProposal` en lugar de `SuggestedSwap`,
+  puede mencionar las opciones si `detailLevel: detailed`
+- **Dashboard** — necesita renderizar las dos opciones (A/B) y el breakdown
+
+---
+
+## Criterio de éxito
+
+Dado un conflicto con Roche para el cliente Huber:
+- Se propone Novartis con score 90% y breakdown visible
+- Se propone un combo Novartis/Pfizer si ambos superan el umbral
+- Ningún candidato que toque palm oil o supply-chain opaco aparece
+  (redLine de Huber)
+- El RM puede seleccionar Option A o Option B antes de aprobar
+
+---
+
+## Pendiente de desarrollar
+
+- Umbral de combo configurable (actualmente hardcoded en 85/65)
+- Propuestas de combo de 3 instrumentos (actualmente max 2)
+- Integración con portfolio weight — no proponer candidatos que ya
+  existen en el portfolio del cliente
+- Score decay si el CIO rating lleva más de 90 días sin actualizar

@@ -1,0 +1,123 @@
+# Message Agent — RM Copilot
+
+## La idea
+
+El message agent no solo genera borradores — actúa como copilot en tiempo
+real mientras el RM redacta. Si el RM ya tiene un borrador, el agente sugiere
+mejoras concretas ancladas al DNA del cliente. Si no tiene nada, genera el
+mensaje completo desde cero.
+
+El resultado se siente escrito por el RM, no por un banco.
+
+---
+
+## Dos modos
+
+**Modo draft** — el RM no ha escrito nada.
+El agente genera el mensaje completo basándose en el DNA + el contexto
+de la acción (swap sugerido, conflicto detectado, etc.)
+
+**Modo copilot** — el RM tiene un borrador.
+El agente no lo reemplaza. Devuelve sugerencias inline con el motivo
+de cada cambio referenciando el DNA ("este párrafo es demasiado técnico
+para Huber, que prefiere resúmenes ejecutivos").
+
+---
+
+## Lo que necesita el DNA — campos nuevos
+
+El DNA actual captura valores e inversiones pero no personalidad.
+Añadir dos bloques nuevos al schema:
+
+```json
+"personalProfile": {
+  "interests": ["sustainable farming", "fly fishing"],
+  "quirks": ["always orders Coca-Cola Zero", "reads FT print edition"],
+  "rapportTriggers": ["Atlantic Forest project", "children's education"],
+  "avoidTopics": ["competitor banks", "political opinions"]
+},
+"communicationStyle": {
+  "language": "en",
+  "tone": "formal",
+  "preferred": "values-led",
+  "formatPreference": "bullet points with concise impact metrics",
+  "directness": "direct",
+  "detailLevel": "summary",
+  "openingStyle": "personal"
+}
+```
+
+**directness**: `direct` (conclusión primero) | `contextual` (contexto primero)
+**detailLevel**: `summary` (≤100 palabras) | `detailed` (explica el porqué)
+**openingStyle**: `personal` (usa rapportTriggers) | `professional` (directo al tema)
+
+Estos datos ya están en los logs del CRM — el CRM agent solo tiene que
+extraerlos. Añadir al prompt del CRM agent las instrucciones correspondientes.
+
+---
+
+## Output del agente
+
+```json
+{
+  "subject": "subject line del mensaje",
+  "message": "mensaje completo listo para enviar",
+  "tone_notes": "por qué se tomaron estas decisiones de tono (para el RM)",
+  "suggested_edits": [
+    {
+      "original": "frase del borrador del RM",
+      "suggestion": "versión mejorada",
+      "reason": "referencia al campo del DNA que lo justifica"
+    }
+  ]
+}
+```
+
+`suggested_edits` vacío si no hay borrador del RM.
+`tone_notes` siempre presente — el RM necesita entender el porqué,
+no solo recibir el output.
+
+---
+
+## Reglas clave del prompt
+
+- Escribir siempre en `communicationStyle.language`
+- Si `tone: formal` + alemán → usar Sie, nunca du
+- Si `openingStyle: personal` → usar un `rapportTrigger` de forma natural,
+  nunca forzada, nunca más de uno
+- Si `detailLevel: summary` → cuerpo del mensaje ≤ 100 palabras
+- `keyQuotes` del DNA son las propias palabras del cliente — ecos de su
+  lenguaje en el mensaje señalan que el RM realmente escucha
+- `redLines` deben conectarse explícitamente cuando se flagea una posición
+- Nunca inventar datos financieros — solo usar lo que viene en el contexto
+- El mensaje nunca puede sonar generado por IA ni por un banco
+
+---
+
+## Inputs que recibe el agente
+
+- `client_dna` — JSON completo del DNA
+- `action_context` — posición flaggeada, tipo de conflicto, swap sugerido,
+  rating CIO, datos de precio si relevantes, urgencia
+- `rm_draft` — borrador del RM (opcional)
+
+---
+
+## Criterio de éxito
+
+Dado el DNA de Huber y un conflicto con Roche por supply-chain de palm oil,
+el mensaje generado:
+- Está en inglés, tono formal, estructura directa
+- Abre con una referencia al Atlantic Forest project (rapportTrigger)
+- Conecta el conflicto a su redLine exacta ("companies that treat nature
+  as a free resource")
+- Propone el swap en ≤ 3 frases
+- El RM lee el output y dice "esto lo podría haber escrito yo"
+
+---
+
+## Pendiente de desarrollar
+
+- Integración con el dashboard: botón "Improve my draft" vs "Generate draft"
+- Historial de mensajes enviados para evitar repetir rapportTriggers
+- Aprobación del RM antes de enviar (ya existe en el flow actual)
