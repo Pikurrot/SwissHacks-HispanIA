@@ -79,6 +79,11 @@ The existing DNA JSON is accepted. The caller supplies `client_id` and `client_n
 
 ### News Agent
 
+The adapter accepts the current News Agent shape using either `alerts` or
+`analysis`. If a news item has only a URL, the publisher is derived from the
+URL domain. With CRM + News but no Portfolio output, the pipeline returns
+`waiting_for_inputs` and does not call the LLM.
+
 ```json
 {
   "client_id": "schneider",
@@ -113,8 +118,8 @@ The existing DNA JSON is accepted. The caller supplies `client_id` and `client_n
 ## Result statuses
 
 - `waiting_for_inputs`: News or Portfolio facts are missing.
+- `no_message_recommended`: Portfolio Agent rejected the candidate; the LLM is not called.
 - `ready_for_rm_review`: drafts passed deterministic checks.
 - `needs_rm_attention`: drafts exist but compliance checks found warnings.
 - `invalid_input`: cross-client mismatch or missing identity.
 - `generation_failed`: LLM request or output-format failure.
-

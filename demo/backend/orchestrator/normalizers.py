@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from typing import Any
+from urllib.parse import urlparse
 
 
 def first(data: Mapping[str, Any], *keys: str, default: Any = None) -> Any:
@@ -98,7 +99,7 @@ def _news_candidates(raw: Any) -> list[Mapping[str, Any]]:
         return [item for item in data if isinstance(item, Mapping)]
     if not isinstance(data, Mapping):
         return []
-    for key in ("alerts", "articles", "events", "news"):
+    for key in ("alerts", "analysis", "articles", "events", "news"):
         value = data.get(key)
         if isinstance(value, list):
             return [item for item in value if isinstance(item, Mapping)]
@@ -112,8 +113,18 @@ def _news_rank(item: Mapping[str, Any]) -> tuple[float, int, int]:
     relevance = float(first(item, "relevance_score", "relevanceScore", default=0.0) or 0.0)
     severity_name = str(first(item, "severity", default="medium")).lower()
     severity = {"critical": 4, "high": 3, "medium": 2, "low": 1}.get(severity_name, 2)
+    alert_type = str(first(item, "alert_type", "alertType", default="market")).lower()
+    actionability = {
+        "conflict": 4,
+        "mandate_conflict": 4,
+        "opportunity": 3,
+        "market": 1,
+    }.get(alert_type, 1)
+    assessment = str(first(item, "portfolio_impact", "portfolioImpact", default="")).lower()
+    if any(term in assessment for term in ("direct match", "red-line", "red line", "parkinson", "core priorities")):
+        relevance += 0.25
     affected = first(item, "affected_isins", "affectedISINs", default=[]) or []
-    return relevance, severity, 1 if affected else 0
+    return relevance, actionability + severity, 1 if affected else 0
 
 
 def normalize_news(raw: Any) -> dict[str, Any] | None:
@@ -131,6 +142,10 @@ def normalize_news(raw: Any) -> dict[str, Any] | None:
     sources = first(selected, "sources", default=[]) or []
     if not sources and source_name:
         sources = [{"publisher": source_name, "url": first(selected, "url", default=source_url)}]
+    if not sources and first(selected, "url", default=""):
+        url = str(first(selected, "url"))
+        domain = urlparse(url).netloc.removeprefix("www.") or "Unknown publisher"
+        sources = [{"publisher": domain, "url": url}]
 
     return {
         "event_id": str(first(selected, "id", "event_id", "eventId", default="")),
@@ -201,6 +216,32 @@ def normalize_portfolio(raw: Any, news: dict[str, Any] | None) -> dict[str, Any]
                     "match_score": first(item, "match_score", "matchScore", default=None),
                 })
 
+    # Current Python Portfolio Agent output: one Spanish-keyed BUY candidate.
+    is_spanish_candidate = bool(
+        first(selected, "Issuer", default="")
+        and first(selected, "ISIN", default="")
+        and first(selected, "Asignacion_Recomendada_CHF", default=None) is not None
+    )
+    alignment_pct = first(
+        selected,
+        "Confianza_Alineacion_DNA_Porcentaje",
+        "dna_alignment_confidence_pct",
+        default=None,
+    )
+    if is_spanish_candidate and not alternatives:
+        alternatives.append({
+            "name": first(selected, "Issuer", default=""),
+            "isin": first(selected, "ISIN", default=""),
+            "cio_rating": first(selected, "Rating", default=""),
+            "cio_view": first(selected, "Explicacion_DNA", default=""),
+            "allocation_pct": 100,
+            "match_score": alignment_pct,
+            "recommended_chf": first(selected, "Asignacion_Recomendada_CHF", default=None),
+            "current_price": first(selected, "Precio_Actual_SIX", default=None),
+            "currency": first(selected, "Moneda_SIX", default=""),
+            "quantity": first(selected, "Cantidad_Acciones", default=None),
+        })
+
     direct_to_name = first(selected, "to_name", "toName", default="")
     if direct_to_name and not alternatives:
         alternatives.append({
@@ -221,32 +262,70 @@ def normalize_portfolio(raw: Any, news: dict[str, Any] | None) -> dict[str, Any]
             "match_score": first(replacement, "match_score", "matchScore", default=None),
         })
 
+    if is_spanish_candidate:
+        alignment_value = float(alignment_pct or 0.0)
+        inferred_action = "consider_buy" if alignment_value >= 50.0 else "do_not_recommend"
+        inferred_after_valid = alignment_value >= 50.0
+    else:
+        inferred_action = "review"
+        inferred_after_valid = None
+
     return {
+        "event_id": first(selected, "event_id", "eventId", "news_event_id", "newsEventId", default=""),
         "mandate": first(selected, "mandate", default=""),
         "holding": {
-            "name": first(holding, "name", "issuer", default=first(selected, "from_name", "fromName", default="")),
-            "isin": first(holding, "isin", "ISIN", default=first(selected, "from_isin", "fromISIN", default="")),
+            "name": first(
+                holding, "name", "issuer",
+                default=first(selected, "from_name", "fromName", "Issuer", default=""),
+            ),
+            "isin": first(
+                holding, "isin", "ISIN",
+                default=first(selected, "from_isin", "fromISIN", "ISIN", default=""),
+            ),
             "current_chf": first(
                 holding, "current_chf", "currentCHF",
-                default=first(selected, "from_current_chf", "fromCurrentCHF", "trade_chf", "tradeCHF", default=None),
+                default=first(
+                    selected,
+                    "from_current_chf", "fromCurrentCHF", "trade_chf", "tradeCHF",
+                    "Posicion_Actual_CHF",
+                    default=None,
+                ),
             ),
             "portfolio_weight_pct": first(holding, "portfolio_weight_pct", "portfolioWeightPct", "portfolioWeight", default=None),
         },
-        "recommended_action": str(first(selected, "recommended_action", "recommendedAction", "action", default="review")),
-        "rationale": str(first(selected, "rationale", "explanation", "mandate_note", "mandateNote", default="")),
+        "recommended_action": str(first(
+            selected, "recommended_action", "recommendedAction", "action", default=inferred_action
+        )),
+        "rationale": str(first(
+            selected,
+            "rationale", "explanation", "mandate_note", "mandateNote", "Explicacion_DNA",
+            default="",
+        )),
         "urgency": str(first(selected, "urgency", "priority", default="medium")),
-        "trade_chf": first(selected, "trade_chf", "tradeCHF", "from_current_chf", "fromCurrentCHF", default=None),
-        "cio_rating": str(first(selected, "cio_rating", "cioRating", default="")),
+        "trade_chf": first(
+            selected,
+            "trade_chf", "tradeCHF", "from_current_chf", "fromCurrentCHF",
+            "Asignacion_Recomendada_CHF", "Cuanto_Compramos_CHF",
+            default=None,
+        ),
+        "cio_rating": str(first(
+            selected,
+            "current_cio_rating", "currentCioRating", "from_cio_rating", "fromCioRating",
+            default="",
+        )),
         "alternatives": alternatives,
         "mandate_check": {
             "before_valid": first(mandate_check, "before_valid", "beforeValid", default=None),
             "after_valid": first(
                 mandate_check, "after_valid", "afterValid",
-                default=first(selected, "mandate_compliant", "mandateCompliant", default=None),
+                default=first(
+                    selected, "mandate_compliant", "mandateCompliant", default=inferred_after_valid
+                ),
             ),
             "drift_after_pp": first(mandate_check, "drift_after_pp", "driftAfterPp", "driftAfter", default=None),
             "note": first(mandate_check, "note", default=first(selected, "mandate_note", "mandateNote", default="")),
         },
+        "dna_alignment_confidence_pct": alignment_pct,
     }
 
 

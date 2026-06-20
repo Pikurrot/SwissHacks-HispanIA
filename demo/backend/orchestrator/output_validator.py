@@ -113,12 +113,16 @@ def validate_output(
         "guaranteed return", "will definitely", "trade has been placed",
         "we have executed", "order has been executed",
     )
+    internal_labels = ("safe_reason", "client_id", "event_id", "mandate_check")
     sensitive_lower = [str(term).lower() for term in sensitive_terms]
     for draft in drafts:
         lower = draft.message.lower()
         for phrase in forbidden_phrases:
             if phrase in lower:
                 flags.append(f"Prohibited certainty or execution phrase: '{phrase}'")
+        for label in internal_labels:
+            if label in lower:
+                flags.append(f"Internal schema label exposed in draft: '{label}'")
         for term in sensitive_lower:
             if term and re.search(rf"\b{re.escape(term)}\b", lower):
                 flags.append(f"Sensitive CRM term exposed in draft: '{term}'")

@@ -33,6 +33,24 @@ class MessageOrchestrator:
                 missing_inputs=prepared.missing_inputs,
             )
 
+        action = str(prepared.context.get("recommendation", {}).get("action") or "").lower()
+        if action in {"do_not_recommend", "no_action", "ignore"}:
+            return OrchestrationResult(
+                status=PipelineStatus.NO_MESSAGE_RECOMMENDED,
+                client_id=request.client_id,
+                run_id=request.run_id,
+                internal_summary=(
+                    "Portfolio Agent did not recommend a client action; no client-facing draft was generated."
+                ),
+                used_facts=[
+                    str(prepared.context.get("recommendation", {}).get("rationale") or "")
+                ],
+                confidence=float(
+                    prepared.context.get("recommendation", {}).get("dna_alignment_confidence_pct") or 0.0
+                ) / 100.0,
+                prepared_context=prepared.context,
+            )
+
         try:
             raw = self.llm_client.complete(prepared.system_prompt, prepared.user_prompt)
             parsed = parse_json_response(raw)
@@ -74,4 +92,3 @@ class MessageOrchestrator:
             confidence=confidence,
             prepared_context=prepared.context,
         )
-

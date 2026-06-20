@@ -13,6 +13,7 @@ from typing import Any, Mapping
 
 class PipelineStatus(str, Enum):
     WAITING_FOR_INPUTS = "waiting_for_inputs"
+    NO_MESSAGE_RECOMMENDED = "no_message_recommended"
     READY_FOR_RM_REVIEW = "ready_for_rm_review"
     NEEDS_RM_ATTENTION = "needs_rm_attention"
     INVALID_INPUT = "invalid_input"
@@ -95,4 +96,3 @@ class PreparedPrompt:
     context: dict[str, Any]
     sensitive_terms: list[str]
     missing_inputs: list[str] = field(default_factory=list)
-

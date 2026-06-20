@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from typing import Any
+import re
 
 from .contracts import OrchestrationRequest, PreparedPrompt
 from .errors import InputValidationError
@@ -56,11 +57,45 @@ def _missing_context(news: dict[str, Any] | None, portfolio: dict[str, Any] | No
     return missing
 
 
+def _name_tokens(value: str) -> set[str]:
+    stop = {"the", "and", "plc", "inc", "ag", "sa", "ltd", "holding", "company", "sector"}
+    return {
+        token for token in re.findall(r"[a-z0-9]+", value.lower())
+        if len(token) >= 4 and token not in stop
+    }
+
+
+def _portfolio_is_linked_to_news(news: dict[str, Any], portfolio: dict[str, Any]) -> bool:
+    if portfolio.get("event_id") and portfolio["event_id"] == news.get("event_id"):
+        return True
+    portfolio_isins = {
+        str(portfolio.get("holding", {}).get("isin") or ""),
+        *{str(item.get("isin") or "") for item in portfolio.get("alternatives", [])},
+    } - {""}
+    affected_isins = {str(value) for value in news.get("affected_isins", []) if value}
+    if affected_isins:
+        return bool(portfolio_isins.intersection(affected_isins))
+
+    news_tokens = _name_tokens(f"{news.get('company', '')} {news.get('headline', '')}")
+    portfolio_tokens = _name_tokens(
+        " ".join(
+            [str(portfolio.get("holding", {}).get("name") or "")]
+            + [str(item.get("name") or "") for item in portfolio.get("alternatives", [])]
+        )
+    )
+    return bool(news_tokens.intersection(portfolio_tokens))
+
+
 def prepare_prompt(request: OrchestrationRequest) -> PreparedPrompt:
     _validate_identity(request)
     crm = normalize_crm(request.crm_output, request.client_id, request.client_name)
     news = normalize_news(request.news_output)
     portfolio = normalize_portfolio(request.portfolio_output, news)
+    if news and portfolio and not _portfolio_is_linked_to_news(news, portfolio):
+        raise InputValidationError(
+            "News and Portfolio outputs are not linked: provide a matching affected ISIN, "
+            "company name, or the same event_id in both outputs"
+        )
     missing = _missing_context(news, portfolio)
     if not request.crm_output:
         missing.insert(0, "crm_output")
@@ -89,6 +124,7 @@ def prepare_prompt(request: OrchestrationRequest) -> PreparedPrompt:
             "urgency": portfolio.get("urgency"),
             "trade_chf": portfolio.get("trade_chf"),
             "current_cio_rating": portfolio.get("cio_rating"),
+            "dna_alignment_confidence_pct": portfolio.get("dna_alignment_confidence_pct"),
             "alternatives": portfolio.get("alternatives"),
             "mandate_check": portfolio.get("mandate_check"),
         },

@@ -18,6 +18,7 @@ NON-NEGOTIABLE RULES:
 7. Follow the requested language, tone, style, and format.
 8. Return pure JSON only, with no Markdown fences.
 9. If news_event.is_mock is true, label it as demo-only in the internal summary and compliance_flags.
+10. Never expose JSON field names or internal labels such as safe_reason, client_id, event_id, or mandate_check in a client-facing draft.
 
 Return exactly this structure:
 {
