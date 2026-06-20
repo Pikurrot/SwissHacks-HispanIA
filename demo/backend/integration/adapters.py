@@ -284,15 +284,20 @@ class LegacyPortfolioAgentAdapter:
         dna_threshold_pct: float = 50.0,
     ) -> dict[str, Any]:
         module = _load_agent_module("portfolioAgent")
-        candidate = module.get_swap_candidates(
+        portfolio_result = module.get_swap_candidates(
             str(Path(excel_path).resolve()),
             portfolio_sheet,
             str(holding.get("name") or holding.get("isin") or ""),
             dict(dna),
         )
-        if not isinstance(candidate, dict) or candidate.get("error"):
-            detail = candidate.get("error") if isinstance(candidate, dict) else "invalid output"
+        if not isinstance(portfolio_result, dict) or portfolio_result.get("error"):
+            detail = portfolio_result.get("error") if isinstance(portfolio_result, dict) else "invalid output"
             raise IntegrationError(f"Portfolio Agent could not find an alternative: {detail}")
+        # Support both teammate versions: an older direct candidate object and
+        # the newer {sell_asset, top_candidate, alternatives} response.
+        candidate = portfolio_result.get("top_candidate", portfolio_result)
+        if not isinstance(candidate, dict) or not candidate.get("Issuer"):
+            raise IntegrationError("Portfolio Agent returned no usable top candidate")
 
         alignment = float(
             candidate.get("Afinidad_DNA_Porcentaje")

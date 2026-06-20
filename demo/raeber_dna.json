@@ -1,15 +1,17 @@
 {
   "values": {
     "priorities": [
-      "Capital preservation and steady cash flow",
-      "Multi‑generational wealth transfer and legacy",
-      "Predictable global dividend income",
-      "Low‑volatility, high‑quality assets"
+      "Capital preservation",
+      "Predictable dividend income",
+      "Wealth stewardship for future generations",
+      "Low‑volatility, defensive asset mix",
+      "Liquidity for planned family expenses"
     ],
     "redLines": [
-      "No exposure to high‑beta speculative asset classes",
-      "Avoid US software, AI and mega‑cap technology stocks",
-      "No aggressive strategy shifts or volatile growth equities"
+      "No high‑beta speculative asset classes",
+      "Do not invest in speculative US software/technology stocks",
+      "Avoid aggressive strategy shifts or volatile growth equities",
+      "Do not touch a running (already successful) system"
     ],
     "preferredSectors": [
       "Consumer Staples (e.g., Nestlé, Procter & Gamble, Walmart, Costco)",
@@ -19,67 +21,67 @@
       "High‑grade sovereign bonds (G7 ladder)"
     ],
     "avoidedSectors": [
-      "US speculative software and cloud technology",
-      "Artificial intelligence and high‑growth tech",
-      "Any high‑beta, volatile growth equities"
+      "Speculative US software and AI/tech mega‑caps",
+      "High‑beta growth equities",
+      "Abstract software and cloud‑only businesses"
     ],
     "esgFocus": []
   },
   "investmentBehavior": {
     "riskTolerance": "conservative",
-    "timeHorizon": "Long‑term, multi‑generational focus on preserving wealth for grandchildren",
-    "liquidity": "Low overall; occasional planned withdrawals for family projects and foundation cash‑flow needs",
-    "mandate": "Conservative Global Defensive Value Mandate"
+    "timeHorizon": "Multi‑generational, focused on preserving wealth for grandchildren and the family foundation.",
+    "liquidity": "Low immediate liquidity needs; cash drawn only for pre‑planned expenses (e.g., home renovation, bond coupon sweeps).",
+    "mandate": "Conservative Defensive Global Equity & High‑Grade Fixed Income Mandate"
   },
   "lifeEvents": [
     {
       "date": "2023-07-04",
       "type": "family",
-      "description": "CHF 150,000 withdrawn for a structural renovation of the holiday home in Flims.",
-      "portfolioImpact": "Liquidity need met from cash accounts; core equity positions left untouched."
+      "description": "CHF 150,000 withdrawn from cash accounts for a structural renovation of the holiday home in Flims.",
+      "portfolioImpact": "Liquidity requirement met via cash accounts, core equity positions left untouched."
     },
     {
       "date": "2023-10-05",
-      "type": "succession",
-      "description": "Succession planning discussion; client requested a strict flag to block high‑beta speculative assets.",
-      "portfolioImpact": "Reinforced defensive stance and added explicit exclusion rules."
+      "type": "succession_planning",
+      "description": "Discussion on succession; client requested a strict flag to block any high‑beta speculative asset classes.",
+      "portfolioImpact": "Reinforced defensive bias and added explicit exclusion rules."
     },
     {
       "date": "2025-02-27",
       "type": "family",
-      "description": "Opened a minor savings account for the oldest grandson to teach traditional saving virtues.",
-      "portfolioImpact": "Emphasised long‑term, low‑risk saving habits for the next generation."
+      "description": "Opened a minor savings account for the oldest grandson, emphasizing traditional saving virtues and avoidance of speculative trading apps.",
+      "portfolioImpact": "Further cemented the family’s conservative saving culture."
     },
     {
       "date": "2025-07-08",
       "type": "business",
-      "description": "Account handover initiated due to Thomas Keller’s early retirement.",
-      "portfolioImpact": "Ensured continuity of the global defensive allocation under a new relationship manager."
+      "description": "Account handover protocol initiated due to Thomas Keller’s early retirement.",
+      "portfolioImpact": "Ensured continuity of the defensive allocation under a new relationship manager."
     },
     {
       "date": "2025-12-11",
       "type": "business",
-      "description": "Official reassignment of the account to RM Sarah Meier.",
-      "portfolioImpact": "Maintained the existing conservative mandate with a new point of contact."
+      "description": "Formal reassignment of the account to new RM Sarah Meier.",
+      "portfolioImpact": "Maintained the established conservative mandate without disruption."
     },
     {
       "date": "2026-05-12",
       "type": "philanthropy",
       "description": "Requested all upcoming June bond coupons be swept to the family foundation.",
-      "portfolioImpact": "Fixed‑income cash flows directed to charitable activities, confirming income‑generation priority."
+      "portfolioImpact": "Aligns fixed‑income cash flow with philanthropic objectives."
     }
   ],
   "personalProfile": {
-    "interests": "",
-    "quirks": "",
-    "rapportTriggers": "",
-    "avoidTopics": ""
+    "interests": "Traditional wealth stewardship, family legacy, sustainable farming, fly fishing",
+    "quirks": "Prefers formal, reserved communication; values quiet, predictable performance; avoids speculative trading apps",
+    "rapportTriggers": "Discussion of global dividend streams, Swiss stability, performance of consumer staple holdings",
+    "avoidTopics": "Speculative tech stocks, competitor banks, rival sports teams"
   },
   "communicationStyle": {
     "language": "de",
     "tone": "formal",
     "preferred": "values-led",
-    "formatPreference": "bullet points",
+    "formatPreference": "bullet points and concise tables",
     "directness": "direct",
     "detailLevel": "summary",
     "openingStyle": "professional"
@@ -89,15 +91,17 @@
     "\"I want to sleep at night, not speculate on Silicon Valley cloud bubbles.\"",
     "\"These abstract software and AI firms are valued on pure hype. It feels like the dot‑com crash of 2000 all over again.\"",
     "\"We expect the same quiet, global defensive value approach that Thomas Keller provided. No aggressive strategy shifts.\"",
-    "\"quiet, predictable, and boring\" defensive performance."
+    "\"quiet, predictable, and boring\" defensive performance"
   ],
-  "confidence": 0.93,
+  "confidence": 0.96,
   "sourcedFrom": [
     1,
+    2,
     3,
     5,
     6,
     8,
+    15,
     16
   ]
 }

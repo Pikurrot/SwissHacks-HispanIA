@@ -5,8 +5,12 @@ import json
 # --- INYECCIÓN AGRESIVA DE RUTA ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, current_dir)
+repo_root = os.path.dirname(current_dir)
+sys.path.insert(0, repo_root)
 
 from fastapi import FastAPI
+from fastapi import HTTPException
+from fastapi.concurrency import run_in_threadpool
 from fastapi.responses import FileResponse 
 import uvicorn
 import pandas as pd
@@ -15,12 +19,25 @@ from backend.agents.crmAgent import extract_and_save_dna
 from backend.agents.newsAgent import compile_news_feed
 from backend.agents.portfolioAgent import get_swap_candidates
 from backend.agents.six_api_client import get_asset_price_info
+from demo.backend.integration import (
+    AgentIntegrationPipeline,
+    AgentPipelineRequest,
+    LegacyPortfolioAgentAdapter,
+)
+from demo.backend.orchestrator import PhoeniqsLLMClient
 
 CLIENT_NAMES = {
     "schneider": "Schneider",
     "raeber": "Raeber",
     "huber": "Huber",
     "ammann": "Ammann"
+}
+
+CLIENT_FULL_NAMES = {
+    "schneider": "Hubertus Schneider",
+    "raeber": "Eugen Räber",
+    "huber": "Marius Huber",
+    "ammann": "Julian Ammann",
 }
 
 PORTFOLIO_SHEETS = {
@@ -38,6 +55,22 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+class _CachedCRMProvider:
+    def __init__(self, dna: dict):
+        self.dna = dna
+
+    def extract(self, excel_path: str, client_id: str, client_name: str) -> dict:
+        return self.dna
+
+
+class _CachedNewsProvider:
+    def __init__(self, news: dict):
+        self.news = news
+
+    def fetch(self, client_id: str, dna: dict) -> dict:
+        return {"client_id": client_id, "analysis": self.news.get("analysis", [])}
 
 @app.get("/")
 async def read_root():
@@ -126,6 +159,53 @@ async def analyze_portfolio(client_id: str, sell_asset: str = "Apple"):
     # Usamos el parámetro sell_asset que viene del frontend
     result = get_swap_candidates(excel_path, "Sample Portfolio Balanced", sell_asset, dna)
     return result
+
+
+@app.post("/api/message/generate/{client_id}")
+async def generate_client_message(
+    client_id: str,
+    dna_threshold: float = 50.0,
+    language: str = "en",
+):
+    """Generate the real messageAgent draft from cached CRM and News outputs."""
+    if client_id not in CLIENT_NAMES:
+        raise HTTPException(status_code=404, detail="Client ID not recognized")
+
+    dna_path = os.path.join(current_dir, f"{client_id.lower()}_dna.json")
+    news_path = os.path.join(current_dir, f"{client_id.lower()}_analyzed_news.json")
+    try:
+        with open(dna_path, "r", encoding="utf-8") as handle:
+            dna = json.load(handle)
+        with open(news_path, "r", encoding="utf-8") as handle:
+            news = json.load(handle)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=409,
+            detail="Run CRM and News analysis before generating the message",
+        ) from exc
+
+    try:
+        pipeline = AgentIntegrationPipeline(
+            _CachedCRMProvider(dna),
+            _CachedNewsProvider(news),
+            LegacyPortfolioAgentAdapter(),
+            PhoeniqsLLMClient(),
+        )
+        request = AgentPipelineRequest(
+            client_id=client_id,
+            client_name=CLIENT_FULL_NAMES[client_id],
+            crm_excel_path=os.path.join(repo_root, "data", "SwissHacks CRM.xlsx"),
+            portfolio_excel_path=os.path.join(repo_root, "data", "SwissHacks Portfolio Construction.xlsx"),
+            portfolio_sheet=PORTFOLIO_SHEETS[client_id],
+            relationship_manager_name="Sarah Meier",
+            run_id=f"dashboard-{client_id}",
+            language=language,
+            dna_threshold_pct=dna_threshold,
+        )
+        result = await run_in_threadpool(pipeline.run, request)
+        return result.compact_dict()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 @app.post("/api/analyze/{client_id}")
 async def analyze_client(client_id: str):

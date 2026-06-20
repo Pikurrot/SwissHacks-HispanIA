@@ -249,6 +249,12 @@ body {
   overflow-y: auto;
   color: #cbd5e1;
 }
+.msg-body[contenteditable="true"] {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+  background: rgba(59,130,246,0.06);
+  cursor: text;
+}
 .msg-actions {
   display: flex; gap: 8px;
   padding: 10px 14px;
@@ -411,6 +417,58 @@ function getVal(obj, path, fallback = '<span class="missing-data">[AWAITING AGEN
     return val !== undefined ? val : fallback;
 }
 
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+function cleanDraftText(value) {
+  return String(value ?? '')
+    .replace(/\*\*/g, '')
+    .replace(/__/g, '')
+    .replace(/^\s*#{1,6}\s+/gm, '')
+    .trim();
+}
+
+function updateDraftStatus(label, color = 'var(--accent)') {
+  const badge = document.getElementById('message-status-badge');
+  if (!badge) return;
+  badge.textContent = `Status: ${label}`;
+  badge.style.color = color;
+}
+
+function approveAndSendDraft() {
+  updateDraftStatus('Approved — Send Pending', 'var(--green)');
+  alert('Draft approved. No external messaging service is connected yet, so no client message was sent.');
+}
+
+function rejectDraft() {
+  updateDraftStatus('Rejected', 'var(--red)');
+  const body = document.getElementById('advisory-draft-body');
+  if (body) body.style.opacity = '0.55';
+}
+
+function toggleEditDraft(button) {
+  const body = document.getElementById('advisory-draft-body');
+  if (!body) return;
+  const isEditing = body.getAttribute('contenteditable') === 'true';
+  if (isEditing) {
+    body.setAttribute('contenteditable', 'false');
+    button.textContent = '✎ Edit Draft';
+    updateDraftStatus('Edited — Pending Approval', 'var(--gold)');
+  } else {
+    body.style.opacity = '1';
+    body.setAttribute('contenteditable', 'true');
+    body.focus();
+    button.textContent = '💾 Save Changes';
+    updateDraftStatus('Editing', 'var(--gold)');
+  }
+}
+
 function renderSidebar() {
   const el = document.getElementById('client-list');
   el.innerHTML = CLIENTS_DATA.map(c => `
@@ -503,7 +561,27 @@ async function runAnalysis() {
       result._triggerNews = conflictNewsByCompany[company] || null;
     }
 
-    renderDashboard(dnaData, newsData.analysis || [], swapResults);
+    // Generate the real messageAgent draft from the CRM, News and Portfolio pipeline.
+    let messageData = {};
+    try {
+      const messageResponse = await fetch(
+        `${API}/api/message/generate/${activeClientId}?language=en&dna_threshold=50`,
+        { method: 'POST' }
+      );
+      if (messageResponse.ok) {
+        messageData = await messageResponse.json();
+      } else {
+        const errorPayload = await messageResponse.json().catch(() => ({}));
+        messageData = {
+          status: 'failed',
+          errors: [errorPayload.detail || 'messageAgent request failed']
+        };
+      }
+    } catch (messageError) {
+      messageData = { status: 'failed', errors: [messageError.message] };
+    }
+
+    renderDashboard(dnaData, newsData.analysis || [], swapResults, messageData);
 
   } catch(e) {
     document.getElementById('content').innerHTML = `
@@ -714,7 +792,7 @@ function renderConflictCards(swapResults) {
   return cardHtml + errorHtml;
 }
 
-function renderDashboard(dna, newsAlerts, swapResults) {
+function renderDashboard(dna, newsAlerts, swapResults, messageData = {}) {
   const conflictCount = (swapResults || []).filter(r => !r.error).length;
   const safeDna = dna.values ? dna : { 
       values: { priorities: [], redLines: [], preferredSectors: [], esgFocus: [] }, 
@@ -723,7 +801,26 @@ function renderDashboard(dna, newsAlerts, swapResults) {
   
   const conflictAlertsCount = newsAlerts.filter(a => a.alertType === 'conflict').length;
   const opportunityAlertsCount = newsAlerts.filter(a => a.alertType === 'opportunity').length;
-  const draft = dna.messageDraft || null;
+  const messageRuns = messageData.messages || [];
+  const messageRun = messageRuns.find(item => (item.drafts || []).length > 0) || messageRuns[0] || null;
+  const draft = messageRun && messageRun.drafts && messageRun.drafts.length > 0
+    ? messageRun.drafts[0]
+    : null;
+  const draftCount = messageRuns.reduce((count, item) => count + (item.drafts || []).length, 0);
+  const messageStatus = messageRun?.status || messageData.status || 'waiting';
+  const messageStatusLabel = messageStatus === 'ready_for_rm_review'
+    ? 'Ready for RM Review'
+    : messageStatus === 'needs_rm_attention'
+      ? 'Needs RM Attention'
+      : messageStatus === 'no_message_recommended'
+        ? 'Review Only'
+        : messageStatus === 'no_collision'
+          ? 'No Collision'
+          : messageStatus === 'failed'
+            ? 'Generation Failed'
+            : 'Waiting for Agent';
+  const messageErrors = messageData.errors || [];
+  const complianceFlags = messageRun?.compliance_flags || [];
 
   const html = `
     <div class="stats-strip">
@@ -756,7 +853,7 @@ function renderDashboard(dna, newsAlerts, swapResults) {
       </div>
       <div class="stat-card">
         <div class="stat-label">messageAgent Proposals</div>
-        <div class="stat-value" style="color:var(--accent)">${dna.proposals ? dna.proposals.length : '0'}</div>
+        <div class="stat-value" style="color:var(--accent)">${draftCount}</div>
         <div class="stat-sub">Pending RM validation</div>
       </div>
     </div>
@@ -894,20 +991,29 @@ function renderDashboard(dna, newsAlerts, swapResults) {
       <div class="card" style="margin-top:20px">
         <div class="card-header">
           <div class="card-title">messageAgent Automated Client Advisory Draft</div>
-          <span class="annotation">Status: ${draft ? 'Ready' : 'Waiting for Agent'}</span>
+          <span class="annotation" id="message-status-badge">Status: ${escapeHtml(messageStatusLabel)}</span>
         </div>
         <div class="msg-box">
           ${draft ? `
             <div class="msg-header">
-              <div class="msg-subject">Subject: ${draft.subject || 'Portfolio Update'}</div>
+              <div class="msg-subject">Subject: ${escapeHtml(cleanDraftText(draft.subject || 'Portfolio Update'))}</div>
             </div>
-            <div class="msg-body">${draft.content}</div>
+            <div class="msg-body" id="advisory-draft-body" contenteditable="false">${escapeHtml(cleanDraftText(draft.message || draft.content || ''))}</div>
+            ${complianceFlags.length > 0 ? `
+              <div style="padding:10px 14px; border-top:1px solid var(--border); color:var(--orange); font-size:11px;">
+                ⚠ ${complianceFlags.map(flag => escapeHtml(cleanDraftText(flag))).join('<br>⚠ ')}
+              </div>
+            ` : ''}
             <div class="msg-actions">
-              <button class="btn btn-green btn-sm" onclick="alert('Proposal sent.')">✓ Approve</button>
+              <button class="btn btn-green btn-sm" onclick="approveAndSendDraft()">✓ Approve &amp; Send</button>
+              <button class="btn btn-ghost btn-sm" onclick="toggleEditDraft(this)">✎ Edit Draft</button>
+              <button class="btn btn-red btn-sm" onclick="rejectDraft()">✕ Reject Draft</button>
             </div>
           ` : `
             <div class="msg-body" style="padding: 20px; color: var(--muted); font-style: italic;">
-              [messageAgent has not generated a draft yet.]
+              ${messageErrors.length > 0
+                ? `messageAgent error: ${messageErrors.map(escapeHtml).join('; ')}`
+                : escapeHtml(cleanDraftText(messageRun?.internal_summary || messageData.message || 'messageAgent has not generated a draft yet.'))}
             </div>
           `}
         </div>

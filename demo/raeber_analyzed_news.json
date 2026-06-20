@@ -10,104 +10,63 @@
       "affectedSectors": [
         "Technology"
       ],
-      "portfolio_impact": "The recommendation to shift from defensive consumer‑staples and healthcare exposure into US mega‑cap tech stocks directly violates the client’s red line against AI‑driven software equities and undermines the capital‑preservation focus."
+      "portfolio_impact": "The recommendation to shift from defensive value to US mega‑cap tech stocks directly violates the client's red line against speculative US technology exposure and undermines the low‑volatility, capital‑preservation focus."
     },
     {
       "id": "real-consumer_staples-0",
       "headline": "I'm 73 and living 100% off dividends from my stocks. How can I create even more income?",
       "url": "https://www.morningstar.com/news/marketwatch/20260620173/im-73-and-living-100-off-dividends-from-my-stocks-how-can-i-create-even-more-income",
       "alertType": "opportunity",
-      "company": "N/A",
+      "company": "General",
       "belief_alignment": "positive",
       "affectedSectors": [
-        "Consumer Staples",
-        "Healthcare"
+        "Consumer Staples"
       ],
-      "portfolio_impact": "The article reinforces a dividend‑centric, cash‑flow‑driven strategy that matches the client’s priority of steady income and multi‑generational wealth preservation."
+      "portfolio_impact": "The article reinforces the client’s priority of predictable dividend income and capital preservation, encouraging deeper allocation to dividend‑rich consumer‑staple equities."
+    },
+    {
+      "id": "real-industrial_manufacturing-4",
+      "headline": "Aerosol Propellants Market to Reach USD 13.95 Billion by 2030, Driven by Consumer and Medical Demand Through 2030",
+      "url": "https://www.barchart.com/story/news/2568363/aerosol-propellants-market-to-reach-usd-13-95-billion-by-2030-driven-by-consumer-and-medical-demand-through-2030",
+      "alertType": "opportunity",
+      "company": "Aerosol Propellants Market",
+      "belief_alignment": "positive",
+      "affectedSectors": [
+        "Industrial & Manufacturing"
+      ],
+      "portfolio_impact": "Projected steady growth (CAGR >5%) in the aerosol propellants market aligns with the client’s preference for defensive industrial exposure and offers a low‑volatility, income‑supporting opportunity."
     },
     {
       "id": "real-consumer_staples-1",
       "headline": "Building long-term resilience in the face of economic shocks: A guide for Zim investors in US markets",
       "url": "https://www.thestandard.co.zw/standard-people/article/200038050/building-long-term-resilience-in-the-face-of-economic-shocks-a-guide-for-zim-investors-in-us-markets",
       "alertType": "market",
-      "company": "N/A",
+      "company": "General",
       "belief_alignment": "neutral",
-      "affectedSectors": [
-        "General"
-      ],
-      "portfolio_impact": "The piece offers generic risk‑management guidance for Zimbabwean investors; it does not trigger strong emotional or belief‑based reactions for the client."
+      "affectedSectors": [],
+      "portfolio_impact": "The piece discusses resilience strategies for investors but does not reference specific companies or sectors, providing no direct emotional trigger for the client."
     },
     {
-      "id": "real-consumer_staples-2",
-      "headline": "When You Play Defense With Consumer Staples, Which ETF Should You Own? Funds From State Street and First Trust Offer a Stark Choice.",
-      "url": "https://www.nasdaq.com/articles/when-you-play-defense-consumer-staples-which-etf-should-you-own-funds-state-street-and",
+      "id": "real-industrial_manufacturing-0",
+      "headline": "PM's Beijing visit offers potential to triple exports to $3bn",
+      "url": "https://www.dhakatribune.com/business/413188/pm%E2%80%99s-beijing-visit-offers-potential-to-triple",
       "alertType": "opportunity",
-      "company": "State Street",
+      "company": "General",
       "belief_alignment": "positive",
-      "affectedSectors": [
-        "Consumer Staples"
-      ],
-      "portfolio_impact": "Highlighting low‑cost, low‑volatility consumer‑staples ETFs aligns with the client’s preference for high‑quality, dividend‑paying assets that support capital preservation."
-    },
-    {
-      "id": "real-consumer_staples-3",
-      "headline": "When You Play Defense With Consumer Staples, Which ETF Should You Own? Funds From State Street and First Trust Offer a Stark Choice.",
-      "url": "https://www.fool.com/coverage/etfs/2026/06/20/when-you-play-defense-with-consumer-staples-which-etf-should-you-own-funds-from-state-street-and-first-trust-offer-a-stark-choice/",
-      "alertType": "opportunity",
-      "company": "State Street",
-      "belief_alignment": "positive",
-      "affectedSectors": [
-        "Consumer Staples"
-      ],
-      "portfolio_impact": "The same comparison of defensive ETFs reinforces a safe, income‑focused allocation that dovetails with the client’s core priorities."
-    },
-    {
-      "id": "real-consumer_staples-4",
-      "headline": "When You Play Defense With Consumer Staples, Which ETF Should You Own? Funds From State Street and First Trust Offer a Stark Choice.",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/play-defense-consumer-staples-etf-163707718.html",
-      "alertType": "opportunity",
-      "company": "State Street",
-      "belief_alignment": "positive",
-      "affectedSectors": [
-        "Consumer Staples"
-      ],
-      "portfolio_impact": "Again, the focus on broad‑based consumer‑staples exposure supports the client’s desire for low‑volatility, dividend‑rich holdings."
-    },
-    {
-      "id": "real-industrial_manufacturing-3",
-      "headline": "Aerosol Propellants Market to Reach USD 13.95 Billion by 2030, Driven by Consumer and Medical Demand Through 2030",
-      "url": "https://www.barchart.com/story/news/2568363/aerosol-propellants-market-to-reach-usd-13-95-billion-by-2030-driven-by-consumer-and-medical-demand-through-2030",
-      "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
       "affectedSectors": [
         "Industrial & Manufacturing"
       ],
-      "portfolio_impact": "The market‑size report on aerosol propellants signals modest growth in an industrial niche but does not present a clear investment trigger for the client."
+      "portfolio_impact": "Potential tripling of exports to China suggests robust demand for industrial goods, supporting the client’s defensive industrial allocation without breaching any red lines."
     },
     {
-      "id": "real-healthcare-2",
-      "headline": "Should You Buy Abbott Labs Stock Hand Over Fist Before July 16?",
-      "url": "https://www.nasdaq.com/articles/should-you-buy-abbott-labs-stock-hand-over-fist-july-16",
+      "id": "real-healthcare-3",
+      "headline": "Brazil President Lula mocks Neymar's World Cup absence with 'Work-From-Home' jibe",
+      "url": "https://www.indiatoday.in/sports/football/story/brazil-president-lula-mocks-neymar-world-cup-absence-work-from-home-player-2930791-2026-06-21",
       "alertType": "market",
-      "company": "Abbott Laboratories",
+      "company": "Brazil Government",
       "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Healthcare"
-      ],
-      "portfolio_impact": "While Abbott is a solid healthcare name, the article’s focus on pre‑earnings speculation conflicts with the client’s aversion to aggressive timing and high‑beta moves."
-    },
-    {
-      "id": "real-industrial_manufacturing-2",
-      "headline": "Ahmedabad enters ₹1L crore export club in FY 2026 | Ahmedabad News",
-      "url": "https://timesofindia.indiatimes.com/city/ahmedabad/ahmedabad-enters-1l-crore-export-club-in-fy-2026/articleshow/131882377.cms",
-      "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Industrial & Manufacturing"
-      ],
-      "portfolio_impact": "The export milestone for Ahmedabad illustrates broader manufacturing strength but offers no direct investment implication for the client’s portfolio."
+      "affectedSectors": [],
+      "portfolio_impact": "A political anecdote about a football player has no relevance to the client’s investment priorities or red lines."
     }
   ]
 }
