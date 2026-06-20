@@ -1,0 +1,113 @@
+{
+  "analysis": [
+    {
+      "id": "mock-schneider-001",
+      "headline": "Roche Group announces immediate termination of its global neuro-degenerative and Central Nervous System (CNS) research pipeline.",
+      "url": "https://reuters.com/mock/roche-neuro-closure",
+      "alertType": "conflict",
+      "company": "Roche Holding AG",
+      "belief_alignment": "negative",
+      "affectedSectors": [
+        "Pharmaceuticals",
+        "Healthcare",
+        "Neuroscience R&D"
+      ],
+      "portfolio_impact": "Roche’s abrupt termination of its neuro‑degenerative pipeline directly contravenes the client’s red line against abandoning Parkinson’s research, weakening the defensive pharma core and likely prompting a divestment consideration."
+    },
+    {
+      "id": "real-large_pharmaceuticals-2",
+      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "alertType": "market",
+      "company": "Shield Therapeutics plc",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Specialty Pharmaceuticals",
+        "Healthcare"
+      ],
+      "portfolio_impact": "The article highlights Shield’s path to profitability without mentioning neuroscience or Parkinson’s work, so it neither supports nor conflicts with the client’s core values."
+    },
+    {
+      "id": "real-large_pharmaceuticals-3",
+      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+      "url": "https://ca.finance.yahoo.com/news/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "alertType": "market",
+      "company": "Shield Therapeutics plc",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Specialty Pharmaceuticals",
+        "Healthcare"
+      ],
+      "portfolio_impact": "Same as above – profitability focus without neuro‑degenerative relevance, resulting in a neutral impact on the client’s beliefs."
+    },
+    {
+      "id": "real-large_pharmaceuticals-4",
+      "headline": "Baron Health Care Fund Q1 2026 Shareholder Letter (BHCHX)",
+      "url": "https://seekingalpha.com/article/4909322-baron-health-care-fund-q1-2026-shareholder-letter",
+      "alertType": "market",
+      "company": "Baron Health Care Fund",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Healthcare Fund",
+        "Pharmaceuticals"
+      ],
+      "portfolio_impact": "The shareholder letter reports fund performance and mentions detractors but provides no specific insight on neuro‑degenerative research, so it is neutral for the client."
+    },
+    {
+      "id": "real-high_quality-0",
+      "headline": "Restoration vs. Preservation: Which Path Adds More Value?",
+      "url": "https://autos.yahoo.com/classic-and-collector/articles/restoration-vs-preservation-path-adds-194159599.html",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Collectibles",
+        "Automotive"
+      ],
+      "portfolio_impact": "The restoration vs. preservation debate for collector cars is unrelated to the client’s wealth preservation or health‑science priorities."
+    },
+    {
+      "id": "real-high_quality-1",
+      "headline": "Innodata vs. PAR Technology: Which Tech Specialist's Stock Is a Better Buy in 2026?",
+      "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/2568512/innodata-vs-par-technology-which-tech-specialist-s-stock-is-a-better-buy-in-2026/",
+      "alertType": "market",
+      "company": "Innodata vs PAR Technology",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Technology",
+        "Artificial Intelligence",
+        "Enterprise Software"
+      ],
+      "portfolio_impact": "A comparison of tech specialists has no bearing on the client’s focus on large‑cap pharma or neuroscience R&D, making it a neutral piece of news."
+    },
+    {
+      "id": "real-high_quality-2",
+      "headline": "Riyadh Daily",
+      "url": "https://www.alriyadhdaily.com/article/8b2c6bfcb5e24024908fa2147ba37e59",
+      "alertType": "market",
+      "company": "Riyadh Daily",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Environment",
+        "Water",
+        "Agriculture",
+        "Sustainability"
+      ],
+      "portfolio_impact": "Environmental and agricultural advances under Saudi Vision 2030 are outside the client’s core investment themes and do not trigger any belief‑based response."
+    },
+    {
+      "id": "real-high_quality-4",
+      "headline": "Innodata vs. PAR Technology: Which Tech Specialist's Stock Is a Better Buy in 2026?",
+      "url": "https://www.nasdaq.com/articles/innodata-vs-par-technology-which-tech-specialists-stock-better-buy-2026",
+      "alertType": "market",
+      "company": "Innodata vs PAR Technology",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Technology",
+        "Artificial Intelligence",
+        "Enterprise Software"
+      ],
+      "portfolio_impact": "Duplicate of the earlier tech comparison; it remains neutral with respect to the client’s neuro‑degenerative and pharma priorities."
+    }
+  ]
+}

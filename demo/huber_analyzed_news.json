@@ -1,0 +1,136 @@
+{
+  "analysis": [
+    {
+      "id": "mock-huber-001",
+      "headline": "Unilever Announces Historic Palm Oil Policy: Zero-Deforestation Supplier Cut-Off and €80M Brazilian Reforestation Foundation.",
+      "url": "https://ft.com/mock/unilever-deforestation",
+      "alertType": "opportunity",
+      "company": "Unilever PLC",
+      "belief_alignment": "positive",
+      "affectedSectors": [
+        "Consumer Goods",
+        "Sustainable Agriculture",
+        "Agroforestry",
+        "Rainforest Restoration"
+      ],
+      "portfolio_impact": "Unilever's zero‑deforestation palm‑oil policy and €80 M Amazon Restoration Foundation directly support the client’s priorities of supply‑chain transparency and rainforest restoration, making this a clear investment opportunity."
+    },
+    {
+      "id": "real-companies_leading-4",
+      "headline": "Legislature heads to another Alaska LNG special session after governor blasts Senate changes",
+      "url": "https://www.yahoo.com/news/politics/articles/legislature-heads-another-alaska-lng-134600492.html",
+      "alertType": "market",
+      "company": "Alaska LNG (Glenfarne)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Oil & Gas",
+        "Energy"
+      ],
+      "portfolio_impact": "The legislative tax changes affect fossil‑fuel projects, which are outside the client’s focus; the news does not trigger any positive or negative belief response."
+    },
+    {
+      "id": "real-sustainable_agriculture-3",
+      "headline": "100×100 Launches $100 Million Fund to Build 50 Climate Startups Across India, Southeast Asia",
+      "url": "https://esgnews.com/100x100-launches-100-million-fund-for-startups/",
+      "alertType": "market",
+      "company": "100x100",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Climate Tech",
+        "Agriculture",
+        "Energy",
+        "Transport",
+        "Land Use"
+      ],
+      "portfolio_impact": "While the fund targets climate startups, the description emphasizes high‑emission sectors without clear biodiversity benefits, so it neither aligns nor conflicts with the client’s core values."
+    },
+    {
+      "id": "real-companies_leading-0",
+      "headline": "The Bull Case For Franklin Resources (BEN) Could Change Following New Morningstar Public/Private Portfolio Partnership",
+      "url": "https://ca.finance.yahoo.com/news/bull-case-franklin-resources-ben-190912751.html",
+      "alertType": "market",
+      "company": "Franklin Resources (via Morningstar partnership)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Asset Management",
+        "Financial Services"
+      ],
+      "portfolio_impact": "The new public/private portfolio suite is a financial product without explicit ESG or biodiversity focus, resulting in a neutral impact."
+    },
+    {
+      "id": "real-companies_leading-1",
+      "headline": "The Bull Case For Franklin Resources (BEN) Could Change Following New Morningstar Public/Private Portfolio Partnership",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/bull-case-franklin-resources-ben-190912751.html",
+      "alertType": "market",
+      "company": "Franklin Resources (via Morningstar partnership)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Asset Management",
+        "Financial Services"
+      ],
+      "portfolio_impact": "The new public/private portfolio suite is a financial product without explicit ESG or biodiversity focus, resulting in a neutral impact."
+    },
+    {
+      "id": "real-companies_leading-2",
+      "headline": "From Assembly Lines to Innovation Hubs: The Untold Story of India's LED Display Manufacturing Ecosystem",
+      "url": "https://www.republicworld.com/initiatives/from-assembly-lines-to-innovation-hubs-the-untold-story-of-indias-led-display-manufacturing-ecosystem-2026-06-20-129238",
+      "alertType": "market",
+      "company": "LED Display Manufacturers (India)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Electronics Manufacturing"
+      ],
+      "portfolio_impact": "The article discusses manufacturing ecosystem shifts, which are unrelated to biodiversity or supply‑chain transparency, so neutral."
+    },
+    {
+      "id": "real-sustainable_agriculture-1",
+      "headline": "Jan kalyan shivirs organised",
+      "url": "https://arunachaltimes.in/index.php/2026/06/21/jan-kalyan-shivirs-organised/",
+      "alertType": "market",
+      "company": "ZIRO/YAZALI (local administration)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Public Services",
+        "Community Welfare"
+      ],
+      "portfolio_impact": "Community welfare camp news does not intersect with the client’s environmental priorities."
+    },
+    {
+      "id": "real-consumer_goods-0",
+      "headline": "Newell Brands (NWL) Gaining Over Recent €40 Million Planned Investment in French Operations",
+      "url": "https://ca.finance.yahoo.com/news/newell-brands-nwl-gaining-over-185239833.html",
+      "alertType": "market",
+      "company": "Newell Brands",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Consumer Goods"
+      ],
+      "portfolio_impact": "Investment announcement lacks sustainability context, so neutral."
+    },
+    {
+      "id": "real-consumer_goods-1",
+      "headline": "Newell Brands (NWL) Gaining Over Recent €40 Million Planned Investment in French Operations",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/newell-brands-nwl-gaining-over-185239833.html",
+      "alertType": "market",
+      "company": "Newell Brands",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Consumer Goods"
+      ],
+      "portfolio_impact": "Investment announcement lacks sustainability context, so neutral."
+    },
+    {
+      "id": "real-consumer_goods-2",
+      "headline": "Pump Prices Offer a Rare Reprieve for Drivers, Yet the Volatile Trade-off With Tehran Could Force Consumers to Pay in Other Ways",
+      "url": "https://www.themarysue.com/pump-prices-offer-a-rare-reprieve-for-drivers-yet-the-volatile-trade-off-with-tehran-could-force-consumers-to-pay-in-other-ways/",
+      "alertType": "market",
+      "company": "Global Oil & Gas Market",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Energy",
+        "Oil & Gas"
+      ],
+      "portfolio_impact": "Fuel price changes are macro‑economic and do not affect the client’s biodiversity‑focused criteria."
+    }
+  ]
+}

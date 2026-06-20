@@ -196,13 +196,29 @@ def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: 
         
         best_candidate = valid_candidates[0]
         
-        # Asignación del 100% del capital liberado
+        # Asignación del 100% del capital liberado al mejor candidato
         best_candidate['Asignacion_Recomendada_CHF'] = float(round(dinero_liberado_chf, 2))
         best_candidate['Nueva_Posicion_Simulada_CHF'] = float(round(best_candidate['Posicion_Actual_CHF'] + dinero_liberado_chf, 2))
         best_candidate['Cantidad_Acciones'] = int(best_candidate['Asignacion_Recomendada_CHF'] / best_candidate['Precio_Actual_SIX'])
 
         print(f"\n🏆 Ganador: {best_candidate['Issuer']} ({best_candidate['Afinidad_DNA_Porcentaje']}% afinidad)")
-        return best_candidate
+
+        # Build sell asset info from the portfolio row
+        sell_asset_info = {
+            "Issuer": str(target_asset.get('Issuer / Asset', company_to_sell)),
+            "Sub_Asset_Class": str(sub_asset),
+            "Industry_Group": str(industry_group),
+            "Current_CHF": float(round(dinero_liberado_chf, 2)),
+            "ISIN": str(target_asset.get('ISIN', '')) if pd.notna(target_asset.get('ISIN', '')) else '',
+            "Valor": str(target_asset.get('Valor', '')).split('.')[0] if pd.notna(target_asset.get('Valor', '')) else '',
+            "MIC": str(target_asset.get('MIC', '')) if pd.notna(target_asset.get('MIC', '')) else '',
+        }
+
+        return {
+            "sell_asset": sell_asset_info,
+            "top_candidate": best_candidate,
+            "alternatives": valid_candidates[1:],
+        }
 
     except Exception as e:
         return {"error": str(e)}

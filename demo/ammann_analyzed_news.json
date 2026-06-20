@@ -1,0 +1,102 @@
+{
+  "analysis": [
+    {
+      "id": "mock-ammann-001",
+      "headline": "Amazon Hit by Federal Labour Investigation: Widespread Wage Theft and Safety Violations across 23 Distribution Hubs.",
+      "url": "https://wsj.com/mock/amazon-labour-scandal",
+      "alertType": "conflict",
+      "company": "Amazon",
+      "belief_alignment": "negative",
+      "affectedSectors": [
+        "Consumer Discretionary",
+        "Retail/E‑commerce"
+      ],
+      "portfolio_impact": "The federal labor investigation reveals wage‑theft and safety violations at Amazon warehouses, directly breaching the client’s zero‑tolerance red line on labor abuse. Immediate divestment is warranted to protect the client’s clean‑labor brand and avoid reputational risk."
+    },
+    {
+      "id": "real-large_international-3",
+      "headline": "World Cup Heats Up as Germany Face Ivory Coast and Netherlands Battle Sweden in Crucial Group Stage Clashes - Diaspora Digital Media (DDM News) - Nigeria Breaking News, Africa and World News and Updates",
+      "url": "https://diasporadigitalmedia.com/world-cup-heats-up-as-germany-face-ivory-coast-and-netherlands-battle-sweden-in-crucial-group-stage-clashes/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [],
+      "portfolio_impact": "The article covers World Cup matchups, which have no material impact on labor practices, supply‑chain governance, or the client’s investment priorities."
+    },
+    {
+      "id": "real-blue_chip-0",
+      "headline": "Oregon Ducks Hosting Major Notre Dame Recruiting Target on Campus",
+      "url": "https://www.si.com/college/oregon/football/oregon-ducks-hosting-notre-dame-recruiting-target-brayden-parks",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [],
+      "portfolio_impact": "College football recruiting news does not intersect with the client’s ESG focus or sector preferences."
+    },
+    {
+      "id": "real-high_quality-1",
+      "headline": "Pauline Hanson's stance on paid parental leave and childcare could turn clock back by decades, economists warn",
+      "url": "https://www.theguardian.com/australia-news/2026/jun/21/pauline-hanson-women-working-mothers-paid-parental-leave-childcare-income-gender-gap-economy-one-nation-ntwnfb",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [],
+      "portfolio_impact": "The political commentary on paid parental leave is unrelated to any specific portfolio holding and does not trigger the client’s labor‑risk red lines."
+    },
+    {
+      "id": "real-high_quality-0",
+      "headline": "Virginia Medical Imaging sues Mary Washington Healthcare for $2.25M",
+      "url": "https://www.fredericksburgfreepress.com/2026/06/20/virginia-medical-imaging-sues-mary-washington-healthcare-for-2-25m/",
+      "alertType": "market",
+      "company": "Virginia Medical Imaging",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Healthcare"
+      ],
+      "portfolio_impact": "A lawsuit over alleged self‑dealing is a governance issue but not linked to labor exploitation; it does not conflict with the client’s core labor‑risk criteria."
+    },
+    {
+      "id": "real-blue_chip-3",
+      "headline": "Texas A&M Knows Its Next Defensive Target After Losing on John Meredith III",
+      "url": "https://sports.yahoo.com/articles/texas-m-knows-next-defensive-150004626.html",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [],
+      "portfolio_impact": "Recruiting news for Texas A&M football has no relevance to the client’s investment themes or ESG concerns."
+    },
+    {
+      "id": "real-large_international-1",
+      "headline": "A traveler with measles passed through LAX. Officials urge caution amid World Cup crowds",
+      "url": "https://www.courant.com/2026/06/20/a-traveler-with-measles-passed-through-lax-officials-urge-caution-amid-world-cup-crowds-2/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [],
+      "portfolio_impact": "The measles case at LAX is a public‑health matter and does not affect labor practices or supply‑chain risk in the client’s portfolio."
+    },
+    {
+      "id": "real-high_quality-4",
+      "headline": "ReelPlay named as first US online casino aggregation partner for RLX Gaming",
+      "url": "https://www.sportsline.com/casinos/reelplay-named-as-first-us-online-casino-aggregation-partner-for-rlx-gaming/",
+      "alertType": "market",
+      "company": "ReelPlay",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Consumer Discretionary",
+        "Gaming"
+      ],
+      "portfolio_impact": "The partnership announcement for an online casino aggregator does not raise labor‑abuse concerns, nor does it present a clear ESG opportunity for the client."
+    },
+    {
+      "id": "real-large_international-0",
+      "headline": "Why local networks are the future of aid in Africa",
+      "url": "https://www.arabnews.com/node/2647955",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [],
+      "portfolio_impact": "Discussion of local networks for aid in Africa is a development policy topic with no direct impact on the client’s investment holdings or labor‑risk criteria."
+    }
+  ]
+}

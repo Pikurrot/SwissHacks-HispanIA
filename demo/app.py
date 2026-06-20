@@ -9,6 +9,7 @@ sys.path.insert(0, current_dir)
 from fastapi import FastAPI
 from fastapi.responses import FileResponse 
 import uvicorn
+import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
 from backend.agents.crmAgent import extract_and_save_dna
 from backend.agents.newsAgent import compile_news_feed
@@ -20,6 +21,13 @@ CLIENT_NAMES = {
     "raeber": "Raeber",
     "huber": "Huber",
     "ammann": "Ammann"
+}
+
+PORTFOLIO_SHEETS = {
+    "schneider": "Sample Portfolio Balanced",
+    "raeber":    "Sample Portfolio Defensive",
+    "huber":     "Sample Portfolio Defensive",
+    "ammann":    "Sample Portfolio Growth",
 }
 
 app = FastAPI()
@@ -35,6 +43,75 @@ app.add_middleware(
 async def read_root():
     # Asegúrate de que esta ruta sea correcta relativa a donde ejecutas el script
     return FileResponse("static/dashboard.html")
+
+def _portfolio_issuers(client_id: str) -> list[str]:
+    """Return lowercase issuer names from the client's portfolio sheet."""
+    try:
+        sheet = PORTFOLIO_SHEETS.get(client_id, "Sample Portfolio Balanced")
+        df = pd.read_excel("../data/SwissHacks Portfolio Construction.xlsx", sheet_name=sheet)
+        return df['Issuer / Asset'].dropna().str.lower().tolist()
+    except Exception as e:
+        print(f"⚠️ Could not load portfolio issuers for {client_id}: {e}")
+        return []
+
+
+def _company_in_portfolio(company: str, issuers: list[str]) -> bool:
+    """True if company name overlaps with any portfolio issuer via substring match."""
+    name = company.lower().strip()
+    if not name or name == "unknown":
+        return False
+    return any(name in issuer or issuer in name for issuer in issuers)
+
+
+@app.get("/api/news/check/{client_id}")
+async def check_news(client_id: str):
+    dna_path = f"{client_id.lower()}_dna.json"
+    if not os.path.exists(dna_path):
+        return {"analysis": []}
+    compile_news_feed(client_id, dna_path)
+    analyzed_path = f"{client_id.lower()}_analyzed_news.json"
+    try:
+        with open(analyzed_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        return {"analysis": []}
+
+    # Filter: keep positives always; keep negatives/neutrals only if the
+    # flagged company is actually present in the client's portfolio.
+    issuers = _portfolio_issuers(client_id)
+    filtered = []
+    for item in data.get("analysis", []):
+        alignment = item.get("belief_alignment", "neutral")
+        if alignment == "positive":
+            filtered.append(item)
+        elif _company_in_portfolio(item.get("company", ""), issuers):
+            filtered.append(item)
+        else:
+            print(f"🗑 Dropping '{item.get('company')}' ({alignment}) — not in portfolio.")
+
+    return {"analysis": filtered}
+
+
+@app.get("/api/portfolio/conflicts/{client_id}")
+async def analyze_conflicts(client_id: str, sell_assets: str = "Apple"):
+    dna_path = f"{client_id.lower()}_dna.json"
+    if not os.path.exists(dna_path):
+        return {"error": "DNA not generated."}
+
+    with open(dna_path, 'r') as f:
+        dna = json.load(f)
+
+    excel_path = "../data/SwissHacks Portfolio Construction.xlsx"
+    sheet = PORTFOLIO_SHEETS.get(client_id, "Sample Portfolio Balanced")
+    companies = [s.strip() for s in sell_assets.split(',') if s.strip()]
+
+    results = []
+    for company in companies:
+        r = get_swap_candidates(excel_path, sheet, company, dna)
+        r["conflict_company"] = company
+        results.append(r)
+    return results
+
 
 @app.get("/api/portfolio/analyze/{client_id}")
 async def analyze_portfolio(client_id: str, sell_asset: str = "Apple"):

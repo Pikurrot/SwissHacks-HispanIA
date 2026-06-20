@@ -1,88 +1,99 @@
 {
   "values": {
     "priorities": [
-      "Zero‑tolerance for reputational risk from labor or governance scandals",
-      "Strict supply‑chain and labor‑rights compliance in all holdings",
+      "Zero‑tolerance for reputational risk from labor or supply‑chain scandals",
       "Data‑driven cost‑of‑capital and asymmetric tail‑risk analysis",
-      "Alignment of portfolio risk/return with his own brand’s integrity",
-      "Liquidity matching for tax liabilities and opportunistic cash deployment"
+      "Alignment of portfolio integrity with his own brand’s clean‑labor image",
+      "Liquidity matching for tax liabilities and opportunistic cash deployment",
+      "High operational transparency and alpha generation within governance constraints"
     ],
     "redLines": [
-      "Any holding linked to sweatshops, illegal exploitation or wage theft",
-      "Companies under live media or judicial scrutiny for labor violations",
-      "Positions that could trigger a public boycott or negative Swiss press coverage",
-      "Failure to dump a contaminated position before it becomes public"
+      "Any holding linked to sweatshops, illegal exploitation, wage theft or other labor abuses",
+      "Immediate divestment of any consumer/retail company hit by a labor‑exploitation scandal before media exposure",
+      "Positions in companies with live media or judicial scrutiny over labor practices, regardless of ESG scores",
+      "Supply‑chain governance liabilities in consumer discretionary holdings",
+      "Exposure to cheap, unmonitored foreign logistics providers that could trigger regulatory penalties"
     ],
     "preferredSectors": [
-      "Blue‑chip consumer discretionary & apparel with stable compliance ratings",
-      "Large‑cap international equities (sector‑neutral weighting)",
-      "Healthcare, technology and energy exposures that meet governance standards",
-      "Swiss cantonal short‑term fixed income for liquidity"
+      "Blue‑chip consumer discretionary/retail (with clean supply chains)",
+      "Large‑cap international equities across healthcare, technology and energy (subject to governance screening)",
+      "High‑quality sovereign and cantonal bonds",
+      "Real‑estate assets that meet strict compliance criteria"
     ],
     "avoidedSectors": [
-      "Consumer‑discretionary firms with poor supply‑chain governance",
-      "Logistics or manufacturing companies relying on unmonitored cheap foreign labor"
+      "Consumer/discretionary firms with documented labor or supply‑chain violations",
+      "Companies reliant on low‑cost, unmonitored foreign logistics"
     ],
     "esgFocus": [
-      "Real‑time labor‑rights and supply‑chain governance monitoring",
-      "Live media/judicial risk flags rather than retrospective ESG scores",
-      "Corporate governance transparency and anti‑exploitation policies"
+      "Real‑time labor‑practice monitoring",
+      "Supply‑chain governance and anti‑exploitation standards",
+      "Clean‑labour, local integrity and anti‑boycott risk"
     ]
   },
   "investmentBehavior": {
     "riskTolerance": "moderate",
-    "timeHorizon": "medium‑to‑long term (5‑10 years) with focus on preserving brand reputation over pure return",
-    "liquidity": "Requires moderate liquidity for tax‑liability matching, art purchases and rapid cash redeployment",
+    "timeHorizon": "Medium to long term (3‑5+ years) with periodic re‑balancing to protect brand reputation",
+    "liquidity": "Requires short‑term high‑quality cash instruments for tax liabilities (2025) and opportunistic art purchases; prefers Swiss cantonal short‑term bonds",
     "mandate": "Zero‑Tolerance Supply‑Chain Governance Mandate"
   },
   "lifeEvents": [
     {
-      "date": "2023-06-20",
-      "type": "business",
-      "description": "Added a non‑negotiable mandate to screen all consumer‑discretionary holdings for sweatshop and labor‑exploitation risks.",
-      "portfolioImpact": "Introduced strict ESG screening and real‑time monitoring of supply‑chain governance."
-    },
-    {
       "date": "2023-09-05",
       "type": "business",
-      "description": "Launched a sustainability marketing campaign for his retail brand and accepted lower yields for a clean portfolio footprint.",
-      "portfolioImpact": "Willingness to sacrifice performance for reputational cleanliness."
+      "description": "Launched a sustainability marketing campaign for his retail brand in Switzerland.",
+      "portfolioImpact": "Re‑affirmed willingness to accept lower yields for a clean‑footprint portfolio; tightened ESG screening."
+    },
+    {
+      "date": "2023-11-18",
+      "type": "financial",
+      "description": "Dividend sweep from private holding company; capital redeployed into the global balanced framework.",
+      "portfolioImpact": "Increased cash inflow, reinforced sector‑neutral large‑cap weighting."
     },
     {
       "date": "2024-04-19",
       "type": "financial",
-      "description": "Requested detailed fixed‑income duration to align bond ladder with corporate tax liabilities due late 2025.",
-      "portfolioImpact": "Liquidity and duration matching became a priority."
+      "description": "Requested detailed fixed‑income duration to match corporate tax liabilities due late 2025.",
+      "portfolioImpact": "Adjusted bond ladder to align with tax cash‑flow timing."
     },
     {
-      "date": "2025-01-16",
+      "date": "2024-06-14",
+      "type": "risk",
+      "description": "Highlighted consumer boycotts from labor scandals as a massive unquantifiable risk.",
+      "portfolioImpact": "Strengthened continuous audit of third‑party logistics and manufacturing networks."
+    },
+    {
+      "date": "2025-04-02",
       "type": "business",
-      "description": "Stated that any international consumer/retail brand hit with severe labor‑exploitation allegations must be dumped immediately.",
-      "portfolioImpact": "Reinforced zero‑tolerance red line and need for rapid divestment mechanisms."
+      "description": "Brand expansion into western Switzerland under heavy media and union scrutiny.",
+      "portfolioImpact": "Elevated focus on personal transparency and real‑time governance monitoring."
     },
     {
-      "date": "2025-03-04",
-      "type": "financial",
-      "description": "Switched idle cash into higher‑yielding Swiss cantonal short‑term instruments.",
-      "portfolioImpact": "Optimized cash yield while maintaining safety and liquidity."
+      "date": "2025-08-11",
+      "type": "operational",
+      "description": "Formal handover to new RM, emphasizing extreme zero‑tolerance for supply‑chain contamination.",
+      "portfolioImpact": "Mandate codified in transition documents; compliance filters made non‑negotiable."
+    },
+    {
+      "date": "2026-01-09",
+      "type": "strategic",
+      "description": "Introductory call stating the portfolio must be a \"fortress of clean corporate governance\".",
+      "portfolioImpact": "Re‑asserted core governance mandate; reinforced need for real‑time scandal alerts."
     },
     {
       "date": "2026-03-12",
-      "type": "business",
-      "description": "Rejected standard ESG scores, demanding live media/judicial alerts for any labor‑practice concerns.",
-      "portfolioImpact": "Shifted screening approach to real‑time risk alerts rather than static ESG ratings."
+      "type": "risk",
+      "description": "Critiqued standard ESG scores as useless; demanded immediate flagging of any live labor‑practice controversy.",
+      "portfolioImpact": "Shifted ESG monitoring to real‑time media/judicial watchlists, overriding retrospective ratings."
     }
   ],
   "personalProfile": {
     "interests": "sustainable retail, corporate governance, art collecting",
-    "quirks": "always cross‑references portfolio data with his own retail metrics; demands granular, table‑based analysis",
-    "rapportTriggers": "discussion of supply‑chain integrity, sustainability campaigns, corporate‑governance forums",
-    "avoidTopics": "competitor banks, negative press about his own brand",
-    "kids' education": "",
-    "fly fishing": ""
+    "quirks": "insists on real‑time scandal monitoring, prefers Swiss cantonal short‑term bonds for idle cash",
+    "rapportTriggers": "mention of Swiss labour standards, clean supply‑chain initiatives, sustainability projects",
+    "avoidTopics": "competitor retail brands, political debates, rival sports teams"
   },
   "communicationStyle": {
-    "language": "de",
+    "language": "en",
     "tone": "formal",
     "preferred": "data-driven",
     "formatPreference": "tables and numbers, bullet points",
@@ -94,17 +105,18 @@
     "My national brand equity is built on clean labor and local integrity. If my name is linked via my portfolio to an international corporate parent caught using sweatshops, illegal exploitation, or wage theft, it creates immediate hypocrisy risk for my own stores.",
     "I will gladly accept a lower Sharpe ratio or lower yields in exchange for a clean portfolio footprint.",
     "If any international consumer or retail brand we hold gets hit with severe labor exploitation allegations, dump the entire position before the local Swiss press can link my name to it.",
-    "Standard glossy ESG reporting and backward‑looking sustainability scores are useless to me. I don't care if a company has an 'AA' ESG rating on paper—if there is live media or judicial smoke surrounding their labor practices right now, the position must be flagged immediately before it hits mainstream national press.",
+    "Standard glossy ESG reporting and backward‑looking sustainability scores are useless to me. ... if there is live media or judicial smoke surrounding their labor practices right now, the position must be flagged immediately before it hits mainstream national press.",
     "My investment portfolio must be a fortress of clean corporate governance. No reputational liabilities, period."
   ],
-  "confidence": 0.96,
+  "confidence": 0.94,
   "sourcedFrom": [
     3,
     5,
+    9,
     10,
     14,
+    19,
     23,
-    26,
-    28
+    26
   ]
 }

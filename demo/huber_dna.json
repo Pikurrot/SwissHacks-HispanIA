@@ -1,104 +1,101 @@
 {
   "values": {
     "priorities": [
-      "Biodiversity protection and ecosystem restoration",
-      "Supply‑chain transparency and verification",
-      "Aligning capital with philanthropic impact (reforestation, youth education)",
-      "Holding companies to proactive environmental leadership"
+      "Align investments with biodiversity and ecosystem protection",
+      "Use wealth to fund concrete environmental philanthropy (reforestation, youth education)",
+      "Apply pressure on global brands to clean and verify their supply chains"
     ],
     "redLines": [
       "Investments in companies that treat nature as a free resource",
-      "Any exposure to palm‑oil linked deforestation or shell‑company supply chains",
-      "Green‑washed ESG claims without verified supply‑chain data",
-      "Generic, non‑thematic investment products"
+      "Companies with opaque or shell‑company supply chains that enable deforestation (especially palm oil)",
+      "Generic, non‑thematic or green‑washed ESG products",
+      "Any exposure to firms that do not publicly commit to cutting deforestation links"
     ],
     "preferredSectors": [
-      "Companies leading biodiversity‑focused initiatives",
-      "Land‑acquisition and restoration projects (e.g., Atlantic Forest)",
-      "Sustainable agriculture and eco‑friendly consumer goods",
-      "Firms with measurable rainforest restoration and indigenous‑land protection programs"
+      "Sustainable agriculture and agro‑forestry",
+      "Companies leading measurable rainforest restoration and indigenous land protection",
+      "Consumer‑goods firms with verified, transparent supply chains",
+      "Impact‑oriented equity focused on biodiversity leadership"
     ],
     "avoidedSectors": [
-      "Conventional palm‑oil producers and their downstream users",
-      "Industries with opaque or high‑risk supply chains (e.g., unscreened commodity traders)",
-      "Companies lacking verifiable ESG or biodiversity metrics"
+      "Palm‑oil production and related supply chains",
+      "Companies with known deforestation or supply‑chain loopholes",
+      "Traditional high‑carbon sectors lacking credible ESG commitments"
     ],
     "esgFocus": [
       "Biodiversity & ecosystem services",
-      "Supply‑chain transparency",
+      "Supply‑chain transparency and verification",
       "Rainforest restoration & indigenous land rights",
-      "Corporate accountability and anti‑deforestation policies"
+      "Corporate accountability for deforestation"
     ]
   },
   "investmentBehavior": {
-    "riskTolerance": "conservative",
-    "timeHorizon": "Long‑term (10+ years), aligned with multi‑generational philanthropic goals",
-    "liquidity": "Low immediate liquidity needs; prefers dividend sweeps to foundation and reinvests cash into core defensive strategy",
-    "mandate": "Biodiversity‑Focused Positive‑Screening Sustainable Equity Mandate"
+    "riskTolerance": "moderate",
+    "timeHorizon": "long‑term (10+ years), focused on legacy and multigenerational impact",
+    "liquidity": "low immediate liquidity needs; prefers cash to be swept into foundation accounts or reinvested in the Defensive Global Strategy",
+    "mandate": "Biodiversity & Supply‑Chain Transparency Sustainable Equity Mandate"
   },
   "lifeEvents": [
     {
       "date": "2023-01-16",
-      "type": "business",
-      "description": "Initial onboarding; wealth originates from a successful sustainable‑agriculture exit and is framed as an extension of their philanthropic mission.",
-      "portfolioImpact": "Set the overarching ESG‑centric mandate and defined sustainability as the core investment lens."
+      "type": "philanthropy",
+      "description": "Initial onboarding – wealth defined as an extension of a philanthropic mission after a sustainable‑agriculture exit.",
+      "portfolioImpact": "Set the overarching ESG‑aligned mandate focused on corporate sustainability leadership."
+    },
+    {
+      "date": "2023-04-12",
+      "type": "philanthropy",
+      "description": "Diverted Q2 dividend streams to the foundation’s reforestation project in Peru.",
+      "portfolioImpact": "Established a practice of routing investment income directly to environmental projects."
     },
     {
       "date": "2023-07-04",
       "type": "business",
-      "description": "Capital call of USD 250,000 for a land‑acquisition project in the Atlantic Forest; funded by trimming low‑scoring ESG fixed‑income positions.",
-      "portfolioImpact": "Reallocated assets toward direct conservation assets while preserving the core sustainable equity strategy."
+      "description": "Capital call of USD 250,000 for a land‑acquisition project in the Atlantic Forest, funded by trimming low‑scoring ESG fixed income.",
+      "portfolioImpact": "Demonstrated willingness to reallocate assets toward high‑impact biodiversity land deals."
     },
     {
       "date": "2024-06-11",
       "type": "philanthropy",
-      "description": "Elena’s field trip to the Amazon reinforced the client’s preference for companies that invest in measurable rainforest restoration and indigenous protection.",
-      "portfolioImpact": "Strengthened bias toward firms with on‑the‑ground restoration projects and tangible impact metrics."
+      "description": "Field trip to the Amazon; reinforced preference for companies investing in measurable rainforest restoration and indigenous protection.",
+      "portfolioImpact": "Strengthened bias toward firms with on‑the‑ground conservation actions."
     },
     {
       "date": "2025-02-27",
       "type": "philanthropy",
-      "description": "Sub‑account created for the foundation’s youth educational program, emphasizing capital markets as a tool for ecological restoration.",
-      "portfolioImpact": "Added a dedicated allocation for education‑linked impact investments."
+      "description": "Created a sub‑account for the foundation’s youth educational program on ecological restoration.",
+      "portfolioImpact": "Added a dedicated channel for impact‑focused capital deployment."
     },
     {
-      "date": "2026-01-08",
-      "type": "business",
-      "description": "Transition to new Relationship Manager Sarah Meier; client stressed need for continuity of values‑led investing.",
-      "portfolioImpact": "Mandated strict adherence to existing biodiversity and transparency criteria under new stewardship."
-    },
-    {
-      "date": "2026-05-20",
-      "type": "external",
-      "description": "A major consumer‑goods conglomerate announced a zero‑deforestation palm‑oil policy and a multi‑million‑dollar reforestation foundation.",
-      "portfolioImpact": "Potential new investment candidate that meets the client’s red‑line criteria and could be added to the portfolio."
+      "date": "2026-05-12",
+      "type": "personal",
+      "description": "Preparing an extended summer trip to conservation sites in South America; requested June dividend payouts be swept to the foundation.",
+      "portfolioImpact": "Re‑affirmed low‑liquidity stance and continued routing of cash flows to philanthropic accounts."
     }
   ],
   "personalProfile": {
-    "interests": "sustainable agriculture, rainforest restoration, biodiversity conservation, youth environmental education",
-    "quirks": "prefers direct impact investments over generic products; values transparent, data‑backed ESG reporting",
-    "rapportTriggers": "mention of the Atlantic Forest project, updates on youth education program, concrete reforestation milestones",
-    "kids' education": "supports foundation’s youth educational program focused on ecological stewardship",
-    "avoidTopics": "",
-    "rival sports team": ""
+    "interests": "sustainable agriculture, rainforest restoration, biodiversity, youth environmental education",
+    "quirks": "insists on direct dividend sweeps to the foundation; rejects generic, non‑thematic investment products",
+    "rapportTriggers": "Atlantic Forest land acquisition, reforestation projects in Peru and Brazil, biodiversity conferences, supply‑chain transparency discussions",
+    "avoidTopics": ""
   },
   "communicationStyle": {
-    "language": "de",
+    "language": "en",
     "tone": "formal",
     "preferred": "values-led",
-    "formatPreference": "bullet points with key metrics",
+    "formatPreference": "bullet points with concise metrics",
     "directness": "direct",
     "detailLevel": "summary",
-    "openingStyle": "personal, professional"
+    "openingStyle": "personal"
   },
   "keyQuotes": [
     "\"I want to actively penalize companies that treat nature as a free resource.\"",
     "\"We expect Sarah to bring the same alignment of values and environmental transparency to our portfolio that Thomas did. No standard, generic investment products.\"",
     "\"If a company takes a brave, absolute stance against palm oil deforestation and actively puts money into reforestation, that is exactly where my money should be.\"",
     "\"Companies that don't protect their supply chains from ecological collapse won't survive the next decade anyway.\"",
-    "\"We view ourselves as progressive stewards of wealth.\""
+    "\"We want our wealth to act as an extension of our philanthropic mission.\""
   ],
-  "confidence": 0.94,
+  "confidence": 0.93,
   "sourcedFrom": [
     1,
     3,
@@ -107,10 +104,7 @@
     6,
     7,
     8,
-    9,
     10,
-    11,
-    13,
     15,
     16,
     17,
