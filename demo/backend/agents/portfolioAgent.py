@@ -1,6 +1,6 @@
 import pandas as pd
 
-def get_swap_candidates_advanced(excel_path: str, portfolio_sheet: str, company_to_sell: str):
+def get_swap_candidates(excel_path: str, portfolio_sheet: str, company_to_sell: str):
     try:
         # 1. Cargar las TRES pestañas necesarias
         portfolio_df = pd.read_excel(excel_path, sheet_name=portfolio_sheet)
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     PORTFOLIO_NAME = "Sample Portfolio Balanced"
     TO_SELL = "Tesla"
     
-    candidatos = get_swap_candidates_advanced(EXCEL_FILE, PORTFOLIO_NAME, TO_SELL)
+    candidatos = get_swap_candidates(EXCEL_FILE, PORTFOLIO_NAME, TO_SELL)
     print(candidatos)
     
     if isinstance(candidatos, dict) and "error" in candidatos:
