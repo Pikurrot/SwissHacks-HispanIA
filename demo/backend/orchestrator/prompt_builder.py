@@ -50,6 +50,8 @@ def build_user_prompt(
     rm_draft: str | None,
 ) -> str:
     mode = "copilot" if rm_draft else "draft"
+    language = str(context.get("client", {}).get("communication", {}).get("language") or "en")
+    language_name = {"en": "English", "de": "German", "fr": "French"}.get(language, language)
     draft_instruction = (
         f"Improve the RM draft without changing verified facts. Return one improved draft and specific suggested_edits.\nRM_DRAFT:\n{rm_draft}"
         if rm_draft
@@ -57,12 +59,15 @@ def build_user_prompt(
     )
     return f"""MODE: {mode}
 RELATIONSHIP_MANAGER: {relationship_manager_name}
+OUTPUT_LANGUAGE: {language_name} ({language})
 
 VERIFIED_CONTEXT:
 {json.dumps(context, indent=2, ensure_ascii=False)}
 
 INSTRUCTIONS:
 {draft_instruction}
+Write every generated text field in {language_name}, including internal_summary,
+subjects, messages, tone_notes, suggested_edits, used_facts, and compliance flags.
 
 Sign client-facing drafts as:
 {relationship_manager_name}

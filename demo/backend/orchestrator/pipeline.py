@@ -64,6 +64,15 @@ class MessageOrchestrator:
                 compliance_flags,
                 confidence,
             ) = validate_output(parsed, prepared.context, prepared.sensitive_terms)
+            mandate_after = (
+                prepared.context.get("recommendation", {})
+                .get("mandate_check", {})
+                .get("after_valid")
+            )
+            if mandate_after is False:
+                compliance_flags.append(
+                    "Post-trade portfolio remains outside mandate tolerance; RM review is required"
+                )
         except (LLMClientError, LLMOutputError) as exc:
             return OrchestrationResult(
                 status=PipelineStatus.GENERATION_FAILED,

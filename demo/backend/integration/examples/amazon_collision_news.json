@@ -1,0 +1,26 @@
+{
+  "client_id": "schneider",
+  "analysis": [
+    {
+      "id": "demo-amazon-conflict-001",
+      "headline": "DEMO SCENARIO — Amazon faces a major labour-governance investigation",
+      "summary": "Synthetic hackathon scenario: authorities open an investigation into alleged wage, overtime, and workplace-safety violations at Amazon distribution centres. No allegation in this fixture should be treated as real news.",
+      "source": "Demo fixture — not real news",
+      "url": "https://example.invalid/demo-amazon-conflict",
+      "publishedAt": "2026-06-20T09:00:00Z",
+      "company": "Amazon.com Inc.",
+      "alertType": "conflict",
+      "belief_alignment": "negative",
+      "affectedISINs": [
+        "US0231351067"
+      ],
+      "affectedSectors": [
+        "Consumer Discretionary"
+      ],
+      "portfolio_impact": "This demo event creates legal, operational, and reputational risk for a current holding and may conflict with the client's capital-preservation priority.",
+      "relevanceScore": 1.0,
+      "confidence": 1.0,
+      "isMock": true
+    }
+  ]
+}
