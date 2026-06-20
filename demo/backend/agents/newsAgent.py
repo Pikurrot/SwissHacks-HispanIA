@@ -104,7 +104,7 @@ def find_relevant_news(client_id: str, real_news: list, dna: dict) -> list:
         relevant_news = sorted(real_news, key=lambda x: x['relevanceScore'], reverse=True)[:3]
     else:
         relevant_news.sort(key=lambda x: x['relevanceScore'], reverse=True)
-        relevant_news = relevant_news[:5]
+        relevant_news = relevant_news[:15] # Select num of relevant news
 
     output_filename = f"{client_id.lower()}_news.json"
     with open(output_filename, 'w', encoding='utf-8') as f:
@@ -126,7 +126,7 @@ def analyze_news_with_llm(news_alerts: list, dna: dict) -> list:
     MODEL = os.environ.get("PHOENIQS_MODEL", "inference-gpt-oss-120b")
     
     if not API_KEY or not API_URL:
-        print("⚠️ Phoeniqs API credentials missing in .env. Skipping LLM analysis.")
+        print("Phoeniqs API credentials missing in .env. Skipping LLM analysis.")
         return news_alerts
 
     # 1. Extraemos solo las partes del ADN que importan para no saturar los tokens
@@ -156,6 +156,7 @@ Return a pure JSON object (no markdown, no markdown fences) with the following s
     {{
       "id": "the exact id of the news article",
       "alertType": "opportunity" | "conflict" | "market",
+      "company": "Nestle", "Tencent", "Miscrosoft",
       "belief_alignment": "positive" | "negative" | "neutral",
       "affectedSectors": ["Sector 1", "Sector 2"],
       "portfolio_impact": "2-3 short sentences explicitly stating how this news aligns or clashes with the client's personal beliefs, priorities, or red lines."
@@ -167,6 +168,7 @@ Rules for alertType and belief_alignment:
 - "conflict" & "negative": The news violates a red line or goes against their core beliefs (e.g., funding cuts to a disease they care about, bad labor practices if they care about ESG).
 - "opportunity" & "positive": The news strongly supports a priority or ESG focus (e.g., a breakthrough in a research area they fund).
 - "market" & "neutral": General news with no strong emotional or belief-based trigger.
+- "company" should be the company the article talks about
 """
 
     headers = {
@@ -193,7 +195,7 @@ Rules for alertType and belief_alignment:
         content = choices[0].get("message", {}).get("content")
         
         if not content:
-            print(f"⚠️ Raw API Response:\n{json.dumps(response_data, indent=2)}")
+            print(f"Raw API Response:\n{json.dumps(response_data, indent=2)}")
             raise ValueError("API returned empty content.")
             
         clean_text = content.strip()
@@ -215,24 +217,25 @@ Rules for alertType and belief_alignment:
                 "headline": alert["headline"], # Lo mantenemos para que sepas qué noticia es
                 "url": alert["url"],           # Lo mantenemos por si necesitas el link
                 "alertType": insight.get("alertType", alert.get("alertType", "market")),
+                "company": insight.get("company", "Unknown"),
                 "belief_alignment": insight.get("belief_alignment", "neutral"),
                 "affectedSectors": insight.get("affectedSectors", alert.get("affectedSectors", [])),
                 "portfolio_impact": insight.get("portfolio_impact", "")
             })
                 
-        print("✅ Value-alignment LLM analysis complete and formatted into strict JSON!")
+        print("Value-alignment LLM analysis complete and formatted into strict JSON!")
         
         # Devolvemos exactamente la estructura solicitada: {"analysis": [...]}
         return {"analysis": final_clean_analysis}
         
     except requests.exceptions.RequestException as e:
-        print(f"❌ API Request Failed during analysis: {e}")
+        print(f"API Request Failed during analysis: {e}")
     except json.JSONDecodeError as e:
-        print(f"❌ Failed to parse AI response as JSON: {e}")
+        print(f"Failed to parse AI response as JSON: {e}")
         if 'clean_text' in locals():
              print(f"Raw Output:\n{clean_text}")
     except Exception as e:
-        print(f"❌ Error during LLM analysis: {e}")
+        print(f"Error during LLM analysis: {e}")
         
     # Fallback in case of error
     return {"analysis": []}
