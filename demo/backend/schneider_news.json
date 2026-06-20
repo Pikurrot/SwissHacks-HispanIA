@@ -1,0 +1,62 @@
+[
+  {
+    "id": "real-large_pharmaceuticals-2",
+    "headline": "Biotech clinical strategy meets investor needs",
+    "summary": "Well-structured clinical development plans signal credibility and show management has evaluated tradeoffs.\n\nEarly-stage biotechnology companies are typically built around strong science and clear passion for addressing unmet patient needs. However, in a tighter and more selective capital environment, investors are prioritizing programs that demonst",
+    "source": "bioxconomy.com",
+    "publishedAt": "2026-06-10T08:32:45Z",
+    "url": "https://www.bioxconomy.com/clinical-and-research/from-study-design-to-investor-confidence-de-risking-early-stage-biotech",
+    "sentiment": "positive",
+    "sentimentScore": 0.3725490196078431,
+    "relevanceScore": 0.65,
+    "affectedISINs": [],
+    "affectedSectors": [],
+    "alertType": "market",
+    "isMock": false
+  },
+  {
+    "id": "real-large_pharmaceuticals-3",
+    "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+    "summary": "Shield Therapeutics plc (LON:STX) is possibly approaching a major achievement in its business, so we would like to shine some light on the company. Shield Therapeutics plc, a commercial stage specialty pharmaceutical company, focuses on development and commercialization of clinical-stage pharmaceuticals to treat unmet medical needs. The UK£64m mark",
+    "source": "Yahoo! Finance",
+    "publishedAt": "2026-06-01T07:34:16Z",
+    "url": "https://finance.yahoo.com/sectors/healthcare/articles/shield-therapeutics-plcs-lon-stx-071228482.html",
+    "sentiment": "positive",
+    "sentimentScore": 0.223529411764706,
+    "relevanceScore": 0.65,
+    "affectedISINs": [],
+    "affectedSectors": [],
+    "alertType": "market",
+    "isMock": false
+  },
+  {
+    "id": "real-large_pharmaceuticals-4",
+    "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+    "summary": "Shield Therapeutics plc (LON:STX) is possibly approaching a major achievement in its business, so we would like to shine some light on the company. Shield Therapeutics plc, a commercial stage specialty pharmaceutical company, focuses on development and commercialization of clinical-stage pharmaceuticals to treat unmet medical needs. The UK£64m mark",
+    "source": "Yahoo! Finance",
+    "publishedAt": "2026-06-01T07:31:57Z",
+    "url": "https://ca.finance.yahoo.com/news/shield-therapeutics-plcs-lon-stx-071228482.html",
+    "sentiment": "positive",
+    "sentimentScore": 0.223529411764706,
+    "relevanceScore": 0.65,
+    "affectedISINs": [],
+    "affectedSectors": [],
+    "alertType": "market",
+    "isMock": false
+  },
+  {
+    "id": "real-fixed_income-3",
+    "headline": "Dear Investors: Don't Act Your Age, Act Your Risk Tolerance",
+    "summary": "All information and data in this article is solely for informational purposes. For more information please view the Barchart Disclosure Policy here\n\nThe financial planning industry loves to put investors in a box based entirely on their birth year.\n\nIf you look at standard wealth management brochures or the drag-and-drop asset allocation schemes in",
+    "source": "Barchart.com",
+    "publishedAt": "2026-06-20T14:03:10Z",
+    "url": "https://www.barchart.com/story/news/2566855/dear-investors-dont-act-your-age-act-your-risk-tolerance",
+    "sentiment": "positive",
+    "sentimentScore": 0.3254901960784313,
+    "relevanceScore": 0.65,
+    "affectedISINs": [],
+    "affectedSectors": [],
+    "alertType": "market",
+    "isMock": false
+  }
+]

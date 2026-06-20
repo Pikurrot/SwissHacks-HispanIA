@@ -1,0 +1,135 @@
+{
+  "values": {
+    "priorities": [
+      "Preserve and grow family wealth for long‑term transmission",
+      "Fund and accelerate research into early‑onset Parkinson’s disease for his daughter Chloe",
+      "Maintain a defensive core of large‑cap pharmaceutical and healthcare equities with strong neuroscience R&D",
+      "Ensure operational precision and steady growth in the fixed‑income sleeve",
+      "Support philanthropic initiatives focused on neuro‑degenerative research"
+    ],
+    "redLines": [
+      "Divest any holding that reduces, abandons or defunds Parkinson’s or broader neurodegenerative research",
+      "Investments that prioritize cheap lifestyle profits over serious R&D are unacceptable"
+    ],
+    "preferredSectors": [
+      "Large‑cap pharmaceuticals/healthcare with strong neuroscience pipelines",
+      "Companies with heavy research & development budgets",
+      "Fixed‑income instruments for cash‑flow precision"
+    ],
+    "avoidedSectors": [
+      "Consumer‑discretionary or lifestyle firms lacking substantive R&D",
+      "Businesses that do not contribute to neuro‑degenerative disease research"
+    ],
+    "esgFocus": [
+      "Neuro‑degenerative disease research",
+      "Impact investing in brain‑health breakthroughs"
+    ]
+  },
+  "investmentBehavior": {
+    "riskTolerance": "moderate",
+    "timeHorizon": "Long‑term (multi‑decade) focus on wealth transmission and legacy",
+    "liquidity": "Moderate – sufficient cash for corporate liquidity needs, family expenses and rapid philanthropic grants",
+    "mandate": "Global Balanced Growth"
+  },
+  "lifeEvents": [
+    {
+      "date": "2023-09-12",
+      "type": "family",
+      "description": "Daughter Chloe is studying abroad and doing well.",
+      "portfolioImpact": "No immediate change; reinforces stable, long‑term outlook."
+    },
+    {
+      "date": "2024-01-18",
+      "type": "wealth_transmission",
+      "description": "In‑depth discussion of long‑term wealth transmission strategies for children.",
+      "portfolioImpact": "Emphasis on maintaining balanced allocation and adding healthcare exposure."
+    },
+    {
+      "date": "2026-01-09",
+      "type": "health_crisis",
+      "description": "Chloe diagnosed with rapidly progressing early‑onset Parkinson’s disease.",
+      "portfolioImpact": "Triggers a strategic pivot toward neuro‑research investments and philanthropic funding."
+    },
+    {
+      "date": "2026-01-22",
+      "type": "philanthropy",
+      "description": "Family establishes a Venture Philanthropy foundation dedicated to neurodegenerative research.",
+      "portfolioImpact": "Mandates capital to be directed toward companies and labs fighting brain disease."
+    },
+    {
+      "date": "2026-02-18",
+      "type": "health_crisis",
+      "description": "Requested audit of core pharma holdings’ neurodegenerative clinical pipeline.",
+      "portfolioImpact": "Ensures existing holdings are actively funding Parkinson’s research."
+    },
+    {
+      "date": "2026-03-05",
+      "type": "health_crisis",
+      "description": "Stated that any company abandoning Parkinson’s research would be a personal betrayal and must be divested.",
+      "portfolioImpact": "Establishes a non‑negotiable red line for future investment decisions."
+    },
+    {
+      "date": "2026-03-24",
+      "type": "philanthropy",
+      "description": "Transferred CHF 1 million from private portfolio to family foundation for an immediate grant to a neuro‑genetics lab in Geneva.",
+      "portfolioImpact": "Reduces private assets but aligns capital with health‑focused impact goals."
+    },
+    {
+      "date": "2026-04-14",
+      "type": "philanthropy",
+      "description": "Attended medical charity gala; reiterated need to keep capital flowing to leading brain‑disease researchers.",
+      "portfolioImpact": "Reinforces commitment to sustain and possibly increase exposure to neuroscience‑focused firms."
+    },
+    {
+      "date": "2026-05-02",
+      "type": "philanthropy",
+      "description": "Requested expedited clinical audit statement for the foundation; Hubertus visiting a Boston movement‑disorder research hub.",
+      "portfolioImpact": "Continues active monitoring and potential reallocation toward breakthrough biotech."
+    },
+    {
+      "date": "2026-05-19",
+      "type": "philanthropy",
+      "description": "Met a biotech firm with a breakthrough Parkinson’s asset; emphasized large‑cap holdings as primary financial support while heart lies with neuroscience breakthroughs.",
+      "portfolioImpact": "Potential addition of targeted biotech exposure complementary to existing large‑cap pharma core."
+    }
+  ],
+  "personalProfile": {
+    "interests": "art sponsorship, neuroscience research, philanthropy, automotive industry",
+    "quirks": "deep emotional response when discussing daughter's health; frequently emphasizes need for rigorous, data‑driven execution",
+    "rapportTriggers": "mention of neurodegenerative research breakthroughs, art projects, family milestones",
+    "avoidTopics": "competitor banks, non‑research lifestyle consumer sectors"
+  },
+  "communicationStyle": {
+    "language": "en",
+    "tone": "formal",
+    "preferred": "data-driven",
+    "formatPreference": "tables and numbers",
+    "directness": "direct",
+    "detailLevel": "summary",
+    "openingStyle": "professional"
+  },
+  "keyQuotes": [
+    "My automotive business means nothing if I cannot save my daughter. Everything has changed.",
+    "Our private wealth is now a weapon to save Chloe. I want our core healthcare and pharma holdings to actively support the entities pushing the boundaries of brain disease research.",
+    "If a company we own ever abandons or defunds Parkinson's research to chase cheap lifestyle profits, it would feel like a personal betrayal of my daughter. Flag them immediately for divestment.",
+    "Seeing these brilliant researchers is our only hope. We must keep our capital flowing to the companies leading the fight against this disease."
+  ],
+  "confidence": 0.93,
+  "sourcedFrom": [
+    1,
+    2,
+    5,
+    7,
+    9,
+    14,
+    16,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26
+  ]
+}

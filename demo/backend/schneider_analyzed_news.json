@@ -1,0 +1,52 @@
+{
+  "analysis": [
+    {
+      "id": "real-large_pharmaceuticals-2",
+      "headline": "Biotech clinical strategy meets investor needs",
+      "url": "https://www.bioxconomy.com/clinical-and-research/from-study-design-to-investor-confidence-de-risking-early-stage-biotech",
+      "alertType": "market",
+      "company": "Generic Biotech",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Pharmaceuticals/Healthcare"
+      ],
+      "portfolio_impact": "The article discusses clinical development best practices without referencing specific companies or neuro‑degenerative research, so it does not trigger the client’s personal priorities or red lines."
+    },
+    {
+      "id": "real-large_pharmaceuticals-3",
+      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "alertType": "market",
+      "company": "Shield Therapeutics plc",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Pharmaceuticals/Healthcare"
+      ],
+      "portfolio_impact": "Shield Therapeutics is highlighted for its broader unmet‑medical‑needs focus; no explicit link to Parkinson’s or neuroscience R&D is made, so the news neither supports nor conflicts with the client’s core values."
+    },
+    {
+      "id": "real-large_pharmaceuticals-4",
+      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+      "url": "https://ca.finance.yahoo.com/news/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "alertType": "market",
+      "company": "Shield Therapeutics plc",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Pharmaceuticals/Healthcare"
+      ],
+      "portfolio_impact": "Duplicate of the previous Shield Therapeutics piece; the same neutral assessment applies."
+    },
+    {
+      "id": "real-fixed_income-3",
+      "headline": "Dear Investors: Don't Act Your Age, Act Your Risk Tolerance",
+      "url": "https://www.barchart.com/story/news/2566855/dear-investors-dont-act-your-age-act-your-risk-tolerance",
+      "alertType": "market",
+      "company": "General Market Commentary",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Fixed Income"
+      ],
+      "portfolio_impact": "The piece offers generic advice on risk‑tolerance‑based asset allocation, which aligns with the client’s desire for precision in the fixed‑income sleeve but does not raise any belief‑based opportunity or conflict."
+    }
+  ]
+}
