@@ -1,0 +1,26 @@
+{
+  "schneider": {
+    "id": "mock-schneider-001",
+    "headline": "Roche Group announces immediate termination of its global neuro-degenerative and Central Nervous System (CNS) research pipeline.",
+    "summary": "Roche Holding AG has announced an immediate corporate pivot toward oncology, completely shutting down its ongoing clinical research for Parkinson's and Alzheimer's treatments globally.",
+    "url": "https://reuters.com/mock/roche-neuro-closure"
+  },
+  "ammann": {
+    "id": "mock-ammann-001",
+    "headline": "Amazon Hit by Federal Labour Investigation: Widespread Wage Theft and Safety Violations across 23 Distribution Hubs.",
+    "summary": "The US Department of Labor opens a formal judicial investigation into Amazon.com Inc. following structural evidence of illegal overtime practices and unreported warehouse safety violations.",
+    "url": "https://wsj.com/mock/amazon-labour-scandal"
+  },
+  "huber": {
+    "id": "mock-huber-001",
+    "headline": "Unilever Announces Historic Palm Oil Policy: Zero-Deforestation Supplier Cut-Off and €80M Brazilian Reforestation Foundation.",
+    "summary": "Unilever PLC has announced an industry-first commitment: all suppliers linked to palm oil deforestation will be removed from the supply chain by December 2026. Simultaneously, Unilever launches the 'Unilever Amazon Restoration Foundation' with an €80M initial endowment to fund reforestation of degraded rainforest in the Amazon basin.",
+    "url": "https://ft.com/mock/unilever-deforestation"
+  },
+  "raeber": {
+    "id": "mock-raeber-001",
+    "headline": "Private Banking CIO Tactical Update: Shift from Defensive Value to US Technology Mega-Caps.",
+    "summary": "The CIO office has issued a tactical asset allocation update for Q3 2026, recommending a reduction in Defensive Value (Consumer Staples & Healthcare) exposure by 8-12% to fund positions in Microsoft, Apple, NVIDIA, and Alphabet. The update cites AI-driven productivity tailwinds and recommends immediate portfolio rebalancing for all mandates.",
+    "url": "https://internal.bank/cio-update-2026"
+  }
+}
