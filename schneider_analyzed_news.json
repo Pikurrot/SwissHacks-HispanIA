@@ -1,0 +1,64 @@
+{
+  "analysis": [
+    {
+      "id": "real-stable_capital-3",
+      "headline": "Tencent: One Of The Cheapest Mega-Cap Tech Stocks In The World (OTCMKTS:TCEHY) | Seeking Alpha",
+      "url": "https://seekingalpha.com/article/4915943-tencent-one-of-the-cheapest-mega-cap-tech-stocks-in-the-world",
+      "alertType": "market",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Technology / Internet",
+        "Large‑cap Tech"
+      ],
+      "portfolio_impact": "The article discusses Tencent, a mega‑cap tech firm, which falls outside the client’s preferred pharma and neuroscience focus and does not touch any red‑line concerns. It is therefore a neutral market update with no direct impact on the client’s values or portfolio."
+    },
+    {
+      "id": "real-large_pharmaceuticals-2",
+      "headline": "Biotech clinical strategy meets investor needs",
+      "url": "https://www.bioxconomy.com/clinical-and-research/from-study-design-to-investor-confidence-de-risking-early-stage-biotech",
+      "alertType": "market",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Biotechnology",
+        "Healthcare"
+      ],
+      "portfolio_impact": "The piece highlights strong clinical‑development planning in early‑stage biotech firms. While it underscores R&D intensity—a positive ESG theme—it does not specify neuroscience or Parkinson’s work, so it does not trigger a strong belief response."
+    },
+    {
+      "id": "real-large_pharmaceuticals-3",
+      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+      "url": "https://finance.yahoo.com/sectors/healthcare/articles/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "alertType": "market",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Pharmaceuticals",
+        "Specialty Pharma"
+      ],
+      "portfolio_impact": "Shield Therapeutics is presented as moving toward profitability in a specialty‑pharma niche. The article does not mention neuroscience pipelines or Parkinson’s research, nor does it conflict with any red lines, making it a neutral market note."
+    },
+    {
+      "id": "real-large_pharmaceuticals-4",
+      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
+      "url": "https://ca.finance.yahoo.com/news/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "alertType": "market",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Pharmaceuticals",
+        "Specialty Pharma"
+      ],
+      "portfolio_impact": "Duplicate of the Shield Therapeutics story; same assessment applies—no direct relevance to the client’s neuro‑degenerative priorities and no red‑line breach."
+    },
+    {
+      "id": "real-stable_capital-0",
+      "headline": "Cpaminer Advances Long-Term Strategic Expansion in Chad With US$200 Million in Registered Capital, as Construction Begins on Its African Regional Headquarters Office Building",
+      "url": "https://techbullion.com/cpaminer-advances-long-term-strategic-expansion-in-chad-with-us200-million-in-registered-capital-as-construction-begins-on-its-african-regional-headquarters-office-building/",
+      "alertType": "opportunity",
+      "belief_alignment": "positive",
+      "affectedSectors": [
+        "Industrial / Infrastructure",
+        "Fixed Income"
+      ],
+      "portfolio_impact": "Cpaminer’s long‑term expansion in Chad emphasizes capital security and stable, capital‑intensive growth, aligning with the client’s desire for steady fixed‑income‑like assets and diversification into robust industrial projects."
+    }
+  ]
+}

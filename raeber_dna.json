@@ -1,93 +1,88 @@
 {
   "values": {
     "priorities": [
-      "capital preservation",
-      "steady dividend and cash‑flow income",
-      "legacy and succession planning for grandchildren",
-      "investment in tangible, mature businesses"
+      "Capital preservation and wealth protection for future generations",
+      "Steady, predictable cash flow from global dividend-paying companies",
+      "Maintenance of a defensive, blue‑chip core portfolio with high‑grade sovereign bonds"
     ],
     "redLines": [
-      "no exposure to high‑beta speculative asset classes",
-      "avoid speculative US software/technology and AI stocks",
-      "no aggressive strategy shifts or volatile growth equities",
-      "do not allocate to mega‑cap tech positions"
+      "No exposure to high‑beta or speculative asset classes (e.g., US software, AI, mega‑cap tech)",
+      "Do not shift away from the existing defensive value allocation",
+      "Absolute block on any growth‑oriented, volatile equities"
     ],
     "preferredSectors": [
-      "consumer staples (e.g., Nestlé, Procter & Gamble, Walmart, Costco)",
-      "industrial manufacturers and hardware (e.g., Siemens, ASML)",
-      "healthcare and pharma (e.g., Johnson & Johnson, Novartis)",
-      "Swiss value equities",
-      "high‑grade sovereign and G7 government bonds"
+      "Consumer staples (e.g., Nestlé, Procter & Gamble, Walmart, Costco)",
+      "Industrial & manufacturing (e.g., Siemens, ASML)",
+      "Healthcare & pharma (e.g., Johnson & Johnson, Novartis)",
+      "Insurance (e.g., Zurich Insurance)",
+      "High‑grade sovereign bonds (G7 ladder)"
     ],
     "avoidedSectors": [
-      "speculative technology/software and AI",
-      "high‑beta growth equities",
-      "emerging tech without tangible assets"
+      "Speculative technology and software firms",
+      "US mega‑cap tech/AI companies",
+      "High‑beta growth equities"
     ],
     "esgFocus": []
   },
   "investmentBehavior": {
     "riskTolerance": "conservative",
-    "timeHorizon": "long‑term, multi‑generational wealth preservation for grandchildren",
-    "liquidity": "low immediate liquidity needs; occasional cash draws for personal projects (e.g., home renovation) while keeping core equity intact",
-    "mandate": "Conservative Defensive Global Value Mandate"
+    "timeHorizon": "Long‑term, multi‑generational wealth preservation for grandchildren",
+    "liquidity": "Low immediate liquidity demand; occasional cash withdrawals for family projects while keeping core equity intact",
+    "mandate": "Conservative Defensive Global Value & Income Mandate"
   },
   "lifeEvents": [
     {
       "date": "2023-07-04",
       "type": "family",
-      "description": "CHF 150,000 withdrawn from cash accounts for a structural renovation of the holiday home in Flims.",
-      "portfolioImpact": "Liquidity was taken from cash reserves; core equity positions were left untouched."
+      "description": "CHF 150,000 withdrawn from cash accounts for a structural renovation of the family holiday home in Flims.",
+      "portfolioImpact": "Liquidity need satisfied via cash; core equity positions left untouched."
     },
     {
       "date": "2023-10-05",
-      "type": "succession",
-      "description": "Succession planning discussion; client requested a strict flag to block any high‑beta speculative asset classes.",
-      "portfolioImpact": "Reinforced the defensive stance and formalized a non‑negotiable barrier against speculative investments."
+      "type": "succession_planning",
+      "description": "Discussion on preserving wealth for grandchildren; client requested a strict flag to block high‑beta speculative assets.",
+      "portfolioImpact": "Reinforced defensive bias; explicit exclusion of speculative asset classes added to mandate."
     },
     {
       "date": "2025-02-27",
       "type": "family",
-      "description": "Opened a minor savings account for the oldest grandson, emphasizing traditional saving virtues.",
-      "portfolioImpact": "Introduced inter‑generational savings focus; likely future allocation to low‑risk, cash‑like instruments."
+      "description": "Opened a minor savings account for the oldest grandson, emphasizing traditional saving virtues and avoidance of trading apps.",
+      "portfolioImpact": "Further emphasis on low‑risk, savings‑oriented products for the next generation."
     },
     {
       "date": "2025-07-08",
       "type": "business",
-      "description": "Account handover protocol initiated due to RM Thomas Keller’s early retirement.",
-      "portfolioImpact": "Ensured continuity of the existing defensive allocation under a new relationship manager."
+      "description": "Thomas Keller announced early retirement; account handover protocol for the global defensive allocation was initiated.",
+      "portfolioImpact": "Continuity of the defensive strategy ensured; no change to asset mix."
     },
     {
-      "date": "2025-11-04",
-      "type": "business",
-      "description": "Final farewell lunch; client expressed trust in the bank’s institutional heritage to protect the conservative core portfolio.",
-      "portfolioImpact": "No change; reaffirmed confidence in current strategy."
-    },
-    {
-      "date": "2026-01-08",
-      "type": "business",
-      "description": "Introductory call with new RM Sarah Meier; client reiterated expectation of a quiet, global defensive value approach.",
-      "portfolioImpact": "Confirmed continuation of the existing conservative mandate."
-    },
-    {
-      "date": "2026-05-12",
-      "type": "philanthropy",
-      "description": "Requested that upcoming June bond coupons be swept to the family foundation.",
-      "portfolioImpact": "Directs fixed‑income cash flow to philanthropic use without altering asset allocation."
+      "date": "2026-05-20",
+      "type": "market",
+      "description": "CIO issued a Tactical Asset Allocation update recommending reduction in defensive value to fund mega‑cap US technology.",
+      "portfolioImpact": "Client likely to reject the recommendation due to explicit red lines against speculative tech."
     }
   ],
+  "personalProfile": {
+    "interests": "traditional saving virtues, mountain retreats, Swiss heritage",
+    "quirks": "formal and reserved; prefers quiet, predictable investments; quick decision on dividend reinvestments",
+    "rapportTriggers": "mention of Swiss consumer staples, family foundation, industrial hardware firms like Siemens",
+    "avoidTopics": "speculative technology, competitor banks, aggressive trading strategies"
+  },
   "communicationStyle": {
     "language": "de",
     "tone": "formal",
-    "preferred": "values-led",
-    "formatPreference": "bullet points"
+    "preferred": "data-driven",
+    "formatPreference": "bullet points and tables",
+    "directness": "direct",
+    "detailLevel": "summary",
+    "openingStyle": "professional"
   },
   "keyQuotes": [
     "\"Do not touch a running system.\"",
     "\"I want to sleep at night, not speculate on Silicon Valley cloud bubbles.\"",
     "\"These abstract software and AI firms are valued on pure hype. It feels like the dot‑com crash of 2000 all over again.\"",
     "\"We expect the same quiet, global defensive value approach that Thomas Keller provided. No aggressive strategy shifts.\"",
-    "\"quiet, predictable, and boring\""
+    "\"quiet, predictable, and boring\" defensive performance"
   ],
   "confidence": 0.96,
   "sourcedFrom": [
@@ -96,7 +91,9 @@
     5,
     6,
     8,
+    15,
     16,
+    17,
     20
   ]
 }

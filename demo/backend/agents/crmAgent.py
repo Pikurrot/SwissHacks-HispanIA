@@ -126,11 +126,20 @@ Return a JSON object with EXACTLY this structure (no markdown, pure JSON):
       "portfolioImpact": "how this affects their portfolio priorities"
     }}
   ],
+    "personalProfile": {{
+    "interests": "sustainable farming", "fly fishing",
+    "quirks": "always orders Coca-Cola Zero", "reads FT print edition",
+    "rapportTriggers": "mention of Atlantic Forest project", "kids' education",
+    "avoidTopics": "competitor banks", "rival sports team"
+  }},
   "communicationStyle": {{
     "language": "de|en|fr",
     "tone": "formal|informal",
     "preferred": "values-led|data-driven|executive|collaborative",
-    "formatPreference": "optional: e.g. tables and numbers, bullet points"
+    "formatPreference": "optional: e.g. tables and numbers, bullet points",
+    "directness": "direct",      
+    "detailLevel": "summary",   
+    "openingStyle": "personal", "professional"
   }},
   "keyQuotes": ["3-5 most revealing direct quotes from the CRM logs"],
   "confidence": 0.0,
@@ -207,7 +216,7 @@ if __name__ == "__main__":
     
     # Replace these with your actual file path and client name
     TARGET_EXCEL_FILE = "data/SwissHacks CRM.xlsx" 
-    TARGET_CLIENT_NAME = "Raeber"
+    TARGET_CLIENT_NAME = "Hubertus Schneider"
     
     # # Create a dummy excel file for immediate testing if it doesn't exist
     # if not os.path.exists(TARGET_EXCEL_FILE):
