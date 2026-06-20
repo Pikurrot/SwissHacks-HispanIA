@@ -242,6 +242,19 @@ Rules for alertType and belief_alignment:
 
 
 
+MOCK_TRIGGERS_PATH = os.path.join(os.path.dirname(__file__), 'mock_triggers.json')
+
+
+def load_mock_trigger(client_id: str) -> dict | None:
+    try:
+        with open(MOCK_TRIGGERS_PATH, 'r', encoding='utf-8') as f:
+            triggers = json.load(f)
+        return triggers.get(client_id)
+    except Exception as e:
+        print(f"⚠️ Could not load mock triggers: {e}")
+        return None
+
+
 def compile_news_feed(client_id: str, dna_filepath: str):
     try:
         with open(dna_filepath, 'r', encoding='utf-8') as f:
@@ -265,14 +278,33 @@ def compile_news_feed(client_id: str, dna_filepath: str):
         articles = fetch_real_news(query, limit=5)
         real_news.extend(articles)
 
+    # Inject the client's mock trigger at the front so it always survives filtering
+    trigger = load_mock_trigger(client_id)
+    if trigger:
+        mock_item = {
+            "id": trigger["id"],
+            "headline": trigger["headline"],
+            "summary": trigger["summary"],
+            "url": trigger["url"],
+            "sentiment": "negative",
+            "sentimentScore": -0.9,
+            "relevanceScore": 1.0,
+            "affectedISINs": [],
+            "affectedSectors": [],
+            "alertType": "conflict",
+            "isMock": True,
+        }
+        real_news = [mock_item] + real_news
+        print(f"📌 Mock trigger injected for {client_id}: {trigger['headline'][:60]}…")
+
     if not real_news:
         print("No real news articles found.")
         return
 
     # 1. Score, filter, and save initial results
     relevant_news = find_relevant_news(client_id, real_news, dna)
-    
-    # 2. Pass to the LLM (Ready for your implementation!)
+
+    # 2. Pass to the LLM for belief-alignment analysis
     analyzed_news = analyze_news_with_llm(relevant_news, dna)
     
     final_output_filename = f"{client_id.lower()}_analyzed_news.json"

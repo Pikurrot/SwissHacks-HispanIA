@@ -1,0 +1,26 @@
+{
+  "client_id": "schneider",
+  "analysis": [
+    {
+      "id": "demo-roche-conflict-001",
+      "headline": "DEMO SCENARIO — Roche discontinues a neurological research programme",
+      "summary": "Synthetic hackathon scenario: Roche announces that it will discontinue a Parkinson's-related research programme and redirect the budget to non-neurological products.",
+      "source": "Demo fixture — not real news",
+      "url": "https://example.invalid/demo-roche-conflict",
+      "publishedAt": "2026-06-20T09:00:00Z",
+      "company": "Roche Holding AG",
+      "alertType": "conflict",
+      "belief_alignment": "negative",
+      "affectedISINs": [
+        "CH0012032048"
+      ],
+      "affectedSectors": [
+        "Health Care"
+      ],
+      "portfolio_impact": "This demo event conflicts with the client's stated red line concerning reductions in Parkinson's and neurological research funding.",
+      "relevanceScore": 1.0,
+      "confidence": 1.0,
+      "isMock": true
+    }
+  ]
+}

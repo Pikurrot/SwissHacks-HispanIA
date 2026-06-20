@@ -1,0 +1,157 @@
+import sys
+import os
+import json
+
+# --- INYECCIÓN AGRESIVA DE RUTA ---
+current_dir = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, current_dir)
+
+from fastapi import FastAPI
+from fastapi.responses import FileResponse 
+import uvicorn
+import pandas as pd
+from fastapi.middleware.cors import CORSMiddleware
+from backend.agents.crmAgent import extract_and_save_dna
+from backend.agents.newsAgent import compile_news_feed
+from backend.agents.portfolioAgent import get_swap_candidates
+from backend.agents.six_api_client import get_asset_price_info
+
+CLIENT_NAMES = {
+    "schneider": "Schneider",
+    "raeber": "Raeber",
+    "huber": "Huber",
+    "ammann": "Ammann"
+}
+
+PORTFOLIO_SHEETS = {
+    "schneider": "Sample Portfolio Balanced",
+    "raeber":    "Sample Portfolio Defensive",
+    "huber":     "Sample Portfolio Defensive",
+    "ammann":    "Sample Portfolio Growth",
+}
+
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+async def read_root():
+    # Asegúrate de que esta ruta sea correcta relativa a donde ejecutas el script
+    return FileResponse("static/dashboard.html")
+
+def _portfolio_issuers(client_id: str) -> list[str]:
+    """Return lowercase issuer names from the client's portfolio sheet."""
+    try:
+        sheet = PORTFOLIO_SHEETS.get(client_id, "Sample Portfolio Balanced")
+        df = pd.read_excel("../data/SwissHacks Portfolio Construction.xlsx", sheet_name=sheet)
+        return df['Issuer / Asset'].dropna().str.lower().tolist()
+    except Exception as e:
+        print(f"⚠️ Could not load portfolio issuers for {client_id}: {e}")
+        return []
+
+
+def _company_in_portfolio(company: str, issuers: list[str]) -> bool:
+    """True if company name overlaps with any portfolio issuer via substring match."""
+    name = company.lower().strip()
+    if not name or name == "unknown":
+        return False
+    return any(name in issuer or issuer in name for issuer in issuers)
+
+
+@app.get("/api/news/check/{client_id}")
+async def check_news(client_id: str):
+    dna_path = f"{client_id.lower()}_dna.json"
+    if not os.path.exists(dna_path):
+        return {"analysis": []}
+    compile_news_feed(client_id, dna_path)
+    analyzed_path = f"{client_id.lower()}_analyzed_news.json"
+    try:
+        with open(analyzed_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        return {"analysis": []}
+
+    # Filter: keep positives always; keep negatives/neutrals only if the
+    # flagged company is actually present in the client's portfolio.
+    issuers = _portfolio_issuers(client_id)
+    filtered = []
+    for item in data.get("analysis", []):
+        alignment = item.get("belief_alignment", "neutral")
+        if alignment == "positive":
+            filtered.append(item)
+        elif _company_in_portfolio(item.get("company", ""), issuers):
+            filtered.append(item)
+        else:
+            print(f"🗑 Dropping '{item.get('company')}' ({alignment}) — not in portfolio.")
+
+    return {"analysis": filtered}
+
+
+@app.get("/api/portfolio/conflicts/{client_id}")
+async def analyze_conflicts(client_id: str, sell_assets: str = "Apple"):
+    dna_path = f"{client_id.lower()}_dna.json"
+    if not os.path.exists(dna_path):
+        return {"error": "DNA not generated."}
+
+    with open(dna_path, 'r') as f:
+        dna = json.load(f)
+
+    excel_path = "../data/SwissHacks Portfolio Construction.xlsx"
+    sheet = PORTFOLIO_SHEETS.get(client_id, "Sample Portfolio Balanced")
+    companies = [s.strip() for s in sell_assets.split(',') if s.strip()]
+
+    results = []
+    for company in companies:
+        r = get_swap_candidates(excel_path, sheet, company, dna)
+        r["conflict_company"] = company
+        results.append(r)
+    return results
+
+
+@app.get("/api/portfolio/analyze/{client_id}")
+async def analyze_portfolio(client_id: str, sell_asset: str = "Apple"):
+    dna_path = f"{client_id.lower()}_dna.json"
+    if not os.path.exists(dna_path):
+        return {"error": "DNA no generado."}
+    
+    with open(dna_path, 'r') as f:
+        dna = json.load(f)
+        
+    excel_path = "../data/SwissHacks Portfolio Construction.xlsx"
+    # Usamos el parámetro sell_asset que viene del frontend
+    result = get_swap_candidates(excel_path, "Sample Portfolio Balanced", sell_asset, dna)
+    return result
+
+@app.post("/api/analyze/{client_id}")
+async def analyze_client(client_id: str):
+    if client_id not in CLIENT_NAMES:
+        return {"error": "Client ID not recognized"}
+        
+    full_name = CLIENT_NAMES[client_id]
+    
+    # Asegúrate de que esta ruta sea relativa a demo/backend
+    excel_path = "../data/SwissHacks CRM.xlsx"
+    
+    expected_dna_filename = f"{full_name.replace(' ', '_').lower()}_dna.json"
+    
+    print(f"🧠 [crmAgent] Ejecutando extracción para: {full_name}")
+    
+    extract_and_save_dna(excel_path, full_name)
+    
+    try:
+        with open(expected_dna_filename, 'r', encoding='utf-8') as f:
+            dna_data = json.load(f)
+        return dna_data
+    except FileNotFoundError:
+        return {"error": f"No se pudo generar el archivo {expected_dna_filename}"}
+
+    
+# --- EJECUCIÓN DIRECTA ---
+if __name__ == "__main__":
+    print("🚀 Arrancando servidor directamente...")
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)
