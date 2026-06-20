@@ -13,6 +13,54 @@ API_KEY = os.environ.get("PHOENIQS_API_KEY")
 API_URL = os.environ.get("PHOENIQS_API_URL")
 MODEL = os.environ.get("PHOENIQS_MODEL", "inference-gpt-oss-120b")
 
+OSINT_DIR = os.path.join(os.path.dirname(__file__), 'osint_cache')
+
+
+def build_osint_messages(client_id: str) -> list:
+    """
+    Parse osint_cache/{client_id}/twitter.txt and linkedin.txt into CRM-compatible
+    message strings. Each Twitter event and LinkedIn post becomes its own row;
+    the LinkedIn profile header becomes a single summary row.
+    Returns a list of formatted strings ready to merge with CRM messages.
+    """
+    messages = []
+    base = os.path.join(OSINT_DIR, client_id)
+
+    # --- Twitter: each [DATE] block → one row ---
+    tw_path = os.path.join(base, 'twitter.txt')
+    if os.path.exists(tw_path):
+        with open(tw_path, encoding='utf-8') as f:
+            tw_text = f.read()
+        for m in re.finditer(r'\[(\d{4}-\d{2}-\d{2})\]\s*(.*?)(?=\n\[|\Z)', tw_text, re.DOTALL):
+            date, note = m.group(1), m.group(2).strip()
+            if note:
+                messages.append(f"Date: {date}\nSource: Twitter\nNote: {note}")
+
+    # --- LinkedIn posts: each [DATE] block in "Recent Posts" → one row ---
+    li_path = os.path.join(base, 'linkedin.txt')
+    if os.path.exists(li_path):
+        with open(li_path, encoding='utf-8') as f:
+            li_text = f.read()
+
+        posts_match = re.search(r'Recent Posts:(.*?)(?:Skills:|$)', li_text, re.DOTALL)
+        if posts_match:
+            for m in re.finditer(r'\[(\d{4}-\d{2}-\d{2})\]\s*(.*?)(?=\n\[|\Z)', posts_match.group(1), re.DOTALL):
+                date, note = m.group(1), m.group(2).strip()
+                if note:
+                    messages.append(f"Date: {date}\nSource: LinkedIn Post\nNote: {note}")
+
+        # LinkedIn profile summary (everything except the Recent Posts section)
+        profile_text = re.sub(r'Recent Posts:.*', '', li_text, flags=re.DOTALL).strip()
+        if profile_text:
+            messages.append(f"Date: Unknown\nSource: LinkedIn Profile\nNote: {profile_text}")
+
+    if messages:
+        print(f"  📡 OSINT: loaded {len(messages)} rows for '{client_id}' "
+              f"({tw_path and os.path.exists(tw_path) and 'Twitter ✓' or 'Twitter ✗'}, "
+              f"{li_path and os.path.exists(li_path) and 'LinkedIn ✓' or 'LinkedIn ✗'})")
+    return messages
+
+
 def extract_and_save_dna(excel_path: str, client_name: str):
     """
     Reads an Excel file, finds the sheet for the specific client, extracts the notes,
@@ -86,21 +134,33 @@ def extract_and_save_dna(excel_path: str, client_name: str):
                 except Exception:
                     date_str = str(row[date_col]) # Fallback to raw string if parsing fails
             
-            # Combine Date and Note
-            messages.append(f"Date: {date_str}\nNote: {note_text}")
+            # Combine Date, Source and Note
+            messages.append(f"Date: {date_str}\nSource: CRM\nNote: {note_text}")
 
-        # Stack them up
+        print(f"Successfully extracted {len(messages)} CRM messages from '{target_sheet}'.")
+
+        # Merge OSINT rows (prepend so CRM entries remain authoritative)
+        client_id = client_name.split()[-1].lower()
+        osint_messages = build_osint_messages(client_id)
+        if osint_messages:
+            messages = osint_messages + messages
+
         stacked_logs = "\n\n---\n\n".join(messages)
-        print(f"Successfully extracted {len(messages)} messages with dates from '{target_sheet}'.")
-        # -------------------------------------------
+        print(f"Total input rows for DNA extraction: {len(messages)} "
+              f"({len(osint_messages)} OSINT + {len(messages) - len(osint_messages)} CRM)")
         
     except Exception as e:
         print(f"Failed to read Excel file: {e}")
         return
 
-    prompt = f"""You are an expert private banking analyst. Analyse the following CRM relationship logs for client "{client_name}" and extract their investment DNA.
+    prompt = f"""You are an expert private banking analyst. Analyse the following relationship intelligence logs for client "{client_name}" and extract their investment DNA.
 
-CRM LOGS:
+Each log entry includes a Date, a Source (CRM, Twitter, LinkedIn Post, or LinkedIn Profile), and a Note.
+- CRM entries are formal advisor notes — highest weight for investment preferences.
+- Twitter / LinkedIn entries reveal personal values, lifestyle, and publicly stated red lines — use them to enrich the DNA but give CRM notes priority when there is a conflict.
+- Count how many entries came from each source for the sourceSummary field.
+
+LOGS:
 {stacked_logs}
 
 Return a JSON object with EXACTLY this structure (no markdown, pure JSON):
@@ -126,32 +186,45 @@ Return a JSON object with EXACTLY this structure (no markdown, pure JSON):
       "portfolioImpact": "how this affects their portfolio priorities"
     }}
   ],
-    "personalProfile": {{
-    "interests": "sustainable farming", "fly fishing",
-    "quirks": "always orders Coca-Cola Zero", "reads FT print edition",
-    "rapportTriggers": "mention of Atlantic Forest project", "kids' education",
-    "avoidTopics": "competitor banks", "rival sports team"
+  "personalProfile": {{
+    "interests": ["list of personal interests"],
+    "quirks": ["notable habits or personal quirks"],
+    "rapportTriggers": ["topics or references that build rapport"],
+    "avoidTopics": ["topics to avoid in conversation"]
   }},
   "communicationStyle": {{
     "language": "de|en|fr",
     "tone": "formal|informal",
     "preferred": "values-led|data-driven|executive|collaborative",
     "formatPreference": "optional: e.g. tables and numbers, bullet points",
-    "directness": "direct",      
-    "detailLevel": "summary",   
-    "openingStyle": "personal", "professional"
+    "directness": "direct|diplomatic",
+    "detailLevel": "summary|detailed",
+    "openingStyle": "personal|professional"
   }},
-  "keyQuotes": ["3-5 most revealing direct quotes from the CRM logs"],
+  "keyQuotes": [
+    {{
+      "quote": "exact or near-exact quote from the log",
+      "source": "CRM|Twitter|LinkedIn Post|LinkedIn Profile",
+      "date": "YYYY-MM-DD or Unknown"
+    }}
+  ],
+  "sourceSummary": {{
+    "crm": 0,
+    "twitter": 0,
+    "linkedin_post": 0,
+    "linkedin_profile": 0
+  }},
   "confidence": 0.0,
   "sourcedFrom": [1, 2, 3]
 }}
 
 Rules:
-- confidence: 0.0-1.0 based on how much evidence exists in the logs
+- confidence: 0.0-1.0 based on how much evidence exists across all sources
 - sourcedFrom: array of log entry numbers [1-indexed] that most informed the DNA
-- keyQuotes: exact or near-exact quotes from the notes
+- keyQuotes: 3-5 most revealing quotes; include source and date for each
+- sourceSummary: count of input entries per source type (not zero — fill from the actual logs)
 - Be specific about redLines — these are critical for conflict detection
-- Life events should be ordered chronologically, date should be always the same as in the text provided
+- Life events should be ordered chronologically; date should match exactly what appears in the text
 """
 
     print(f"🤖 Sending data to API ({MODEL})...")

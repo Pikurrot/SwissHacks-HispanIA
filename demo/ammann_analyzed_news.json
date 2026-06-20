@@ -8,65 +8,162 @@
       "company": "Amazon.com Inc.",
       "belief_alignment": "negative",
       "affectedSectors": [
-        "Consumer Discretionary",
-        "Technology"
+        "Logistics",
+        "E‑commerce"
       ],
-      "portfolio_impact": "The federal labor investigation reveals wage theft and safety violations at Amazon’s warehouses, directly breaching the client’s zero‑tolerance stance on labor scandals and supply‑chain governance. The holding should be reviewed for potential divestiture or hedging."
+      "portfolio_impact": "The federal labour investigation reveals wage‑theft and safety violations at Amazon’s distribution hubs, directly breaching the client’s zero‑tolerance stance on labour exploitation and supply‑chain governance. Any exposure to Amazon would cross a red line and should be avoided or divested."
     },
     {
-      "id": "real-high_quality-3",
-      "headline": "National quality certification for Deovalley health facility",
-      "url": "https://neindia.com/national-quality-certification-for-deovalley-health-facility/",
+      "id": "real-blue_chip-1",
+      "headline": "Tinubu's four legacy highway projects as transformative investment assets",
+      "url": "https://www.thetimes.com.ng/2026/06/tinubus-four-legacy-highway-projects-as-transformative-investment-assets/",
       "alertType": "market",
       "company": "Deovalley Ayushman Arogya Mandir",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Healthcare"
+        "Infrastructure",
+        "Transportation"
       ],
-      "portfolio_impact": "The NQAS certification signals strong operational governance and quality in the healthcare facility, aligning with the client’s preference for high‑quality healthcare equities, but does not raise any labor‑related concerns."
+      "portfolio_impact": "The piece discusses highway projects in Nigeria; it does not touch on labour standards, Swiss sourcing, or the client’s priority sectors, so it carries no particular emotional trigger."
     },
     {
-      "id": "real-blue_chip-0",
-      "headline": "Oregon Ducks Hosting Major Notre Dame Recruiting Target on Campus",
-      "url": "https://www.si.com/college/oregon/football/oregon-ducks-hosting-notre-dame-recruiting-target-brayden-parks",
-      "alertType": "market",
-      "company": "Oregon Ducks",
-      "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "Sports recruiting news has no material relevance to the client’s investment criteria or ESG focus."
-    },
-    {
-      "id": "real-blue_chip-3",
-      "headline": "Texas A&M Knows Its Next Defensive Target After Losing on John Meredith III",
-      "url": "https://sports.yahoo.com/articles/texas-m-knows-next-defensive-150004626.html",
-      "alertType": "market",
-      "company": "Texas A&M Aggies",
-      "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "College football recruitment does not intersect with the client’s priorities or red lines."
-    },
-    {
-      "id": "real-high_quality-0",
-      "headline": "Poll: Americans believe they aren't being taught enough about democracy",
-      "url": "https://www.nbcsandiego.com/news/national-international/poll-americans-believe-not-being-taught-enough-about-democracy/4039397/",
+      "id": "real-logistics-1",
+      "headline": "Why Quantum Computing Could Give Europe an Edge in the AI Race",
+      "url": "https://www.tekedia.com/why-quantum-computing-could-give-europe-an-edge-in-the-ai-race/",
       "alertType": "market",
       "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [],
-      "portfolio_impact": "Public opinion polling on democracy is unrelated to the client’s investment themes."
-    },
-    {
-      "id": "real-large_global-3",
-      "headline": "Anthropic, and the Myth of AI Sovereignty",
-      "url": "https://kashmirobserver.net/2026/06/20/anthropic-and-the-myth-of-ai-sovereignty/",
-      "alertType": "market",
-      "company": "Anthropic",
       "belief_alignment": "neutral",
       "affectedSectors": [
         "Technology",
         "Artificial Intelligence"
       ],
-      "portfolio_impact": "The discussion of AI sovereignty highlights strategic risks in the tech sector but does not directly affect the client’s labor‑rights or governance red lines."
+      "portfolio_impact": "The article outlines quantum‑computing advances for Europe; while technologically relevant, it does not address supply‑chain or labour issues relevant to the client."
+    },
+    {
+      "id": "real-swiss_consumer-2",
+      "headline": "Nestlé Water Unit Auction Reportedly Narrows as PAI Exits Bidding",
+      "url": "https://www.themiddlemarket.com/latest-news/nestle-water-unit-auction-reportedly-narrows-as-pai-exits-bidding",
+      "alertType": "market",
+      "company": "Nestlé",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Swiss Consumer Goods",
+        "Beverages/Water"
+      ],
+      "portfolio_impact": "The report on Nestlé’s water business sale is a corporate transaction without labour‑rights concerns; it neither supports nor threatens the client’s ESG red lines."
+    },
+    {
+      "id": "real-swiss_consumer-0",
+      "headline": "SNB to keep interest rates at 0% on June 18 and for rest of year - Reuters poll | FXStreet",
+      "url": "https://www.fxstreet.com/news/snb-to-keep-interest-rates-at-0-on-june-18-and-for-rest-of-year-reuters-poll-202606151132",
+      "alertType": "market",
+      "company": "Swiss National Bank",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Finance",
+        "Monetary Policy"
+      ],
+      "portfolio_impact": "Interest‑rate outlook for Switzerland is macro‑economic news and does not intersect with the client’s supply‑chain or labour‑rights priorities."
+    },
+    {
+      "id": "real-swiss_consumer-3",
+      "headline": "PAI Partners exits Nestle water unit bid as sale process continues - Bloomberg By Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/pai-partners-exits-nestle-water-unit-bid-as-sale-process-continues--bloomberg-93CH-4731319",
+      "alertType": "market",
+      "company": "Nestlé",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Swiss Consumer Goods",
+        "Beverages"
+      ],
+      "portfolio_impact": "PAI Partners withdrawing from Nestlé’s water unit bid is a financing development with no labour‑rights implications for the client."
+    },
+    {
+      "id": "real-swiss_consumer-4",
+      "headline": "What are the main events for today? | investingLive",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260608/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "General Market"
+      ],
+      "portfolio_impact": "A routine market‑events summary; no relevance to client values."
+    },
+    {
+      "id": "real-swiss_consumer-1",
+      "headline": "What are the main events for today? | investingLive",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260615/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "General Market"
+      ],
+      "portfolio_impact": "Another routine market‑events summary with no material impact on the client’s ESG or sector preferences."
+    },
+    {
+      "id": "real-blue_chip-4",
+      "headline": "Oregon Ducks Hosting Major Notre Dame Recruiting Target on Campus",
+      "url": "https://www.si.com/college/oregon/football/oregon-ducks-hosting-notre-dame-recruiting-target-brayden-parks",
+      "alertType": "market",
+      "company": "Oregon Ducks",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Sports",
+        "Education"
+      ],
+      "portfolio_impact": "College football recruiting news has no bearing on the client’s investment criteria."
+    },
+    {
+      "id": "real-logistics-2",
+      "headline": "Six years on, officers relive one of Victoria Police's darkest days",
+      "url": "https://www.abc.net.au/news/2026-06-21/victoria-police-eastern-freeway-tragedy-pusey-singh/104919372",
+      "alertType": "market",
+      "company": "Victoria Police",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Public Safety"
+      ],
+      "portfolio_impact": "A recount of a police tragedy; unrelated to investment considerations."
+    },
+    {
+      "id": "real-blue_chip-0",
+      "headline": "AAVE Price Prediction: Rally or Rejection -- $74 Is the Line in the Sand Before a Move to $82 or $70",
+      "url": "https://blockchain.news/news/20260620-price-prediction-aave-rally-or-rejection-74-is-the",
+      "alertType": "market",
+      "company": "AAVE",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Cryptocurrency"
+      ],
+      "portfolio_impact": "Price prediction for AAVE is speculative crypto news, not linked to the client’s ESG or sector preferences."
+    },
+    {
+      "id": "real-blue_chip-2",
+      "headline": "Tinubu's four legacy highway projects as transformative investment assets",
+      "url": "https://pmnewsnigeria.com/2026/06/20/tinubus-four-legacy-highway-projects-as-transformative-investment-assets/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Infrastructure",
+        "Transportation"
+      ],
+      "portfolio_impact": "Duplicate of the Nigeria highway story; no direct relevance to the client’s priorities."
+    },
+    {
+      "id": "real-logistics-3",
+      "headline": "When His Son Was Diagnosed With Cancer During Wartime, This Father Was Forced To Leave His Country And Find A New Way To Make A Living. AI Made That Possible.",
+      "url": "https://www.forbes.com/sites/elainepofeldt/2026/06/20/when-his-son-was-diagnosed-with-cancer-during-wartime-this-father-was-forced-to-leave-his-country-and-find-a-new-way-to-make-a-living-ai-made-that-possible/",
+      "alertType": "market",
+      "company": "N/A",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Technology",
+        "Artificial Intelligence"
+      ],
+      "portfolio_impact": "Human‑interest story on AI helping a Ukrainian entrepreneur; while showcasing tech benefits, it does not address supply‑chain integrity or labour standards relevant to the client."
     }
   ]
 }

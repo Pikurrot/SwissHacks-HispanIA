@@ -1,6 +1,7 @@
 import sys
 import os
 import json
+import re
 
 # --- INYECCIÓN AGRESIVA DE RUTA ---
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -88,9 +89,9 @@ def _portfolio_issuers(client_id: str) -> list[str]:
         return []
 
 
-def _company_in_portfolio(company: str, issuers: list[str]) -> bool:
+def _company_in_portfolio(company, issuers: list[str]) -> bool:
     """True if company name overlaps with any portfolio issuer via substring match."""
-    name = company.lower().strip()
+    name = (company or "").lower().strip()
     if not name or name == "unknown":
         return False
     return any(name in issuer or issuer in name for issuer in issuers)
@@ -144,6 +145,82 @@ async def analyze_conflicts(client_id: str, sell_assets: str = "Apple"):
         r["conflict_company"] = company
         results.append(r)
     return results
+
+
+_company_info_cache: dict = {}
+
+
+def _fetch_company_info(name: str) -> dict:
+    """LLM call to generate a company brief. Checks cache first."""
+    cache_key = name.lower().strip()
+    if cache_key in _company_info_cache:
+        print(f"  📦 Company info cache hit: {name}")
+        return _company_info_cache[cache_key]
+
+    api_key = os.environ.get("PHOENIQS_API_KEY")
+    api_url = os.environ.get("PHOENIQS_API_URL")
+    model   = os.environ.get("PHOENIQS_MODEL", "inference-gpt-oss-120b")
+
+    if not api_key or not api_url:
+        return {"error": "LLM API not configured.", "name": name}
+
+    import requests as _req
+    prompt = f"""You are a senior equity analyst briefing a private banking relationship manager.
+Write a concise, factual company brief for "{name}" that a wealth manager can read in 30 seconds before a client call.
+
+Return a pure JSON object (no markdown) with exactly this structure:
+{{
+  "name": "{name}",
+  "oneLiner": "One sentence: what the company does and where it operates.",
+  "sector": "Industry sector and sub-sector.",
+  "businessModel": "2-3 sentences on how the company makes money.",
+  "keyStrengths": ["3-4 bullet points of competitive advantages or notable facts"],
+  "keyRisks": ["2-3 bullet points of main investment risks"],
+  "relevanceForWealthClients": "1-2 sentences on why this asset may be relevant for private banking portfolios."
+}}"""
+
+    try:
+        resp = _req.post(
+            f"{api_url}/chat/completions",
+            headers={"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"},
+            json={"model": model, "messages": [{"role": "user", "content": prompt}],
+                  "temperature": 0.2, "max_tokens": 800},
+            timeout=30,
+        )
+        resp.raise_for_status()
+        content = resp.json()["choices"][0]["message"]["content"].strip()
+        content = re.sub(r"^```(?:json)?\n?", "", content)
+        content = re.sub(r"\n?```$", "", content)
+        result = json.loads(content)
+        _company_info_cache[cache_key] = result
+        print(f"  🧠 Company info cached: {name}")
+        return result
+    except Exception as e:
+        return {"error": str(e), "name": name}
+
+
+@app.get("/api/company/info")
+async def company_info(name: str):
+    """Return a cached or freshly generated company brief."""
+    return _fetch_company_info(name)
+
+
+@app.post("/api/company/prefetch")
+async def prefetch_company_info(payload: dict):
+    """
+    Fire-and-forget background pre-warming of the company info cache.
+    Accepts {"names": ["Company A", "Company B", ...]}
+    Runs sequentially and stores results; returns immediately with the list processed.
+    """
+    import asyncio, concurrent.futures
+    names = payload.get("names", [])
+    loop = asyncio.get_event_loop()
+    with concurrent.futures.ThreadPoolExecutor() as pool:
+        await asyncio.gather(*[
+            loop.run_in_executor(pool, _fetch_company_info, n)
+            for n in names if n
+        ])
+    return {"prefetched": len(names)}
 
 
 @app.get("/api/portfolio/analyze/{client_id}")

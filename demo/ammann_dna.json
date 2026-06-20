@@ -1,113 +1,106 @@
 {
   "values": {
     "priorities": [
-      "Zero‑tolerance to reputational risk from labor or governance scandals",
-      "Data‑driven cost‑of‑capital and tail‑risk analysis",
-      "Alignment of portfolio footprint with his brand’s clean‑labor image",
-      "Optimisation of yield to match tax liabilities and cash needs"
+      "Zero‑tolerance supply‑chain and labor governance – no exposure to companies linked to sweatshops, wage theft or any labor exploitation",
+      "Swiss domestic brand integrity and local sourcing – support Swiss‑made products and transparent provenance",
+      "Data‑driven risk management – focus on cost‑of‑capital, logistics cost shocks, energy price sensitivity and real‑time operational risk",
+      "High‑quality, culturally aligned alternative assets – emerging Swiss art",
+      "Robust corporate governance over ESG – real‑time scandal monitoring rather than static ratings"
     ],
     "redLines": [
-      "Any holding linked to sweatshops, illegal exploitation or wage theft",
-      "Positions that could be publicly associated with a labour‑rights scandal before Swiss press coverage",
-      "Standard ESG scores that do not reflect live media or judicial investigations",
-      "Holding companies with weak supply‑chain governance that threaten brand integrity"
+      "Any holding that is linked to sweatshops, illegal exploitation or wage theft",
+      "Positions that receive negative media or judicial scrutiny for labor or supply‑chain violations",
+      "Investments in companies that cannot provide full, transparent supply‑chain mapping",
+      "Holding a corporate parent with a reputation for labor scandals that could be tied to Ammann’s brand"
     ],
     "preferredSectors": [
-      "Blue‑chip consumer discretionary & retail with stable compliance ratings",
-      "Large‑cap global equities (healthcare, technology, energy) that meet strict governance screens",
-      "High‑quality sovereign and cantonal bonds",
-      "Real‑estate assets with transparent lease data"
+      "Swiss consumer retail and discretionary with strong supply‑chain controls",
+      "Blue‑chip global consumer and apparel companies that meet high governance standards",
+      "Logistics and automation technology supporting efficient fulfillment",
+      "Healthcare, technology and energy exposure within a globally balanced model (as per 2026 strategy) ",
+      "Emerging Swiss art (alternative asset class)"
     ],
     "avoidedSectors": [
-      "Companies with high supply‑chain labour risk (e.g., low‑cost apparel manufacturers)",
-      "Firms under regulatory or media scrutiny for governance failures",
-      "Industries reliant on cheap, unmonitored foreign logistics providers"
+      "Fast‑fashion and low‑cost apparel manufacturers with opaque supply chains",
+      "Companies heavily reliant on cheap foreign labor without transparent auditing",
+      "Industries where labor‑rights scandals are frequent (e.g., certain electronics, footwear)",
+      "Any sector where ESG ratings are the only compliance evidence"
     ],
     "esgFocus": [
-      "Supply‑chain labour standards and wage theft prevention",
-      "Real‑time scandal monitoring rather than retrospective ESG scores",
-      "Corporate governance transparency and anti‑sweatshop policies"
+      "Supply‑chain integrity and labor rights",
+      "Transparency and full supplier mapping (tier‑3/4)",
+      "Local sourcing and provenance",
+      "Real‑time operational risk monitoring"
     ]
   },
   "investmentBehavior": {
-    "riskTolerance": "conservative",
-    "timeHorizon": "Medium‑to‑long term (5‑10 years) with focus on preserving brand reputation over short‑term excess returns",
-    "liquidity": "Requires modest short‑term liquidity for tax payments and art purchases; prefers high‑quality short‑duration cantonal instruments",
-    "mandate": "Zero‑Tolerance Governance Mandate"
+    "riskTolerance": "moderate",
+    "timeHorizon": "Medium to long term (5‑10 years), aligned with brand expansion and legacy asset building",
+    "liquidity": "Moderate liquidity need – maintains short‑term Swiss cantonal instruments for cash management and art purchases while holding global equities and bonds",
+    "mandate": "Clean Corporate Governance Mandate (zero‑tolerance supply‑chain risk)"
   },
   "lifeEvents": [
     {
       "date": "2023-03-14",
       "type": "business",
-      "description": "Onboarding completed; wealth originates from founding a national Swiss retail brand.",
-      "portfolioImpact": "Establishes baseline need for analytical, cost‑of‑capital focused investment approach."
+      "description": "Onboarding completed; wealth originates from founding Ammann Retail Group and focus on cost‑of‑capital and tail‑risk analysis.",
+      "portfolioImpact": "Set baseline investment approach emphasizing analytical rigor and risk awareness."
     },
     {
-      "date": "2023-09-05",
+      "date": "2024-01-24",
       "type": "business",
-      "description": "Discussed upcoming sustainability marketing campaign for his retail brand.",
-      "portfolioImpact": "Reinforces willingness to sacrifice yield for a clean ESG footprint."
+      "description": "Opening of the 38th store in Lausanne, emphasizing Swiss values, local sourcing and full supplier transparency.",
+      "portfolioImpact": "Reinforces preference for Swiss domestic retail exposure and may increase capital allocation to expansion."
     },
     {
-      "date": "2023-11-18",
+      "date": "2024-09-18",
+      "type": "philanthropy",
+      "description": "Acquired a work by an emerging Swiss artist at the Kunsthaus Zurich auction.",
+      "portfolioImpact": "Triggers cash withdrawals for art purchases; adds cultural assets to portfolio."
+    },
+    {
+      "date": "2025-05-14",
       "type": "business",
-      "description": "Dividend sweep from private holding company; capital redeployed into global balanced framework.",
-      "portfolioImpact": "Confirms preference for sector‑neutral, large‑cap exposure."
-    },
-    {
-      "date": "2024-04-19",
-      "type": "business",
-      "description": "Requested fixed‑income duration analysis to match Swiss tax liabilities due late 2025.",
-      "portfolioImpact": "Triggers precise duration matching and cash‑flow planning."
-    },
-    {
-      "date": "2024-10-15",
-      "type": "personal",
-      "description": "Cash withdrawal for private art purchases.",
-      "portfolioImpact": "Highlights need for readily available liquid assets."
-    },
-    {
-      "date": "2025-04-02",
-      "type": "business",
-      "description": "Brand expansion into western Switzerland under heavy media and union scrutiny.",
-      "portfolioImpact": "Elevates emphasis on personal transparency and clean‑governance holdings."
+      "description": "Delivered keynote on \"Supply Chain Integrity as a Competitive Moat\" at Zurich Governance Forum.",
+      "portfolioImpact": "Publicly re‑affirms supply‑chain governance as core investment theme."
     },
     {
       "date": "2025-08-11",
       "type": "business",
-      "description": "Formal handover protocol emphasizing extreme zero‑tolerance mandate.",
-      "portfolioImpact": "Sets strict compliance expectations for any future relationship manager."
-    },
-    {
-      "date": "2025-09-18",
-      "type": "business",
-      "description": "Joint call with outgoing and incoming RM; reiterated demand for rigorous, data‑driven execution.",
-      "portfolioImpact": "Confirms preference for analytical reporting and zero drop‑off in standards."
-    },
-    {
-      "date": "2025-11-04",
-      "type": "personal",
-      "description": "Farewell lunch; reiterated zero‑tolerance for corporate governance infractions.",
-      "portfolioImpact": "Reaffirms non‑negotiable ESG screening criteria."
+      "description": "Transition to new Relationship Manager after Thomas Keller’s retirement.",
+      "portfolioImpact": "Mandate review and reinforcement of zero‑tolerance governance standards."
     },
     {
       "date": "2026-01-09",
       "type": "business",
-      "description": "Introductory call with new RM; described portfolio as a \"fortress of clean corporate governance\".",
-      "portfolioImpact": "Sets tone for all future investment decisions."
-    },
-    {
-      "date": "2026-05-14",
-      "type": "philanthropy",
-      "description": "Keynote at corporate governance forum emphasizing \"dirty hands\" would end his career.",
-      "portfolioImpact": "Publicly cements zero‑tolerance stance, influencing future screening intensity."
+      "description": "Introductory call with new RM Sarah Meier; reiterated that the portfolio must be a \"fortress of clean corporate governance\".",
+      "portfolioImpact": "Confirms ongoing strict compliance expectations for all holdings."
     }
   ],
   "personalProfile": {
-    "interests": "art collecting, sustainable retail, Swiss cantonal bonds",
-    "quirks": "sharp, data‑driven, always requests granular tables, reads FT print edition",
-    "rapportTriggers": "mention of clean‑labour supply chains, Swiss cantonal bond yields, corporate governance forums",
-    "avoidTopics": "competitor banks, rival sports teams"
+    "interests": [
+      "Corporate governance and ethical leadership",
+      "Supply‑chain transparency and ESG risk",
+      "Swiss consumer retail trends",
+      "Emerging Swiss art and cultural patronage",
+      "Logistics automation and cost efficiency"
+    ],
+    "quirks": [
+      "Monitors live media and judicial proceedings for any labor‑related scandal on portfolio holdings",
+      "Demands immediate divestment upon any negative press before it reaches Swiss national outlets",
+      "Prefers Swiss cantonal short‑term instruments for idle cash to optimise basis points"
+    ],
+    "rapportTriggers": [
+      "Discussion of supply‑chain mapping and EU CSDDD",
+      "Swiss local sourcing, provenance stories, and brand authenticity",
+      "Zurich governance forums and corporate ethics speaking engagements",
+      "Emerging Swiss artists and recent auction acquisitions"
+    ],
+    "avoidTopics": [
+      "Generic ESG rating scores without operational evidence",
+      "Political debates unrelated to business or governance",
+      "Speculative crypto or high‑volatility assets"
+    ]
   },
   "communicationStyle": {
     "language": "en",
@@ -119,21 +112,49 @@
     "openingStyle": "professional"
   },
   "keyQuotes": [
-    "\"My national brand equity is built on clean labor and local integrity. If my name is linked via my portfolio to an international corporate parent caught using sweatshops, illegal exploitation, or wage theft, it creates immediate hypocrisy risk for my own stores.\"",
-    "\"I will gladly accept a lower Sharpe ratio or lower yields in exchange for a clean portfolio footprint.\"",
-    "\"If any international consumer or retail brand we hold gets hit with severe labor exploitation allegations, dump the entire position before the local Swiss press can link my name to it.\"",
-    "\"Standard glossy ESG reporting and backward‑looking sustainability scores are useless to me. ... if there is live media or judicial smoke surrounding their labor practices right now, the position must be flagged immediately before it hits mainstream national press.\"",
-    "\"My investment portfolio must be a fortress of clean corporate governance. No reputational liabilities, period.\""
+    {
+      "quote": "My national brand equity is built on clean labor and local integrity. If my name is linked via my portfolio to an international corporate parent caught using sweatshops, illegal exploitation, or wage theft, it creates immediate hypocrisy risk for my own stores.",
+      "source": "CRM",
+      "date": "2023-06-20"
+    },
+    {
+      "quote": "My portfolio must be a fortress of clean corporate governance. No reputational liabilities, period.",
+      "source": "CRM",
+      "date": "2026-01-09"
+    },
+    {
+      "quote": "Standard glossy ESG reporting and backward‑looking sustainability scores are useless to me. If there is live media or judicial smoke surrounding labor practices, the position must be flagged immediately before it hits mainstream national press.",
+      "source": "CRM",
+      "date": "2026-03-12"
+    },
+    {
+      "quote": "Delivered my keynote on 'Supply Chain Integrity as a Competitive Moat' at the Zurich Governance Forum. Clean operations are not an ethical luxury — they are the most durable form of brand equity.",
+      "source": "LinkedIn Post",
+      "date": "2025-05-14"
+    },
+    {
+      "quote": "Consumer boycotts due to labor or governance scandals are a massive, unquantifiable risk to retail equity valuations.",
+      "source": "CRM",
+      "date": "2024-06-14"
+    }
   ],
+  "sourceSummary": {
+    "crm": 28,
+    "twitter": 10,
+    "linkedin_post": 4,
+    "linkedin_profile": 1
+  },
   "confidence": 0.96,
   "sourcedFrom": [
-    3,
-    5,
-    6,
-    10,
-    14,
-    19,
-    23,
-    26
+    18,
+    20,
+    29,
+    41,
+    43,
+    11,
+    12,
+    1,
+    2,
+    5
   ]
 }
