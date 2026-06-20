@@ -1,0 +1,102 @@
+{
+  "values": {
+    "priorities": [
+      "capital preservation",
+      "steady dividend and cash‑flow income",
+      "legacy and succession planning for grandchildren",
+      "investment in tangible, mature businesses"
+    ],
+    "redLines": [
+      "no exposure to high‑beta speculative asset classes",
+      "avoid speculative US software/technology and AI stocks",
+      "no aggressive strategy shifts or volatile growth equities",
+      "do not allocate to mega‑cap tech positions"
+    ],
+    "preferredSectors": [
+      "consumer staples (e.g., Nestlé, Procter & Gamble, Walmart, Costco)",
+      "industrial manufacturers and hardware (e.g., Siemens, ASML)",
+      "healthcare and pharma (e.g., Johnson & Johnson, Novartis)",
+      "Swiss value equities",
+      "high‑grade sovereign and G7 government bonds"
+    ],
+    "avoidedSectors": [
+      "speculative technology/software and AI",
+      "high‑beta growth equities",
+      "emerging tech without tangible assets"
+    ],
+    "esgFocus": []
+  },
+  "investmentBehavior": {
+    "riskTolerance": "conservative",
+    "timeHorizon": "long‑term, multi‑generational wealth preservation for grandchildren",
+    "liquidity": "low immediate liquidity needs; occasional cash draws for personal projects (e.g., home renovation) while keeping core equity intact",
+    "mandate": "Conservative Defensive Global Value Mandate"
+  },
+  "lifeEvents": [
+    {
+      "date": "2023-07-04",
+      "type": "family",
+      "description": "CHF 150,000 withdrawn from cash accounts for a structural renovation of the holiday home in Flims.",
+      "portfolioImpact": "Liquidity was taken from cash reserves; core equity positions were left untouched."
+    },
+    {
+      "date": "2023-10-05",
+      "type": "succession",
+      "description": "Succession planning discussion; client requested a strict flag to block any high‑beta speculative asset classes.",
+      "portfolioImpact": "Reinforced the defensive stance and formalized a non‑negotiable barrier against speculative investments."
+    },
+    {
+      "date": "2025-02-27",
+      "type": "family",
+      "description": "Opened a minor savings account for the oldest grandson, emphasizing traditional saving virtues.",
+      "portfolioImpact": "Introduced inter‑generational savings focus; likely future allocation to low‑risk, cash‑like instruments."
+    },
+    {
+      "date": "2025-07-08",
+      "type": "business",
+      "description": "Account handover protocol initiated due to RM Thomas Keller’s early retirement.",
+      "portfolioImpact": "Ensured continuity of the existing defensive allocation under a new relationship manager."
+    },
+    {
+      "date": "2025-11-04",
+      "type": "business",
+      "description": "Final farewell lunch; client expressed trust in the bank’s institutional heritage to protect the conservative core portfolio.",
+      "portfolioImpact": "No change; reaffirmed confidence in current strategy."
+    },
+    {
+      "date": "2026-01-08",
+      "type": "business",
+      "description": "Introductory call with new RM Sarah Meier; client reiterated expectation of a quiet, global defensive value approach.",
+      "portfolioImpact": "Confirmed continuation of the existing conservative mandate."
+    },
+    {
+      "date": "2026-05-12",
+      "type": "philanthropy",
+      "description": "Requested that upcoming June bond coupons be swept to the family foundation.",
+      "portfolioImpact": "Directs fixed‑income cash flow to philanthropic use without altering asset allocation."
+    }
+  ],
+  "communicationStyle": {
+    "language": "de",
+    "tone": "formal",
+    "preferred": "values-led",
+    "formatPreference": "bullet points"
+  },
+  "keyQuotes": [
+    "\"Do not touch a running system.\"",
+    "\"I want to sleep at night, not speculate on Silicon Valley cloud bubbles.\"",
+    "\"These abstract software and AI firms are valued on pure hype. It feels like the dot‑com crash of 2000 all over again.\"",
+    "\"We expect the same quiet, global defensive value approach that Thomas Keller provided. No aggressive strategy shifts.\"",
+    "\"quiet, predictable, and boring\""
+  ],
+  "confidence": 0.96,
+  "sourcedFrom": [
+    1,
+    3,
+    5,
+    6,
+    8,
+    16,
+    20
+  ]
+}

@@ -46,20 +46,53 @@ def extract_and_save_dna(excel_path: str, client_name: str):
         # Read the specific sheet
         df = pd.read_excel(xls, sheet_name=target_sheet)
         
-        # Check for either 'Note' or 'message' columns flexibly
-        col_name = None
-        for possible_col in ['Note', 'message', 'Notes', 'Message']:
+        # --- NEW: Extract Date and Note together ---
+        # Find the date column
+        date_col = None
+        for possible_col in ['Date', 'date', 'Excel Date']:
             if possible_col in df.columns:
-                col_name = possible_col
+                date_col = possible_col
                 break
                 
-        if not col_name:
+        # Find the note column
+        note_col = None
+        for possible_col in ['Note', 'message', 'Notes', 'Message']:
+            if possible_col in df.columns:
+                note_col = possible_col
+                break
+                
+        if not note_col:
             raise ValueError(f"The sheet '{target_sheet}' does not contain a recognizable notes/message column. Columns found: {df.columns.tolist()}")
 
-        # Drop empty rows and stack all text into a single string separated by newlines
-        messages = df[col_name].dropna().astype(str).tolist()
+        # Ensure we have data to process
+        df = df.dropna(subset=[note_col])
+        
+        messages = []
+        for index, row in df.iterrows():
+            note_text = str(row[note_col])
+            
+            # Format the date if we found a date column
+            date_str = "Unknown Date"
+            if date_col and pd.notna(row[date_col]):
+                try:
+                    # Convert to datetime, handling potential Excel serial numbers or standard strings
+                    if isinstance(row[date_col], (int, float)):
+                        # Handle Excel serial dates
+                        dt = pd.to_datetime('1899-12-30') + pd.to_timedelta(row[date_col], 'D')
+                    else:
+                        dt = pd.to_datetime(row[date_col])
+                        
+                    date_str = dt.strftime('%Y-%m-%d')
+                except Exception:
+                    date_str = str(row[date_col]) # Fallback to raw string if parsing fails
+            
+            # Combine Date and Note
+            messages.append(f"Date: {date_str}\nNote: {note_text}")
+
+        # Stack them up
         stacked_logs = "\n\n---\n\n".join(messages)
-        print(f"Successfully extracted {len(messages)} messages from column '{col_name}'.")
+        print(f"Successfully extracted {len(messages)} messages with dates from '{target_sheet}'.")
+        # -------------------------------------------
         
     except Exception as e:
         print(f"Failed to read Excel file: {e}")
@@ -109,6 +142,7 @@ Rules:
 - sourcedFrom: array of log entry numbers [1-indexed] that most informed the DNA
 - keyQuotes: exact or near-exact quotes from the notes
 - Be specific about redLines — these are critical for conflict detection
+- Life events should be ordered chronologically, date should be always the same as in the text provided
 """
 
     print(f"🤖 Sending data to API ({MODEL})...")
@@ -173,7 +207,7 @@ if __name__ == "__main__":
     
     # Replace these with your actual file path and client name
     TARGET_EXCEL_FILE = "data/SwissHacks CRM.xlsx" 
-    TARGET_CLIENT_NAME = "Huber"
+    TARGET_CLIENT_NAME = "Raeber"
     
     # # Create a dummy excel file for immediate testing if it doesn't exist
     # if not os.path.exists(TARGET_EXCEL_FILE):
