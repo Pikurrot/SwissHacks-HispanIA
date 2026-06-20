@@ -1,0 +1,69 @@
+{
+  "client_id": "huber",
+  "full_name": "Marius Huber",
+  "lifestyle_profile": {
+    "gastronomy": {
+      "wine": "biodynamic Petite Arvine (natural wine) from Valais",
+      "dining": "biodynamic wine tasting weekend in Valais",
+      "habits": "seeks natural, biodynamic wines with no sulphites"
+    },
+    "sports": {
+      "participates": [
+        "fly fishing"
+      ],
+      "destinations": [
+        "Soča River, Slovenia"
+      ],
+      "level": "casual"
+    },
+    "lifestyle": {
+      "brands": [
+        "Amazon Biodiversity Foundation",
+        "Atlantic Forest Fund",
+        "Swiss Sustainable Finance",
+        "Swiss Re",
+        "Nestlé",
+        "Wilmar International",
+        "GreenHarvest AG"
+      ],
+      "travel": "nature‑focused trips such as five weeks in Borneo (June 2024), a natural‑wine weekend in Valais (Feb 2024), and fly‑fishing on the Soča River in Slovenia (Dec 2023)",
+      "culture": [],
+      "causes": [
+        "biodiversity conservation",
+        "ecological restoration",
+        "ESG integrity",
+        "TNFD disclosure",
+        "supply‑chain transparency",
+        "reforestation with native species",
+        "mandatory palm‑oil supply‑chain disclosure"
+      ]
+    },
+    "professional": {
+      "conferences": [
+        "Swiss Sustainable Finance annual summit (April 2025)",
+        "Panel at Swiss Sustainable Finance (Feb 2025)"
+      ],
+      "publications": [
+        "NZZ article on regenerative agriculture as an asset class (Dec 2024)"
+      ],
+      "boards": [
+        "Advisory Board Member, Amazon Biodiversity Foundation (2022–present)",
+        "Co‑Chair, Supply Chain Transparency Working Group, Swiss Sustainable Finance (2023–present)",
+        "Co‑Founder & former CEO, GreenHarvest AG (2015–2022)"
+      ]
+    },
+    "rapport_triggers": [
+      "Visited Borneo for five weeks in June 2024 and posted about orangutans 200 m from a palm‑oil plantation edge (#borneo #palmOil #rewilding).",
+      "Enjoyed a natural‑wine weekend in Valais on 8 Feb 2024, highlighting a biodynamic Petite Arvine producer.",
+      "Went fly‑fishing on the Soča River in Slovenia on 1 Dec 2023, emphasizing pristine water and wild trout.",
+      "Doubled his contribution to the Atlantic Forest Fund on 22 Mar 2024, citing verified biodiversity impact."
+    ],
+    "redline_signals": [
+      "Supply‑chain opacity is a red line – explicitly warned that ESG funds holding Wilmar International need to be discussed (Nov 2024).",
+      "Signed an open letter to the EU Commission demanding mandatory palm‑oil supply‑chain disclosure (Sep 2023).",
+      "Criticised Nestlé RSPO audit gaps and systemic green‑washing in the palm‑oil sector (Jun 2025)."
+    ],
+    "confidence": 0.93
+  },
+  "osint_confidence": 0.93
+}

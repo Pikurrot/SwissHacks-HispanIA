@@ -1,0 +1,52 @@
+{
+  "client_id": "schneider",
+  "full_name": "Hubertus Schneider",
+  "lifestyle_profile": {
+    "gastronomy": {
+      "wine": null,
+      "dining": null,
+      "habits": null
+    },
+    "sports": {
+      "participates": [
+        "cycling",
+        "skiing"
+      ],
+      "destinations": [
+        "Basel to Zurich",
+        "Verbier"
+      ],
+      "level": "serious amateur"
+    },
+    "lifestyle": {
+      "brands": [],
+      "travel": "Primarily domestic business travel within Switzerland (e.g., Basel, Zug) combined with family ski trips to Alpine resorts such as Verbier and personal outdoor activities like cycling between Basel and Zurich.",
+      "culture": [
+        "arts sponsorship",
+        "cultural philanthropy"
+      ],
+      "causes": [
+        "arts sponsorship",
+        "cultural philanthropy"
+      ]
+    },
+    "professional": {
+      "conferences": [
+        "Swiss Automotive Suppliers Forum (Basel, 2025-03-08)",
+        "Swiss Manufacturing Excellence Awards (2024-06-15)"
+      ],
+      "publications": [],
+      "boards": [
+        "Board Member, Swiss Automotive Suppliers Association (AGVS)"
+      ]
+    },
+    "rapport_triggers": [
+      "Family ski trip to Verbier, one week offline – posted 2024-03-18",
+      "Cycled the Basel to Zurich route (86 km) over a weekend – posted 2023-08-27",
+      "Hosted the Swiss Automotive Suppliers Forum delegation at the Zug facility – posted 2025-03-10"
+    ],
+    "redline_signals": [],
+    "confidence": 0.78
+  },
+  "osint_confidence": 0.78
+}

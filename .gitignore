@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# OSINT agent — sensitive / generated
+twitter_cookies.json
+demo/backend/agents/twitter_cache/
