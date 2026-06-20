@@ -1,0 +1,182 @@
+# News Agent — Manual Alert Injection
+
+## La idea
+
+Un endpoint donde el presentador describe en lenguaje libre un escenario
+de mercado, la IA genera una noticia creíble y estructurada, y esa noticia
+entra en el mismo bucket que las noticias reales del MCP.
+
+A partir de ahí el pipeline corre exactamente igual que con noticias reales:
+news agent → conflict detector → swap resolver → message agent.
+
+No se falsea nada — se demuestra el sistema real con un input fabricado.
+
+---
+
+## Arquitectura
+
+```
+[MCP / EventRegistry]          [Injection endpoint]
+        ↓                               ↓
+    NewsAlert                       prompt
+    (real)              →   LLM generates NewsAlert
+                                    (is_mock: true)
+                                        ↓
+                            stored in _injected_alerts[client_id]
+                                        ↓
+                    ┌───────────────────┘
+                    ↓
+            news_agent.fetch_alerts(client_id, dna, holdings)
+            = real_news + injected_alerts   ← mezclados aquí
+                    ↓
+            conflict_detector(alerts, holdings, dna)
+                    ↓
+            swap_resolver(conflicts, cio_list, mandate)
+                    ↓
+            message_agent(swaps, dna, alerts)
+```
+
+El news agent es el único punto de entrada. El pipeline de abajo
+no cambia una línea.
+
+---
+
+## Endpoint
+
+```
+POST /api/demo/inject-alert/{client_id}
+Body: { "prompt": "Nestlé announces 40% increase in palm oil sourcing
+                   from non-certified Indonesian suppliers" }
+Response: { "alert": NewsAlert }
+```
+
+Solo genera y almacena. No ejecuta el pipeline — eso lo hace el
+análisis normal del cliente cuando el frontend lo solicita.
+
+```
+DELETE /api/demo/inject-alert/{client_id}
+Response: { "cleared": true }
+```
+
+Resetea el estado entre demos sin reiniciar el servidor.
+
+---
+
+## Generación de la NewsAlert
+
+El LLM recibe el prompt + el portfolio del cliente para identificar
+qué ISINs están afectados.
+
+```python
+async def generate_alert_from_prompt(
+    prompt: str,
+    holdings: list[RawHolding],
+    dna: ClientDNA
+) -> NewsAlert:
+
+    holdings_summary = [
+        {"isin": h["ISIN"], "name": h["Issuer / Asset"],
+         "sector": h["Industry Group"]}
+        for h in holdings if h.get("ISIN")
+    ]
+
+    system = """You are a financial news wire generator.
+Given a scenario and a portfolio, generate a realistic NewsAlert JSON.
+Return pure JSON, no markdown."""
+
+    user = f"""
+SCENARIO: {prompt}
+
+PORTFOLIO HOLDINGS (use only these ISINs if affected):
+{json.dumps(holdings_summary, indent=2)}
+
+CLIENT RED LINES (to calibrate severity):
+{json.dumps(dna["values"]["redLines"], indent=2)}
+
+Generate:
+{{
+  "id": "mock-<uuid4>",
+  "headline": "<under 15 words, Reuters/Bloomberg style>",
+  "summary": "<2-3 sentences, specific and credible>",
+  "source": "Reuters | Bloomberg | FT | WSJ | NZZ",
+  "published_at": "<today ISO datetime>",
+  "sentiment": "negative | positive | neutral",
+  "sentiment_score": <-1.0 to 1.0>,
+  "relevance_score": <0.0 to 1.0>,
+  "affected_isins": ["<only from portfolio above>"],
+  "affected_sectors": ["<sectors mentioned>"],
+  "alert_type": "conflict | opportunity | mandate_conflict | market",
+  "is_mock": true
+}}
+
+If no portfolio holding is clearly affected: affected_isins = [],
+relevance_score < 0.4.
+"""
+```
+
+Post-processing: validar que los ISINs en `affected_isins` existen
+en el portfolio. Descartar cualquier ISIN inventado por el LLM.
+
+---
+
+## Almacenamiento
+
+```python
+_injected_alerts: dict[str, list[NewsAlert]] = defaultdict(list)
+
+def inject_alert(client_id: str, alert: NewsAlert) -> None:
+    _injected_alerts[client_id].insert(0, alert)
+
+def get_injected_alerts(client_id: str) -> list[NewsAlert]:
+    return _injected_alerts.get(client_id, [])
+
+def clear_injected_alerts(client_id: str) -> None:
+    _injected_alerts[client_id] = []
+```
+
+---
+
+## Cambio en el news agent
+
+Una sola línea añadida al fetch:
+
+```python
+async def fetch_alerts(client_id, dna, holdings) -> list[NewsAlert]:
+    real_alerts = await fetch_from_mcp(dna, holdings)
+    injected    = get_injected_alerts(client_id)   # ← esto es todo
+    return injected + real_alerts                  # injected primero
+```
+
+---
+
+## Cómo se usa en la demo
+
+1. Dashboard cargado con Huber y su portfolio
+2. Juez pregunta: "¿qué pasaría si Nestlé tuviera un escándalo de palm oil?"
+3. Presentador llama `POST /api/demo/inject-alert/huber` con el prompt
+4. Endpoint devuelve la noticia generada (preview para el presentador)
+5. Presentador llama `GET /api/clients/huber/analyze` (el botón normal del dashboard)
+6. El pipeline corre completo — la noticia inyectada entra junto a las reales
+7. Dashboard muestra: conflicto detectado → swap sugerido → mensaje borrador
+
+El juez está viendo el sistema real funcionando. No hay shortcut.
+
+---
+
+## Criterio de éxito
+
+- El prompt en lenguaje libre genera una NewsAlert con headline de wire
+- Los ISINs afectados se extraen del portfolio real (no inventados)
+- Si el prompt no afecta ningún holding: `affected_isins: []`,
+  no se generan conflictos, el sistema se comporta correctamente
+- `DELETE` limpia sin reiniciar
+- El pipeline completo desde `fetch_alerts` hacia abajo no tiene
+  ningún cambio — solo el news agent sabe de la inyección
+
+---
+
+## Pendiente de desarrollar
+
+- Panel de inyección en el dashboard (evitar Postman en la presentación)
+- TTL de 30 min en los alerts inyectados (limpian solos)
+- Soporte para múltiples alerts inyectadas encadenadas en una misma demo
