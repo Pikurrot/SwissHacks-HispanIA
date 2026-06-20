@@ -1,0 +1,55 @@
+{
+  "client_id": "ammann",
+  "full_name": "Julian Ammann",
+  "lifestyle_profile": {
+    "gastronomy": {
+      "wine": null,
+      "dining": null,
+      "habits": null
+    },
+    "sports": {
+      "participates": [],
+      "destinations": [],
+      "level": null
+    },
+    "lifestyle": {
+      "brands": [
+        "Ammann Retail Group"
+      ],
+      "travel": null,
+      "culture": [
+        "art collection",
+        "Swiss contemporary art"
+      ],
+      "causes": [
+        "supply chain transparency",
+        "ethical sourcing",
+        "labor rights",
+        "ESG"
+      ]
+    },
+    "professional": {
+      "conferences": [
+        "Zurich Governance Forum",
+        "Zurich Corporate Governance Forum"
+      ],
+      "publications": [],
+      "boards": [
+        "Advisory Board, Swiss Retail Federation",
+        "Advisory Board, University of Zurich Business Ethics Institute"
+      ]
+    },
+    "rapport_triggers": [
+      "Acquired a work by a young Zurich-based sculptor at the Kunsthaus Zurich auction on 2024-09-16.",
+      "Delivered a keynote titled 'Supply Chain Integrity as a Competitive Moat' at the Zurich Governance Forum on 2025-05-14.",
+      "Announced the opening of the 38th Ammann Retail Group store in Lausanne on 2024-01-24."
+    ],
+    "redline_signals": [
+      "Publicly states that companies must publish full supply chain maps, calling non‑disclosure \"hiding something\" (2025-05-14 tweet).",
+      "Advocates for mandatory labor and waste audits of tier‑2 packaging suppliers, emphasizing ESG compliance (2023-06-19 tweet).",
+      "Criticizes quarterly earnings focus, calling it a myth in a 2023 reading post."
+    ],
+    "confidence": 0.78
+  },
+  "osint_confidence": 0.78
+}

@@ -1,0 +1,46 @@
+{
+  "client_id": "raeber",
+  "full_name": "Eugen Räber",
+  "lifestyle_profile": {
+    "gastronomy": {
+      "wine": null,
+      "dining": null,
+      "habits": null
+    },
+    "sports": {
+      "participates": [],
+      "destinations": [],
+      "level": null
+    },
+    "lifestyle": {
+      "brands": [],
+      "travel": "Holiday home in Flims (Graubünden)",
+      "culture": [
+        "supports local cultural institutions in Küsnacht"
+      ],
+      "causes": [
+        "Räber Family Foundation (education and local cultural institutions)",
+        "Rotary Club Küsnacht"
+      ]
+    },
+    "professional": {
+      "conferences": [],
+      "publications": [],
+      "boards": [
+        "Trustee, Räber Family Foundation (2016–present)",
+        "Board Member, Rotary Club Küsnacht (2005–present)",
+        "Member, Zurich Chamber of Commerce, Manufacturing Division (1990–2016)"
+      ]
+    },
+    "rapport_triggers": [
+      "Sold Räber Präzisionstechnik AG via a private transaction in 2016",
+      "Maintains a holiday home in Flims, Graubünden",
+      "Member of the Rotary Club Küsnacht since 2005"
+    ],
+    "redline_signals": [
+      "Publicly emphasizes a conservative, methodical investment approach focused on longevity"
+    ],
+    "confidence": 0.71
+  },
+  "osint_confidence": 0.71
+}
