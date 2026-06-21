@@ -1,113 +1,182 @@
 {
   "values": {
     "priorities": [
-      "Align investments with biodiversity and ecosystem protection",
-      "Use wealth to fund concrete environmental philanthropy (reforestation, youth education)",
-      "Apply pressure on global brands to clean and verify their supply chains"
+      "Biodiversity preservation and ecological restoration",
+      "Supply‑chain transparency and verification (TNFD, indigenous rights)",
+      "Regenerative agriculture and native‑species reforestation",
+      "High‑impact, measurable environmental outcomes over carbon offsets"
     ],
     "redLines": [
-      "Investments in companies that treat nature as a free resource",
-      "Companies with opaque or shell‑company supply chains that enable deforestation (especially palm oil)",
-      "Generic, non‑thematic or green‑washed ESG products",
-      "Any exposure to firms that do not publicly commit to cutting deforestation links"
+      "Any investment in companies with opaque or non‑transparent supply chains",
+      "Exposure to palm‑oil linked deforestation or lack of TNFD disclosure",
+      "Green‑washed ESG claims without verified impact",
+      "Investments that do not actively protect or restore natural ecosystems"
     ],
     "preferredSectors": [
-      "Sustainable agriculture and agro‑forestry",
-      "Companies leading measurable rainforest restoration and indigenous land protection",
-      "Consumer‑goods firms with verified, transparent supply chains",
-      "Impact‑oriented equity focused on biodiversity leadership"
+      "Sustainable agriculture and regenerative farming",
+      "Biodiversity‑aligned funds (e.g., Atlantic Forest Fund)",
+      "Conservation‑focused forestry and reforestation projects",
+      "Companies with verified supply‑chain transparency and indigenous‑rights policies"
     ],
     "avoidedSectors": [
-      "Palm‑oil production and related supply chains",
-      "Companies with known deforestation or supply‑chain loopholes",
-      "Traditional high‑carbon sectors lacking credible ESG commitments"
+      "Palm‑oil producers and downstream consumer goods reliant on deforestation",
+      "Companies with opaque commodity supply chains",
+      "Traditional fossil‑fuel or high‑emission sectors lacking nature‑risk disclosures"
     ],
     "esgFocus": [
       "Biodiversity & ecosystem services",
-      "Supply‑chain transparency and verification",
-      "Rainforest restoration & indigenous land rights",
-      "Corporate accountability for deforestation"
+      "Supply‑chain transparency (TNFD, ESG verification)",
+      "Regenerative agriculture",
+      "Indigenous land rights and long‑term monitoring"
     ]
   },
   "investmentBehavior": {
-    "riskTolerance": "moderate",
-    "timeHorizon": "long‑term (10+ years), focused on legacy and multigenerational impact",
-    "liquidity": "low immediate liquidity needs; prefers cash to be swept into foundation accounts or reinvested in the Defensive Global Strategy",
-    "mandate": "Biodiversity & Supply‑Chain Transparency Sustainable Equity Mandate"
+    "riskTolerance": "conservative",
+    "timeHorizon": "long‑term, patient capital focused on multi‑year restoration outcomes",
+    "liquidity": "low; prefers to sweep dividends and cash into foundation accounts rather than hold idle cash",
+    "mandate": "Defensive Global Strategy with strict positive‑screening for biodiversity pioneers"
   },
   "lifeEvents": [
     {
-      "date": "2023-01-16",
-      "type": "philanthropy",
-      "description": "Initial onboarding – wealth defined as an extension of a philanthropic mission after a sustainable‑agriculture exit.",
-      "portfolioImpact": "Set the overarching ESG‑aligned mandate focused on corporate sustainability leadership."
-    },
-    {
       "date": "2023-04-12",
       "type": "philanthropy",
-      "description": "Diverted Q2 dividend streams to the foundation’s reforestation project in Peru.",
-      "portfolioImpact": "Established a practice of routing investment income directly to environmental projects."
+      "description": "Launch of the private foundation's reforestation phase in Peru.",
+      "portfolioImpact": "Diverted a portion of Q2 dividend streams to the NGO's field accounts."
     },
     {
       "date": "2023-07-04",
       "type": "business",
-      "description": "Capital call of USD 250,000 for a land‑acquisition project in the Atlantic Forest, funded by trimming low‑scoring ESG fixed income.",
-      "portfolioImpact": "Demonstrated willingness to reallocate assets toward high‑impact biodiversity land deals."
+      "description": "Capital call of USD 250,000 for a land‑acquisition project in the Atlantic Forest.",
+      "portfolioImpact": "Trimmed low‑scoring ESG fixed‑income positions to fund the acquisition while keeping core sustainable equity intact."
     },
     {
       "date": "2024-06-11",
-      "type": "philanthropy",
-      "description": "Field trip to the Amazon; reinforced preference for companies investing in measurable rainforest restoration and indigenous protection.",
-      "portfolioImpact": "Strengthened bias toward firms with on‑the‑ground conservation actions."
+      "type": "family",
+      "description": "Elena’s field trip to the Amazon basin, reviewing on‑ground restoration projects.",
+      "portfolioImpact": "Reinforced preference for companies investing in measurable rainforest restoration and indigenous protection."
     },
     {
       "date": "2025-02-27",
       "type": "philanthropy",
-      "description": "Created a sub‑account for the foundation’s youth educational program on ecological restoration.",
-      "portfolioImpact": "Added a dedicated channel for impact‑focused capital deployment."
+      "description": "Set up a sub‑account for the foundation's youth educational programme.",
+      "portfolioImpact": "Allocated cash reserves to support the educational initiative, aligning wealth with the next generation’s ecological education."
     },
     {
-      "date": "2026-05-12",
-      "type": "personal",
-      "description": "Preparing an extended summer trip to conservation sites in South America; requested June dividend payouts be swept to the foundation.",
-      "portfolioImpact": "Re‑affirmed low‑liquidity stance and continued routing of cash flows to philanthropic accounts."
+      "date": "2025-07-08",
+      "type": "business",
+      "description": "Account handover protocol initiated due to Thomas Keller’s early retirement.",
+      "portfolioImpact": "Ensured continuity of the highly customized sustainable investment mandate."
+    },
+    {
+      "date": "2026-01-08",
+      "type": "business",
+      "description": "Introductory call with new Relationship Manager Sarah Meier.",
+      "portfolioImpact": "Explicit expectation that the new RM maintain the same strict biodiversity and transparency standards."
     }
   ],
   "personalProfile": {
-    "interests": "sustainable agriculture, rainforest restoration, biodiversity, youth environmental education",
-    "quirks": "insists on direct dividend sweeps to the foundation; rejects generic, non‑thematic investment products",
-    "rapportTriggers": "Atlantic Forest land acquisition, reforestation projects in Peru and Brazil, biodiversity conferences, supply‑chain transparency discussions",
-    "avoidTopics": ""
+    "interests": [
+      "Biodiversity and rewilding",
+      "Regenerative agriculture",
+      "Natural and biodynamic wine",
+      "Fly fishing in pristine rivers",
+      "Field visits to conservation sites (Amazon, Borneo, Atlantic Forest)"
+    ],
+    "quirks": [
+      "Frequently doubles contributions to verified impact funds (e.g., Atlantic Forest Fund)",
+      "Uses Twitter hashtags to call out supply‑chain opacity",
+      "Insists on TNFD disclosure as a baseline for ESG credibility"
+    ],
+    "rapportTriggers": [
+      "Discussion of TNFD and nature‑related financial disclosures",
+      "Updates on Atlantic Forest Fund or similar biodiversity‑aligned projects",
+      "Mention of indigenous land‑rights and long‑term forest monitoring",
+      "Reference to natural/biodynamic wine experiences",
+      "Shared enthusiasm for Swiss Sustainable Finance events"
+    ],
+    "avoidTopics": [
+      "Generic ESG without verification",
+      "Green‑washing narratives",
+      "Standard, non‑customized investment products",
+      "Political debates unrelated to sustainability"
+    ]
   },
   "communicationStyle": {
     "language": "en",
-    "tone": "formal",
+    "tone": "informal",
     "preferred": "values-led",
-    "formatPreference": "bullet points with concise metrics",
+    "formatPreference": "bullet points",
     "directness": "direct",
-    "detailLevel": "summary",
+    "detailLevel": "detailed",
     "openingStyle": "personal"
   },
   "keyQuotes": [
-    "\"I want to actively penalize companies that treat nature as a free resource.\"",
-    "\"We expect Sarah to bring the same alignment of values and environmental transparency to our portfolio that Thomas did. No standard, generic investment products.\"",
-    "\"If a company takes a brave, absolute stance against palm oil deforestation and actively puts money into reforestation, that is exactly where my money should be.\"",
-    "\"Companies that don't protect their supply chains from ecological collapse won't survive the next decade anyway.\"",
-    "\"We want our wealth to act as an extension of our philanthropic mission.\""
+    {
+      "quote": "We want to actively penalize companies that treat nature as a free resource. Our portfolio must prioritize businesses that proactively protect natural ecosystems.",
+      "source": "CRM",
+      "date": "2023-05-19"
+    },
+    {
+      "quote": "Supply chain opaqueness is a redline for us, not a yellow flag.",
+      "source": "Twitter",
+      "date": "2024-11-10"
+    },
+    {
+      "quote": "Reforestation ≠ tree planting. Native species, indigenous land rights, 50-year monitoring — that's what Atlantic Forest Fund does. Everything else is marketing.",
+      "source": "Twitter",
+      "date": "2024-08-22"
+    },
+    {
+      "quote": "If a company takes a brave, absolute stance against palm oil deforestation and actively puts money into reforestation, that is exactly where my money should be.",
+      "source": "CRM",
+      "date": "2026-01-15"
+    },
+    {
+      "quote": "The market is finally pricing nature risk, 10 years late. The investors who ignored this will spend the next decade catching up.",
+      "source": "Twitter",
+      "date": "2025-04-14"
+    }
   ],
-  "confidence": 0.93,
+  "sourceSummary": {
+    "crm": 20,
+    "twitter": 10,
+    "linkedin_post": 2,
+    "linkedin_profile": 1
+  },
+  "confidence": 0.96,
   "sourcedFrom": [
     1,
+    2,
     3,
     4,
     5,
     6,
     7,
     8,
+    9,
     10,
+    11,
+    12,
+    13,
+    14,
     15,
     16,
     17,
-    20
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33
   ]
 }

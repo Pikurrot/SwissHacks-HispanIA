@@ -8,129 +8,113 @@
       "company": "Unilever PLC",
       "belief_alignment": "positive",
       "affectedSectors": [
-        "Consumer Goods",
-        "Sustainable Agriculture",
-        "Agroforestry",
-        "Rainforest Restoration"
+        "Sustainable agriculture and regenerative farming",
+        "Conservation-focused forestry and reforestation projects",
+        "Supply-chain transparency and verification"
       ],
-      "portfolio_impact": "Unilever's zero‑deforestation palm‑oil policy and €80 M Amazon Restoration Foundation directly support the client’s priorities of supply‑chain transparency and rainforest restoration, making this a clear investment opportunity."
+      "portfolio_impact": "Unilever's zero‑deforestation palm‑oil policy and €80 M Amazon reforestation endowment directly address the client’s priorities on biodiversity preservation, transparent supply chains, and high‑impact ecosystem restoration, making the company a potential positive exposure or a benchmark for ESG engagement."
     },
     {
-      "id": "real-companies_leading-4",
-      "headline": "Legislature heads to another Alaska LNG special session after governor blasts Senate changes",
-      "url": "https://www.yahoo.com/news/politics/articles/legislature-heads-another-alaska-lng-134600492.html",
+      "id": "real-conservation_focused-0",
+      "headline": "NNPA Launches To Promote Biodiversity Awareness",
+      "url": "https://newtelegraphng.com/nnpa-launches-to-promote-biodiversity-awareness/",
       "alertType": "market",
-      "company": "Alaska LNG (Glenfarne)",
+      "company": "Nigeria Nature Photography Awards (NNPA)",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Oil & Gas",
-        "Energy"
+        "Biodiversity awareness and conservation education"
       ],
-      "portfolio_impact": "The legislative tax changes affect fossil‑fuel projects, which are outside the client’s focus; the news does not trigger any positive or negative belief response."
+      "portfolio_impact": "The NNPA platform raises public appreciation for Nigeria's biodiversity, aligning with the client’s values but offering no immediate investment opportunity or conflict."
+    },
+    {
+      "id": "real-conservation_focused-1",
+      "headline": "Initiative To Showcase Nigeria's Biodiversity, Natural Heritage Through Photography",
+      "url": "https://leadership.ng/initiative-to-showcase-nigerias-biodiversity-natural-heritage-through-photography/",
+      "alertType": "market",
+      "company": "Nigeria Nature Photography Awards (NNPA)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Biodiversity awareness and conservation education"
+      ],
+      "portfolio_impact": "Similar to the previous entry, this initiative promotes biodiversity visibility without presenting a direct investment angle or red‑line concern."
+    },
+    {
+      "id": "real-conservation_focused-4",
+      "headline": "Abner Safaris Announces New Educational Initiative to Help Travelers Choose Reputable Safari Companies in East Africa",
+      "url": "https://www.barchart.com/story/news/2541655/abner-safaris-announces-new-educational-initiative-to-help-travelers-choose-reputable-safari-companies-in-east-africa",
+      "alertType": "market",
+      "company": "Abner Safaris",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Sustainable tourism",
+        "Conservation‑focused travel"
+      ],
+      "portfolio_impact": "The educational guide for responsible safari operators supports transparent, ecosystem‑friendly tourism, resonating with the client’s values but does not constitute a material investment trigger."
+    },
+    {
+      "id": "real-biodiversity_aligned-0",
+      "headline": "Centring Human Rights in Ecosystem-based Adaptation",
+      "url": "https://saiia.org.za/research/centring-human-rights-ecosystem-based-adaptation/",
+      "alertType": "market",
+      "company": "Various donors/governments (report)",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Ecosystem‑based adaptation",
+        "Biodiversity & ecosystem services"
+      ],
+      "portfolio_impact": "The emphasis on human‑rights‑aligned ecosystem adaptation reinforces the client’s ESG focus, yet it remains a policy‑level discussion without direct corporate exposure."
+    },
+    {
+      "id": "real-sustainable_agriculture-0",
+      "headline": "USP Gene Network Modulation and Osmoprotection Define Salt Resilience in Chenopodium quinoa Genotypes",
+      "url": "https://www.nature.com/articles/s41598-026-57595-y",
+      "alertType": "market",
+      "company": "University of São Paulo (USP) – research team",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Regenerative agriculture",
+        "Crop resilience research"
+      ],
+      "portfolio_impact": "Scientific findings on quinoa salt resilience could eventually benefit regenerative‑agriculture investments, but the news itself does not create an immediate opportunity or conflict."
+    },
+    {
+      "id": "real-sustainable_agriculture-2",
+      "headline": "Organic manure purchases rise 3.5 times in Kharif 2026",
+      "url": "https://organiser.org/2026/06/21/358823/bharat/organic-manure-adoption-surges-3-5-times-in-kharif-2026-as-india-builds-fertiliser-buffer-against-global-turmoil/",
+      "alertType": "market",
+      "company": "Indian Government / Ministry of Agriculture",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Sustainable agriculture",
+        "Organic inputs and soil health"
+      ],
+      "portfolio_impact": "The surge in organic manure purchases signals a market shift toward regenerative practices, aligning with the client’s priorities but lacking a specific investable entity."
     },
     {
       "id": "real-sustainable_agriculture-3",
-      "headline": "100×100 Launches $100 Million Fund to Build 50 Climate Startups Across India, Southeast Asia",
-      "url": "https://esgnews.com/100x100-launches-100-million-fund-for-startups/",
+      "headline": "CM pushes natural farming, assures support to farmers",
+      "url": "https://www.thehansindia.com/andhra-pradesh/cm-pushes-natural-farming-assures-support-to-farmers-1088513",
       "alertType": "market",
-      "company": "100x100",
+      "company": "Government of Andhra Pradesh (Chief Minister N. Chandrababu Naidu)",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Climate Tech",
-        "Agriculture",
-        "Energy",
-        "Transport",
-        "Land Use"
+        "Natural farming",
+        "Sustainable agriculture policy"
       ],
-      "portfolio_impact": "While the fund targets climate startups, the description emphasizes high‑emission sectors without clear biodiversity benefits, so it neither aligns nor conflicts with the client’s core values."
+      "portfolio_impact": "Policy support for natural farming reinforces the client’s focus on soil health and low‑input agriculture, yet it does not present a direct investment target or red‑line issue."
     },
     {
-      "id": "real-companies_leading-0",
-      "headline": "The Bull Case For Franklin Resources (BEN) Could Change Following New Morningstar Public/Private Portfolio Partnership",
-      "url": "https://ca.finance.yahoo.com/news/bull-case-franklin-resources-ben-190912751.html",
+      "id": "real-sustainable_agriculture-4",
+      "headline": "Agriculture: FCCO's new tie with Thailand",
+      "url": "https://thesun.ng/agriculture-fccos-new-tie-with-thailand/",
       "alertType": "market",
-      "company": "Franklin Resources (via Morningstar partnership)",
+      "company": "Federal Cooperative College (FCCO) & Thailand International Cooperative Agency",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Asset Management",
-        "Financial Services"
+        "Agricultural cooperation",
+        "Sustainable farming partnerships"
       ],
-      "portfolio_impact": "The new public/private portfolio suite is a financial product without explicit ESG or biodiversity focus, resulting in a neutral impact."
-    },
-    {
-      "id": "real-companies_leading-1",
-      "headline": "The Bull Case For Franklin Resources (BEN) Could Change Following New Morningstar Public/Private Portfolio Partnership",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/bull-case-franklin-resources-ben-190912751.html",
-      "alertType": "market",
-      "company": "Franklin Resources (via Morningstar partnership)",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Asset Management",
-        "Financial Services"
-      ],
-      "portfolio_impact": "The new public/private portfolio suite is a financial product without explicit ESG or biodiversity focus, resulting in a neutral impact."
-    },
-    {
-      "id": "real-companies_leading-2",
-      "headline": "From Assembly Lines to Innovation Hubs: The Untold Story of India's LED Display Manufacturing Ecosystem",
-      "url": "https://www.republicworld.com/initiatives/from-assembly-lines-to-innovation-hubs-the-untold-story-of-indias-led-display-manufacturing-ecosystem-2026-06-20-129238",
-      "alertType": "market",
-      "company": "LED Display Manufacturers (India)",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Electronics Manufacturing"
-      ],
-      "portfolio_impact": "The article discusses manufacturing ecosystem shifts, which are unrelated to biodiversity or supply‑chain transparency, so neutral."
-    },
-    {
-      "id": "real-sustainable_agriculture-1",
-      "headline": "Jan kalyan shivirs organised",
-      "url": "https://arunachaltimes.in/index.php/2026/06/21/jan-kalyan-shivirs-organised/",
-      "alertType": "market",
-      "company": "ZIRO/YAZALI (local administration)",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Public Services",
-        "Community Welfare"
-      ],
-      "portfolio_impact": "Community welfare camp news does not intersect with the client’s environmental priorities."
-    },
-    {
-      "id": "real-consumer_goods-0",
-      "headline": "Newell Brands (NWL) Gaining Over Recent €40 Million Planned Investment in French Operations",
-      "url": "https://ca.finance.yahoo.com/news/newell-brands-nwl-gaining-over-185239833.html",
-      "alertType": "market",
-      "company": "Newell Brands",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Consumer Goods"
-      ],
-      "portfolio_impact": "Investment announcement lacks sustainability context, so neutral."
-    },
-    {
-      "id": "real-consumer_goods-1",
-      "headline": "Newell Brands (NWL) Gaining Over Recent €40 Million Planned Investment in French Operations",
-      "url": "https://finance.yahoo.com/markets/stocks/articles/newell-brands-nwl-gaining-over-185239833.html",
-      "alertType": "market",
-      "company": "Newell Brands",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Consumer Goods"
-      ],
-      "portfolio_impact": "Investment announcement lacks sustainability context, so neutral."
-    },
-    {
-      "id": "real-consumer_goods-2",
-      "headline": "Pump Prices Offer a Rare Reprieve for Drivers, Yet the Volatile Trade-off With Tehran Could Force Consumers to Pay in Other Ways",
-      "url": "https://www.themarysue.com/pump-prices-offer-a-rare-reprieve-for-drivers-yet-the-volatile-trade-off-with-tehran-could-force-consumers-to-pay-in-other-ways/",
-      "alertType": "market",
-      "company": "Global Oil & Gas Market",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Energy",
-        "Oil & Gas"
-      ],
-      "portfolio_impact": "Fuel price changes are macro‑economic and do not affect the client’s biodiversity‑focused criteria."
+      "portfolio_impact": "The prospective Thailand‑Nigeria agricultural tie‑up could foster sustainable practices, matching the client’s values, but the announcement is exploratory and not an immediate investment trigger."
     }
   ]
 }

@@ -5,52 +5,90 @@
       "headline": "Amazon Hit by Federal Labour Investigation: Widespread Wage Theft and Safety Violations across 23 Distribution Hubs.",
       "url": "https://wsj.com/mock/amazon-labour-scandal",
       "alertType": "conflict",
-      "company": "Amazon.com Inc.",
+      "company": "Amazon",
       "belief_alignment": "negative",
       "affectedSectors": [
-        "Logistics",
-        "E‑commerce"
+        "Logistics and automation",
+        "Consumer discretionary"
       ],
-      "portfolio_impact": "The federal labour investigation reveals wage‑theft and safety violations at Amazon’s distribution hubs, directly breaching the client’s zero‑tolerance stance on labour exploitation and supply‑chain governance. Any exposure to Amazon would cross a red line and should be avoided or divested."
+      "portfolio_impact": "The federal labour investigation reveals wage‑theft and safety violations, directly breaching the client’s zero‑tolerance red line on sweatshop‑type practices. Immediate review and likely divestment are required."
     },
     {
-      "id": "real-blue_chip-1",
-      "headline": "Tinubu's four legacy highway projects as transformative investment assets",
-      "url": "https://www.thetimes.com.ng/2026/06/tinubus-four-legacy-highway-projects-as-transformative-investment-assets/",
+      "id": "real-logistics-4",
+      "headline": "How to Allocate Your Stocks and Shares ISA in 2026",
+      "url": "https://www.abcmoney.co.uk/2026/06/how-to-allocate-your-stocks-and-shares-isa-in-2026/",
       "alertType": "market",
-      "company": "Deovalley Ayushman Arogya Mandir",
+      "company": null,
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Infrastructure",
-        "Transportation"
+        "Financial services",
+        "Investment vehicles"
       ],
-      "portfolio_impact": "The piece discusses highway projects in Nigeria; it does not touch on labour standards, Swiss sourcing, or the client’s priority sectors, so it carries no particular emotional trigger."
+      "portfolio_impact": "The article provides generic ISA allocation guidance without referencing any specific company or ESG issue, so it does not trigger the client’s personal beliefs."
     },
     {
-      "id": "real-logistics-1",
-      "headline": "Why Quantum Computing Could Give Europe an Edge in the AI Race",
-      "url": "https://www.tekedia.com/why-quantum-computing-could-give-europe-an-edge-in-the-ai-race/",
+      "id": "real-european_consumer-0",
+      "headline": "Yoghurt wars: Danone-Chobani clash underscores wider protein battle",
+      "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/yoghurt-wars-danone-chobani-clash-underscores-wider-protein-battle-2026-06-21/",
       "alertType": "market",
-      "company": "N/A",
+      "company": "Danone",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Technology",
-        "Artificial Intelligence"
+        "European consumer discretionary",
+        "Food & beverage"
       ],
-      "portfolio_impact": "The article outlines quantum‑computing advances for Europe; while technologically relevant, it does not address supply‑chain or labour issues relevant to the client."
+      "portfolio_impact": "The Danone‑Chobani lawsuit concerns protein‑claim disputes, not labour or supply‑chain integrity, and therefore does not materially affect the client’s red lines."
     },
     {
-      "id": "real-swiss_consumer-2",
-      "headline": "Nestlé Water Unit Auction Reportedly Narrows as PAI Exits Bidding",
-      "url": "https://www.themiddlemarket.com/latest-news/nestle-water-unit-auction-reportedly-narrows-as-pai-exits-bidding",
+      "id": "real-swiss_consumer-4",
+      "headline": "What are the main events for today? | investingLive",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260608/",
       "alertType": "market",
-      "company": "Nestlé",
+      "company": null,
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Swiss Consumer Goods",
-        "Beverages/Water"
+        "Macro‑economic news",
+        "Swiss market data"
       ],
-      "portfolio_impact": "The report on Nestlé’s water business sale is a corporate transaction without labour‑rights concerns; it neither supports nor threatens the client’s ESG red lines."
+      "portfolio_impact": "A routine market‑summary with no company‑specific or ESG content; it carries no emotional or strategic weight for the client."
+    },
+    {
+      "id": "real-european_consumer-3",
+      "headline": "Barclays Names Top Picks as European Staples Look Increasingly Attractive By Investing.com",
+      "url": "https://www.investing.com/news/stock-market-news/barclays-names-top-picks-as-european-staples-look-increasingly-attractive-93CH-4751508",
+      "alertType": "market",
+      "company": "Barclays",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "European consumer staples"
+      ],
+      "portfolio_impact": "Barclays’ sector outlook is valuation‑focused and does not address labour standards or supply‑chain transparency, so it remains neutral for the client."
+    },
+    {
+      "id": "real-european_consumer-4",
+      "headline": "Is this the Mazda CX-4e?",
+      "url": "https://www.bunburymail.com.au/story/9295687/is-this-the-mazda-cx-4e/",
+      "alertType": "market",
+      "company": "Mazda",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Automotive",
+        "Electric vehicles"
+      ],
+      "portfolio_impact": "The EV pipeline news is unrelated to the client’s Swiss‑centric, labour‑rights priorities and therefore does not trigger a response."
+    },
+    {
+      "id": "real-logistics-3",
+      "headline": "Diesel price war deepens as depots undercut Dangote, slash rates below refinery's price",
+      "url": "https://www.legit.ng/business-economy/energy/1715560-diesel-price-war-deepens-depots-undercut-dangote-slash-rates-refinery-price/",
+      "alertType": "market",
+      "company": "Dangote",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Energy",
+        "Logistics"
+      ],
+      "portfolio_impact": "The diesel price war in Nigeria concerns regional pricing dynamics and does not involve the client’s target sectors or ESG criteria."
     },
     {
       "id": "real-swiss_consumer-0",
@@ -60,10 +98,35 @@
       "company": "Swiss National Bank",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Finance",
-        "Monetary Policy"
+        "Monetary policy",
+        "Swiss macroeconomics"
       ],
-      "portfolio_impact": "Interest‑rate outlook for Switzerland is macro‑economic news and does not intersect with the client’s supply‑chain or labour‑rights priorities."
+      "portfolio_impact": "Central‑bank rate guidance is macro‑economic information only and does not intersect with the client’s supply‑chain or labour‑rights concerns."
+    },
+    {
+      "id": "real-swiss_consumer-1",
+      "headline": "What are the main events for today? | investingLive",
+      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260615/",
+      "alertType": "market",
+      "company": null,
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Macro‑economic news"
+      ],
+      "portfolio_impact": "A generic market‑update without company‑specific or ESG content; no impact on the client’s belief system."
+    },
+    {
+      "id": "real-swiss_consumer-2",
+      "headline": "Nestlé Water Unit Auction Reportedly Narrows as PAI Exits Bidding",
+      "url": "https://www.themiddlemarket.com/latest-news/nestle-water-unit-auction-reportedly-narrows-as-pai-exits-bidding",
+      "alertType": "market",
+      "company": "Nestlé",
+      "belief_alignment": "neutral",
+      "affectedSectors": [
+        "Swiss consumer goods",
+        "Beverages"
+      ],
+      "portfolio_impact": "The water‑unit auction news is a corporate transaction with no disclosed labour‑practice issues; it does not conflict with or strongly support the client’s ESG red lines."
     },
     {
       "id": "real-swiss_consumer-3",
@@ -73,97 +136,36 @@
       "company": "Nestlé",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Swiss Consumer Goods",
+        "Swiss consumer goods",
         "Beverages"
       ],
-      "portfolio_impact": "PAI Partners withdrawing from Nestlé’s water unit bid is a financing development with no labour‑rights implications for the client."
+      "portfolio_impact": "Same as above – a bidding update that lacks any labour‑rights or supply‑chain transparency angle, so it remains neutral."
     },
     {
-      "id": "real-swiss_consumer-4",
-      "headline": "What are the main events for today? | investingLive",
-      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260608/",
+      "id": "real-european_consumer-2",
+      "headline": "How Africa can pursue self-sustaining development drawing on China's experience",
+      "url": "https://www.newsday.co.zw/opinion-analysis/article/200057301/how-africa-can-pursue-self-sustaining-development-drawing-on-chinas-experience",
       "alertType": "market",
-      "company": "N/A",
+      "company": null,
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "General Market"
+        "Policy analysis",
+        "International development"
       ],
-      "portfolio_impact": "A routine market‑events summary; no relevance to client values."
+      "portfolio_impact": "The piece discusses European policy perspectives on Africa and contains no direct reference to corporate labour practices or Swiss‑focused sectors."
     },
     {
-      "id": "real-swiss_consumer-1",
-      "headline": "What are the main events for today? | investingLive",
-      "url": "https://investinglive.com/news/what-are-the-main-events-for-today-20260615/",
+      "id": "real-logistics-1",
+      "headline": "Piauí Readies First Iron Ore Cargo to China From New Port",
+      "url": "https://www.riotimesonline.com/porto-piaui-first-iron-ore-export-china-luis-correia-2026/",
       "alertType": "market",
-      "company": "N/A",
+      "company": null,
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "General Market"
+        "Mining logistics",
+        "International shipping"
       ],
-      "portfolio_impact": "Another routine market‑events summary with no material impact on the client’s ESG or sector preferences."
-    },
-    {
-      "id": "real-blue_chip-4",
-      "headline": "Oregon Ducks Hosting Major Notre Dame Recruiting Target on Campus",
-      "url": "https://www.si.com/college/oregon/football/oregon-ducks-hosting-notre-dame-recruiting-target-brayden-parks",
-      "alertType": "market",
-      "company": "Oregon Ducks",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Sports",
-        "Education"
-      ],
-      "portfolio_impact": "College football recruiting news has no bearing on the client’s investment criteria."
-    },
-    {
-      "id": "real-logistics-2",
-      "headline": "Six years on, officers relive one of Victoria Police's darkest days",
-      "url": "https://www.abc.net.au/news/2026-06-21/victoria-police-eastern-freeway-tragedy-pusey-singh/104919372",
-      "alertType": "market",
-      "company": "Victoria Police",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Public Safety"
-      ],
-      "portfolio_impact": "A recount of a police tragedy; unrelated to investment considerations."
-    },
-    {
-      "id": "real-blue_chip-0",
-      "headline": "AAVE Price Prediction: Rally or Rejection -- $74 Is the Line in the Sand Before a Move to $82 or $70",
-      "url": "https://blockchain.news/news/20260620-price-prediction-aave-rally-or-rejection-74-is-the",
-      "alertType": "market",
-      "company": "AAVE",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Cryptocurrency"
-      ],
-      "portfolio_impact": "Price prediction for AAVE is speculative crypto news, not linked to the client’s ESG or sector preferences."
-    },
-    {
-      "id": "real-blue_chip-2",
-      "headline": "Tinubu's four legacy highway projects as transformative investment assets",
-      "url": "https://pmnewsnigeria.com/2026/06/20/tinubus-four-legacy-highway-projects-as-transformative-investment-assets/",
-      "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Infrastructure",
-        "Transportation"
-      ],
-      "portfolio_impact": "Duplicate of the Nigeria highway story; no direct relevance to the client’s priorities."
-    },
-    {
-      "id": "real-logistics-3",
-      "headline": "When His Son Was Diagnosed With Cancer During Wartime, This Father Was Forced To Leave His Country And Find A New Way To Make A Living. AI Made That Possible.",
-      "url": "https://www.forbes.com/sites/elainepofeldt/2026/06/20/when-his-son-was-diagnosed-with-cancer-during-wartime-this-father-was-forced-to-leave-his-country-and-find-a-new-way-to-make-a-living-ai-made-that-possible/",
-      "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Technology",
-        "Artificial Intelligence"
-      ],
-      "portfolio_impact": "Human‑interest story on AI helping a Ukrainian entrepreneur; while showcasing tech benefits, it does not address supply‑chain integrity or labour standards relevant to the client."
+      "portfolio_impact": "The article reports on a Brazilian iron‑ore shipment; it does not involve Swiss companies or the client’s ESG priorities."
     }
   ]
 }

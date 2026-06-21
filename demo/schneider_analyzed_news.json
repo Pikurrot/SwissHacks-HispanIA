@@ -2,43 +2,81 @@
   "analysis": [
     {
       "id": "mock-schneider-001",
-      "headline": "Roche Group announces immediate termination of its global neuro-degenerative and Central Nervous System (CNS) research pipeline.",
-      "url": "https://reuters.com/mock/roche-neuro-closure",
+      "headline": "Biogen Inc. announces immediate termination of its global neuro-degenerative and Central Nervous System (CNS) research pipeline.",
+      "url": "https://reuters.com/mock/biogen-neuro-closure",
       "alertType": "conflict",
-      "company": "Roche Holding AG",
+      "company": "Biogen Inc.",
       "belief_alignment": "negative",
       "affectedSectors": [
-        "Pharmaceuticals",
-        "Healthcare",
-        "Neuroscience R&D"
+        "Large‑cap pharmaceuticals",
+        "Healthcare/Neuro‑degenerative research"
       ],
-      "portfolio_impact": "Roche’s abrupt termination of its neuro‑degenerative pipeline directly contravenes the client’s red line against abandoning Parkinson’s research, weakening the defensive pharma core and likely prompting a divestment consideration."
+      "portfolio_impact": "Biogen’s abrupt shutdown of its Parkinson’s and Alzheimer’s programs directly breaches the client’s red line on brain‑disease research funding, signalling a need to consider divestiture or active engagement."
     },
     {
-      "id": "real-large_pharmaceuticals-2",
-      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
-      "url": "https://finance.yahoo.com/sectors/healthcare/articles/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "id": "real-large_pharmaceuticals-1",
+      "headline": "Biotech clinical strategy meets investor needs",
+      "url": "https://www.bioxconomy.com/clinical-and-research/from-study-design-to-investor-confidence-de-risking-early-stage-biotech",
       "alertType": "market",
-      "company": "Shield Therapeutics plc",
+      "company": "Biotech firms (generic)",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Specialty Pharmaceuticals",
-        "Healthcare"
+        "Large‑cap pharmaceuticals",
+        "Biotech"
       ],
-      "portfolio_impact": "The article highlights Shield’s path to profitability without mentioning neuroscience or Parkinson’s work, so it neither supports nor conflicts with the client’s core values."
+      "portfolio_impact": "The article discusses general clinical‑strategy trends without specific reference to neuro‑degenerative pipelines, offering no immediate alignment or conflict with the client’s priorities."
     },
     {
-      "id": "real-large_pharmaceuticals-3",
-      "headline": "Shield Therapeutics plc's (LON:STX) Path To Profitability",
-      "url": "https://ca.finance.yahoo.com/news/shield-therapeutics-plcs-lon-stx-071228482.html",
+      "id": "real-automotive_tier-1",
+      "headline": "Overlock Sewing Machines Market Growth Outlook to 2035: Automation and Fast Fashion Fuel Demand - News and Statistics - IndexBox",
+      "url": "https://www.indexbox.io/blog/overlock-sewing-machines-market-forecast-points-higher-toward-2035-driven-by-apparel-automation-and-fast-fashion-demands/",
       "alertType": "market",
-      "company": "Shield Therapeutics plc",
+      "company": "IndexBox",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Specialty Pharmaceuticals",
-        "Healthcare"
+        "Industrial automation",
+        "Textile machinery"
       ],
-      "portfolio_impact": "Same as above – profitability focus without neuro‑degenerative relevance, resulting in a neutral impact on the client’s beliefs."
+      "portfolio_impact": "Growth outlook for overlock sewing machines is peripheral to the client’s focus on automotive tier‑1 automation and does not trigger a strong belief response."
+    },
+    {
+      "id": "real-automotive_tier-2",
+      "headline": "Rockwell Automation Announces Zinkteknik Selects Plex Smart Manufacturing Platform to Standardize Operations and Support Global Growth",
+      "url": "https://weeklyvoice.com/rockwell-automation-announces-zinkteknik-selects-plex-smart-manufacturing-platform-to-standardize-operations-and-support-global-growth/",
+      "alertType": "opportunity",
+      "company": "Rockwell Automation",
+      "belief_alignment": "positive",
+      "affectedSectors": [
+        "Industrial automation",
+        "Automotive tier‑2 manufacturing"
+      ],
+      "portfolio_impact": "Rockwell’s partnership with Zinkteknik on a cloud‑based smart manufacturing platform reinforces the client’s emphasis on operational precision and automation, presenting a potential thematic investment angle."
+    },
+    {
+      "id": "real-automotive_tier-3",
+      "headline": "Rockwell Automation Announces Zinkteknik Selects Plex Smart Manufacturing Platform to Standardize Operations and Support Global Growth",
+      "url": "https://www.cnhinews.com/news/article_94e8c7ea-f2a8-5860-b4c8-62c5bb682813.html",
+      "alertType": "opportunity",
+      "company": "Rockwell Automation",
+      "belief_alignment": "positive",
+      "affectedSectors": [
+        "Industrial automation",
+        "Automotive tier‑2 manufacturing"
+      ],
+      "portfolio_impact": "Duplicate of the tier‑2 news; it again highlights automation advances that align with the client’s industrial sustainability and precision goals."
+    },
+    {
+      "id": "real-automotive_tier-4",
+      "headline": "Rockwell Automation Announces Zinkteknik Selects Plex Smart Manufacturing Platform to Standardize Operations and Support Global Growth",
+      "url": "https://www.wallstreet-online.de/nachricht/20990300-eqs-news-rockwell-automation-announces-zinkteknik-selects-plex-smart-manufacturing-platform-to-standardize-operations-and-support-global-growth",
+      "alertType": "opportunity",
+      "company": "Rockwell Automation",
+      "belief_alignment": "positive",
+      "affectedSectors": [
+        "Industrial automation",
+        "Automotive tier‑2 manufacturing"
+      ],
+      "portfolio_impact": "Another repeat of the same automation rollout, further confirming the sector’s relevance to the client’s preferred industrial themes."
     },
     {
       "id": "real-large_pharmaceuticals-4",
@@ -48,66 +86,23 @@
       "company": "Baron Health Care Fund",
       "belief_alignment": "neutral",
       "affectedSectors": [
-        "Healthcare Fund",
-        "Pharmaceuticals"
+        "Healthcare"
       ],
-      "portfolio_impact": "The shareholder letter reports fund performance and mentions detractors but provides no specific insight on neuro‑degenerative research, so it is neutral for the client."
+      "portfolio_impact": "The shareholder letter reports fund performance and detractor listings without specific reference to neuro‑degenerative research, yielding no direct belief‑based impact."
     },
     {
-      "id": "real-high_quality-0",
-      "headline": "Restoration vs. Preservation: Which Path Adds More Value?",
-      "url": "https://autos.yahoo.com/classic-and-collector/articles/restoration-vs-preservation-path-adds-194159599.html",
-      "alertType": "market",
-      "company": "N/A",
-      "belief_alignment": "neutral",
+      "id": "real-swiss_precision-4",
+      "headline": "Switzerland extends its lead in the technologies reshaping the global economy",
+      "url": "https://www.itnewsonline.com/GlobeNewswire/Switzerland-extends-its-lead-in-the-technologies-reshaping-the-global-economy-/124724",
+      "alertType": "opportunity",
+      "company": "Switzerland (Deep Tech sector)",
+      "belief_alignment": "positive",
       "affectedSectors": [
-        "Collectibles",
-        "Automotive"
+        "Swiss precision engineering",
+        "Industrial automation",
+        "Deep‑tech venture capital"
       ],
-      "portfolio_impact": "The restoration vs. preservation debate for collector cars is unrelated to the client’s wealth preservation or health‑science priorities."
-    },
-    {
-      "id": "real-high_quality-1",
-      "headline": "Innodata vs. PAR Technology: Which Tech Specialist's Stock Is a Better Buy in 2026?",
-      "url": "https://www.theglobeandmail.com/investing/markets/markets-news/Motley%20Fool/2568512/innodata-vs-par-technology-which-tech-specialist-s-stock-is-a-better-buy-in-2026/",
-      "alertType": "market",
-      "company": "Innodata vs PAR Technology",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Technology",
-        "Artificial Intelligence",
-        "Enterprise Software"
-      ],
-      "portfolio_impact": "A comparison of tech specialists has no bearing on the client’s focus on large‑cap pharma or neuroscience R&D, making it a neutral piece of news."
-    },
-    {
-      "id": "real-high_quality-2",
-      "headline": "Riyadh Daily",
-      "url": "https://www.alriyadhdaily.com/article/8b2c6bfcb5e24024908fa2147ba37e59",
-      "alertType": "market",
-      "company": "Riyadh Daily",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Environment",
-        "Water",
-        "Agriculture",
-        "Sustainability"
-      ],
-      "portfolio_impact": "Environmental and agricultural advances under Saudi Vision 2030 are outside the client’s core investment themes and do not trigger any belief‑based response."
-    },
-    {
-      "id": "real-high_quality-4",
-      "headline": "Innodata vs. PAR Technology: Which Tech Specialist's Stock Is a Better Buy in 2026?",
-      "url": "https://www.nasdaq.com/articles/innodata-vs-par-technology-which-tech-specialists-stock-better-buy-2026",
-      "alertType": "market",
-      "company": "Innodata vs PAR Technology",
-      "belief_alignment": "neutral",
-      "affectedSectors": [
-        "Technology",
-        "Artificial Intelligence",
-        "Enterprise Software"
-      ],
-      "portfolio_impact": "Duplicate of the earlier tech comparison; it remains neutral with respect to the client’s neuro‑degenerative and pharma priorities."
+      "portfolio_impact": "Switzerland’s leading position in deep‑tech venture capital aligns with the client’s preference for Swiss precision engineering and long‑term, capital‑intensive innovation, suggesting a favorable macro‑environment for related holdings."
     }
   ]
 }

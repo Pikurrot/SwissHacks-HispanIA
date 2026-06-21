@@ -1,9 +1,9 @@
 {
   "schneider": {
     "id": "mock-schneider-001",
-    "headline": "Roche Group announces immediate termination of its global neuro-degenerative and Central Nervous System (CNS) research pipeline.",
-    "summary": "Roche Holding AG has announced an immediate corporate pivot toward oncology, completely shutting down its ongoing clinical research for Parkinson's and Alzheimer's treatments globally.",
-    "url": "https://reuters.com/mock/roche-neuro-closure"
+    "headline": "Biogen Inc. announces immediate termination of its global neuro-degenerative and Central Nervous System (CNS) research pipeline.",
+    "summary": "Biogen Inc. has announced an immediate corporate pivot toward oncology, completely shutting down its ongoing clinical research for Parkinson's and Alzheimer's treatments globally.",
+    "url": "https://reuters.com/mock/biogen-neuro-closure"
   },
   "ammann": {
     "id": "mock-ammann-001",
