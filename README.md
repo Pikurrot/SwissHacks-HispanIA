@@ -1,4 +1,6 @@
-![Customer DNA Advisor](./docs/assets/dashboard-demo.gif)
+<p align="center">
+  <img src="./docs/assets/dashboard-demo.gif" alt="Customer DNA Advisor demo" width="100%" />
+</p>
 
 <h1 align="center">Customer DNA Advisor</h1>
 
