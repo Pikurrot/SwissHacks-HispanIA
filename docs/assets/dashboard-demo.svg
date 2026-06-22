@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="480" viewBox="0 0 920 480" fill="none">
+  <rect width="920" height="480" rx="12" fill="#0a0f1e"/>
+  <rect x="1" y="1" width="918" height="478" rx="11" stroke="#1e3a5f" stroke-width="2"/>
+  <rect x="0" y="0" width="260" height="480" fill="#111827"/>
+  <line x1="260" y1="0" x2="260" y2="480" stroke="#1e3a5f" stroke-width="1"/>
+  <text x="32" y="48" fill="#3b82f6" font-family="system-ui,sans-serif" font-size="11" font-weight="700" letter-spacing="2">WEALTH ADVISORY</text>
+  <text x="32" y="72" fill="#64748b" font-family="system-ui,sans-serif" font-size="13">Sarah Meier · RM</text>
+  <rect x="16" y="100" width="228" height="36" rx="6" fill="#131f35" stroke="#3b82f6" stroke-width="1"/>
+  <text x="32" y="123" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="13">Hubertus Schneider</text>
+  <rect x="16" y="144" width="228" height="32" rx="6" fill="#111827"/>
+  <rect x="16" y="184" width="228" height="32" rx="6" fill="#111827"/>
+  <rect x="16" y="224" width="228" height="32" rx="6" fill="#111827"/>
+  <text x="300" y="56" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="22" font-weight="600">Client Intelligence Dashboard</text>
+  <text x="300" y="82" fill="#64748b" font-family="system-ui,sans-serif" font-size="13">Balanced mandate · Multi-agent pipeline</text>
+  <rect x="300" y="110" width="180" height="100" rx="8" fill="#131f35" stroke="#1e3a5f"/>
+  <rect x="500" y="110" width="180" height="100" rx="8" fill="#131f35" stroke="#1e3a5f"/>
+  <rect x="700" y="110" width="180" height="100" rx="8" fill="#131f35" stroke="#1e3a5f"/>
+  <text x="320" y="140" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">CLIENT DNA</text>
+  <text x="520" y="140" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">NEWS ALERTS</text>
+  <text x="720" y="140" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">SWAP CANDIDATES</text>
+  <rect x="300" y="230" width="580" height="180" rx="8" fill="#131f35" stroke="#1e3a5f"/>
+  <text x="320" y="260" fill="#64748b" font-family="system-ui,sans-serif" font-size="11">RM MESSAGE DRAFT</text>
+  <rect x="320" y="280" width="120" height="28" rx="6" fill="#3b82f6"/>
+  <text x="338" y="299" fill="#fff" font-family="system-ui,sans-serif" font-size="12" font-weight="600">Review draft</text>
+  <text x="460" y="360" fill="#64748b" font-family="system-ui,sans-serif" font-size="14">Replace with a screenshot or GIF of demo/static/dashboard.html</text>
+  <text x="460" y="400" fill="#f59e0b" font-family="system-ui,sans-serif" font-size="28" font-weight="700">HispanIA</text>
+  <text x="460" y="430" fill="#64748b" font-family="system-ui,sans-serif" font-size="13">SwissHacks 2026 · SIX Challenge · Zürich</text>
+</svg>
