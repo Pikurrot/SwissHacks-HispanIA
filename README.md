@@ -1,28 +1,29 @@
 <p align="center">
-  <img src="docs/assets/dashboard-demo.svg" alt="HispanIA Wealth Advisory Dashboard" width="920" />
+  <img src="docs/assets/dashboard-demo.svg" alt="Customer DNA Advisor — Wealth Advisory Dashboard" width="920" />
   <br />
   <sub><em>📸 Replace <code>docs/assets/dashboard-demo.svg</code> with a real screenshot or GIF of the live dashboard</em></sub>
 </p>
 
-<h1 align="center">HispanIA</h1>
+<h1 align="center">Customer DNA Advisor</h1>
 
 <p align="center">
   <strong>AI copilot for private banking relationship managers</strong><br />
-  Built for the <strong>SIX challenge</strong> at <strong>SwissHacks 2026</strong> · Zürich, Switzerland
+  Built for the <strong>SIX challenge</strong> at <strong>SwissHacks 2026</strong> · Zürich, Switzerland<br />
+  <em>Powered by <strong>HispanIA</strong></em>
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/SwissHacks-2026-ef4444?style=for-the-badge" alt="SwissHacks 2026" />
   <img src="https://img.shields.io/badge/Challenge-SIX-3b82f6?style=for-the-badge" alt="SIX Challenge" />
   <img src="https://img.shields.io/badge/Stack-Python%20%2B%20FastAPI%20%2B%20LLM-6366f1?style=for-the-badge" alt="Stack" />
-  <img src="https://img.shields.io/badge/Team-HispanIA-f59e0b?style=for-the-badge" alt="Team HispanIA" />
+  <img src="https://img.shields.io/badge/Powered%20by-HispanIA-f59e0b?style=for-the-badge" alt="Powered by HispanIA" />
 </p>
 
 ---
 
 ## The problem
 
-Relationship managers at private banks juggle CRM notes, portfolio mandates, live market news, and client values — often under time pressure when a headline threatens a held position. HispanIA turns that fragmented workflow into a single, review-first pipeline: detect conflicts, score replacements against client DNA, and draft a message the RM can approve before anything reaches the client.
+Relationship managers at private banks juggle CRM notes, portfolio mandates, live market news, and client values — often under time pressure when a headline threatens a held position. **Customer DNA Advisor** turns that fragmented workflow into a single, review-first pipeline: detect conflicts, score replacements against client DNA, and draft a message the RM can approve before anything reaches the client.
 
 ## What we built
 
@@ -37,7 +38,7 @@ A **multi-agent intelligence system** that helps RMs react to portfolio-relevant
 
 Everything flows into a **Wealth Advisory Dashboard**: one screen where Sarah Meier (demo RM) selects a client, runs the pipeline, reviews conflicts, swap proposals, and message drafts.
 
-![HispanIA multi-agent architecture](./docs/assets/architecture-diagram.png)
+![Customer DNA Advisor — multi-agent architecture](./docs/assets/architecture-diagram.png)
 
 ## Key features
 
@@ -126,7 +127,7 @@ SwissHacks-HispanIA/
 
 ## Team HispanIA
 
-Built with ☕ and late-night commits in Zürich.
+**Customer DNA Advisor** was built by team **HispanIA** at SwissHacks 2026.
 
 | | |
 | --- | --- |
@@ -139,5 +140,5 @@ Built with ☕ and late-night commits in Zürich.
 ---
 
 <p align="center">
-  <sub>SwissHacks 2026 · SIX Challenge · Zürich</sub>
+  <sub>Customer DNA Advisor · Powered by HispanIA · SwissHacks 2026 · SIX Challenge · Zürich</sub>
 </p>
