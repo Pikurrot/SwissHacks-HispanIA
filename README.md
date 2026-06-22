@@ -1,8 +1,4 @@
-<p align="center">
-  <img src="docs/assets/dashboard-demo.svg" alt="Customer DNA Advisor — Wealth Advisory Dashboard" width="920" />
-  <br />
-  <sub><em>📸 Replace <code>docs/assets/dashboard-demo.svg</code> with a real screenshot or GIF of the live dashboard</em></sub>
-</p>
+![Customer DNA Advisor](./docs/assets/dashboard-demo.gif)
 
 <h1 align="center">Customer DNA Advisor</h1>
 
