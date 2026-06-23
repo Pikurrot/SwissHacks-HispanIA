@@ -127,13 +127,12 @@ SwissHacks-HispanIA/
 
 **Customer DNA Advisor** was built by team **HispanIA** at SwissHacks 2026.
 
-| | |
-| --- | --- |
-| **Carlota Criado** | |
-| **Xavier Sánchez** | |
-| **Amritpal Singh** | |
-| **Nicolás Damián** | |
-| **Eric López** | |
+
+- **Carlota Criado**
+- **Xavier Sánchez**
+- **Amritpal Singh**
+- **Nicolás Damián**
+- **Eric López**
 
 ---
 
